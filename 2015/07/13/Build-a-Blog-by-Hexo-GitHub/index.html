@@ -51,7 +51,7 @@ A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
 Installation$npm install hexo-cli -g
 $npm update hexo -g
 Few commands to startsetup your blog$ hexo init your_blog">
-<meta property="og:updated_time" content="2015-07-14T06:04:02.155Z">
+<meta property="og:updated_time" content="2015-07-14T07:01:58.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Build a Blog by Hexo + GitHub">
 <meta name="twitter:description" content="Hexo + GitHubHexojs
@@ -204,17 +204,24 @@ $ <span class="built_in">npm</span> install
 </code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
 </code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
 </blockquote>
-<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Steps">Steps</h3><ol>
-<li>apply an GitHub “account”</li>
-<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”</li>
-<li>config Hexo github address:_config.yml<blockquote>
-<h1 id="Deployment">Deployment</h1><h2 id="Docs:_http://hexo-io/docs/deployment-html">Docs: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">http://hexo.io/docs/deployment.html</a></h2><p>deploy:<br>type: github<br>repository: <a href="https://github.com/account/account.github.io.git" target="_blank" rel="external">https://github.com/account/account.github.io.git</a> , e.g. <a href="https://github.com/Strong689/strong689.github.com.git" target="_blank" rel="external">https://github.com/Strong689/strong689.github.com.git</a><br>branch: master</p>
-</blockquote>
-</li>
-<li>visit: <a href="http://strong689.github.com">http://strong689.github.com</a> or <a href="http://strong689.github.io" target="_blank" rel="external">http://strong689.github.io</a><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3></li>
+<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
 <li>Modify _config.yml</li>
-<li>change theme  // <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></li>
+<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
 <li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
+</ul>
+<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
+</code></pre><h3 id="Steps">Steps</h3><ol>
+<li>apply an GitHub “account”</li>
+<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
+<li>config Hexo github address _config.yml<pre>
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+type: github
+repository: https://github.com/account/account.github.io.git
+> e.g. https://github.com/Strong689/strong689.github.com.git
+branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
+</pre></li>
 </ol>
 </span>
       
@@ -336,7 +343,7 @@ $ <span class="built_in">npm</span> install
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_GitHub"><span class="nav-number">1.</span> <span class="nav-text">Hexo + GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexojs"><span class="nav-number">1.1.</span> <span class="nav-text">Hexojs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Few_commands_to_start"><span class="nav-number">1.1.2.</span> <span class="nav-text">Few commands to start</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setup_your_blog"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">setup your blog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create_a_new_post"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">create a new post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#run_server_/_deploy_local"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">run server / deploy local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generate_static_files"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resources_&_Features"><span class="nav-number">1.1.3.</span> <span class="nav-text">Resources & Features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy_blog_to_GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">Deploy blog to GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps"><span class="nav-number">1.2.1.</span> <span class="nav-text">Steps</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Deployment"><span class="nav-number">2.</span> <span class="nav-text">Deployment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docs:_http://hexo-io/docs/deployment-html"><span class="nav-number">2.1.</span> <span class="nav-text">Docs: http://hexo.io/docs/deployment.html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Personalize/Config_Blog"><span class="nav-number">2.1.1.</span> <span class="nav-text">Personalize/Config Blog</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_GitHub"><span class="nav-number">1.</span> <span class="nav-text">Hexo + GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexojs"><span class="nav-number">1.1.</span> <span class="nav-text">Hexojs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Few_commands_to_start"><span class="nav-number">1.1.2.</span> <span class="nav-text">Few commands to start</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setup_your_blog"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">setup your blog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create_a_new_post"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">create a new post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#run_server_/_deploy_local"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">run server / deploy local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generate_static_files"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resources_&_Features"><span class="nav-number">1.1.3.</span> <span class="nav-text">Resources & Features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy_blog_to_GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">Deploy blog to GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Personalize/Config_Blog"><span class="nav-number">1.2.1.</span> <span class="nav-text">Personalize/Config Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo_GitHub_Deployer"><span class="nav-number">1.2.2.</span> <span class="nav-text">Hexo GitHub Deployer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps"><span class="nav-number">1.2.3.</span> <span class="nav-text">Steps</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
