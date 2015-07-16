@@ -189,26 +189,27 @@
 </code></pre><h4 id="Links">Links</h4><pre><code>[<span class="link_label">visit url</span>](<span class="link_url">url</span>)
 </code></pre><ul>
 <li>inline link <a href=""></a></li>
-<li><p>reference link [][]</p>
-<p>  Find something by your [favorites search engine][favorite];<br>  or try [another][alternative].</p>
+<li>reference link [][]<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   Find something by your [<span class="link_label">favorites search engine</span>][<span class="link_reference">favorite</span>];</span><br><span class="line">or try [<span class="link_label">another</span>][<span class="link_reference">alternative</span>].</span><br><span class="line"></span><br><span class="line">[<span class="link_reference">favorite</span>]:<span class="link_url">www.google.com</span></span><br><span class="line">[<span class="link_reference">alternative</span>]:<span class="link_url">www.bing.com</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code><span class="attr_selector">[favorite]</span><span class="pseudo">:www</span><span class="class">.google</span><span class="class">.com</span>
-<span class="attr_selector">[alternative]</span><span class="pseudo">:www</span><span class="class">.bing</span><span class="class">.com</span>
-</code></pre><h4 id="Images">Images <img src="url" alt="" title="alt text"></h4><ul>
+<h4 id="Images">Images</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](url "alt text")</span><br></pre></td></tr></table></figure>
+<ul>
 <li>inline image</li>
-<li><p>reference image<br>  //inline style<br>  <img src="url" alt="text" title="alt text"><br>  //reference style<br>  ![text][logo]</p>
-<p>  [logo]:url ‘alt text’</p>
+<li>reference image<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   //inline style</span><br><span class="line">![text](url "alt text")</span><br><span class="line">//reference style</span><br><span class="line">![text][logo]</span><br><span class="line"></span><br><span class="line">[logo]:url 'alt text'</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="block_quotes_&gt;">block quotes &gt;</h4><pre><code>&gt; this <span class="keyword">is</span> a <span class="keyword">block</span> quotes <span class="keyword">to</span> <span class="keyword">notify</span> reader pay special attention
-</code></pre><h4 id="Lists_*">Lists *</h4><h4 id="Paragraphs">Paragraphs</h4><p>+hard break<br>+soft break : two spaces after each new line</p>
-<h4 id="Code_‘">Code ‘</h4><p>sample 1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure></p>
-<p>sample 2<br>    Inline <code>code</code> test ‘var num = 123’ , good sample.<br>sample 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express -g</span><br></pre></td></tr></table></figure></p>
-<h4 id="Tables">Tables</h4><p>tables is not part of core Markdown spec. by GFM spec?</p>
-<h4 id="Horizontal_rule">Horizontal rule</h4><p>three or more - * _  hyphen Asterisks underscore</p>
+</code></pre><h4 id="Lists_*">Lists *</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* + -</span><br></pre></td></tr></table></figure>
+<h4 id="Paragraphs">Paragraphs</h4><ul>
+<li>hard break</li>
+<li>soft break : two spaces after each new line</li>
+</ul>
+<h4 id="Code_`">Code `</h4><p>sample 1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br></pre></td></tr></table></figure></p>
+<p>sample 2<br>    Inline <code>code</code> test <code>var num = 123</code> , good sample.<br>sample 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express -g</span><br></pre></td></tr></table></figure></p>
+<h4 id="Tablestables_is_not_part_of_core_Markdown_spec-_by_GFM_spec?">Tablestables is not part of core Markdown spec. by GFM spec?</h4><h4 id="Horizontal_rule">Horizontal rule</h4><p>three or more - * _  hyphen Asterisks underscore</p>
 <h4 id="inline_HTML_support">inline HTML support</h4><h4 id="youtube_videos_sample">youtube videos sample</h4><p>sample I<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.youtube.com/watch?v=6A5EpqqDOdk"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://i.ytimg.com/vi_webp/6A5EpqqDOdk/mqdefault.webp"</span> <span class="attribute">alt</span>=<span class="value">"Markdown tutorial"</span> <span class="attribute">width</span>=<span class="value">"240"</span> <span class="attribute">height</span>=<span class="value">"180"</span> <span class="attribute">border</span>=<span class="value">"10"</span> /&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>sample II<br>    <a href="https://www.youtube.com/watch?v=6A5EpqqDOdk" target="_blank" rel="external"><img src="https://i.ytimg.com/vi_webp/6A5EpqqDOdk/mqdefault.webp" alt="Markdown Tutorial"></a></p>
+<p> sample III<br> <iframe width="560" height="315" src="https://www.youtube.com/embed/6A5EpqqDOdk" frameborder="0" allowfullscreen></iframe></p>
 </span>
         
       
