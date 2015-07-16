@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Jadejs Markdown," />
 
 
 
@@ -37,15 +37,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Step by Step Learning">
-<meta property="og:url" content="http://strong689.github.com/index.html">
+<meta name="description" content="Node Template Engine, a terse language for writing HTML templates, support dynaic code and reusability.
+Installation &amp;amp; API
+Installation  $ npm install jade -g
+API  var jade require(“jade”);  var f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Step into Jadejs">
+<meta property="og:url" content="http://strong689.github.com/2015/07/14/Step-into-Jadejs/index.html">
 <meta property="og:site_name" content="Step by Step Learning">
-<meta property="og:description">
+<meta property="og:description" content="Node Template Engine, a terse language for writing HTML templates, support dynaic code and reusability.
+Installation &amp;amp; API
+Installation  $ npm install jade -g
+API  var jade require(“jade”);  var f">
+<meta property="og:updated_time" content="2015-07-16T05:24:36.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Step by Step Learning">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Step into Jadejs">
+<meta name="twitter:description" content="Node Template Engine, a terse language for writing HTML templates, support dynaic code and reusability.
+Installation &amp;amp; API
+Installation  $ npm install jade -g
+API  var jade require(“jade”);  var f">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -55,7 +65,7 @@
   };
 </script>
 
-    <title> Step by Step Learning </title>
+    <title> Step into Jadejs // Step by Step Learning </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
@@ -71,9 +81,7 @@
 
 
 
-<div class="container one-column 
-   page-home 
-">
+<div class="container one-column page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-inner"><h1 class="site-meta">
@@ -139,9 +147,9 @@
         <div class="main-inner">
             <div id="content" class="content">
                 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -152,166 +160,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/07/15/Step-into-Markdown/" itemprop="url">
-                Step into Markdown
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-15T22:21:43-07:00" content="2015-07-15">
-            2015-07-15
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="Italics_and_Bold">Italics and Bold</h3><pre><code><span class="keyword">*</span><span class="keyword">*</span> _
-</code></pre><h3 id="Header">Header</h3><pre><code><span class="array"># </span>#<span class="array"># </span>##<span class="array"># </span>###<span class="array"># ...</span>
-####<span class="array"># </span>_italics header five_
-</code></pre><h4 id="Links">Links</h4><pre><code>[<span class="link_label">visit url</span>](<span class="link_url">url</span>)
-</code></pre><ul>
-<li>inline link <a href=""></a></li>
-<li><p>reference link [][]</p>
-<p>  Find something by your [favorites search engine][favorite];<br>  or try [another][alternative].</p>
-</li>
-</ul>
-<pre><code><span class="attr_selector">[favorite]</span><span class="pseudo">:www</span><span class="class">.google</span><span class="class">.com</span>
-<span class="attr_selector">[alternative]</span><span class="pseudo">:www</span><span class="class">.bing</span><span class="class">.com</span>
-</code></pre><h4 id="Images">Images <img src="url" alt="" title="alt text"></h4><ul>
-<li>inline image</li>
-<li><p>reference image<br>  //inline style<br>  <img src="url" alt="text" title="alt text"><br>  //reference style<br>  ![text][logo]</p>
-<p>  [logo]:url ‘alt text’</p>
-</li>
-</ul>
-<h4 id="block_quotes_&gt;">block quotes &gt;</h4><pre><code>&gt; this <span class="keyword">is</span> a <span class="keyword">block</span> quotes <span class="keyword">to</span> <span class="keyword">notify</span> reader pay special attention
-</code></pre><h4 id="Lists_*">Lists *</h4><h4 id="Paragraphs">Paragraphs</h4><p>+hard break<br>+soft break : two spaces after each new line</p>
-<h4 id="Code_‘">Code ‘</h4><p>sample 1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure></p>
-<p>sample 2<br>    Inline <code>code</code> test ‘var num = 123’ , good sample.<br>sample 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express -g</span><br></pre></td></tr></table></figure></p>
-<h4 id="Tables">Tables</h4><p>tables is not part of core Markdown spec. by GFM spec?</p>
-<h4 id="Horizontal_rule">Horizontal rule</h4><p>three or more - * _  hyphen Asterisks underscore</p>
-<h4 id="inline_HTML_support">inline HTML support</h4><h4 id="youtube_videos_sample">youtube videos sample</h4><p>sample I<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"https://www.youtube.com/watch?v=6A5EpqqDOdk"</span> <span class="attribute">target</span>=<span class="value">"_blank"</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"https://i.ytimg.com/vi_webp/6A5EpqqDOdk/mqdefault.webp"</span> <span class="attribute">alt</span>=<span class="value">"Markdown tutorial"</span> <span class="attribute">width</span>=<span class="value">"240"</span> <span class="attribute">height</span>=<span class="value">"180"</span> <span class="attribute">border</span>=<span class="value">"10"</span> /&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>sample II<br>    <a href="https://www.youtube.com/watch?v=6A5EpqqDOdk" target="_blank" rel="external"><img src="https://i.ytimg.com/vi_webp/6A5EpqqDOdk/mqdefault.webp" alt="Markdown Tutorial"></a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Internet-Plus/" itemprop="url">
-                互联网+
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-14T23:17:23-07:00" content="2015-07-14">
-            2015-07-14
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>中国传统企业+Internet</p>
-<h2 id="互联网">互联网</h2><ul>
-<li>互联网思维</li>
-<li>互联网平台/生态</li>
-<li>互联网渠道</li>
-<li>万物互联 / 物联网<br>  传统行业: 交易,金融,地产,音乐,娱乐…<br>  +信息 +交易 +….  //online 上线/线上  <h3 id="-&gt;_营销渠道">-&gt; 营销渠道</h3><h2 id="+">+</h2></li>
-<li>+政策 &amp; +人才</li>
-<li>+技术<br>  移动互联 与计算 大数据 物联网<br>  LBS NFC Bluetooth<br>  O2O<h3 id="+服务">+服务</h3></li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Step-into-Jadejs/" itemprop="url">
-                Step into Jadejs
-              </a>
+              Step into Jadejs
             
           
         </h1>
@@ -339,8 +188,7 @@
       
 
       
-        
-          <span itemprop="articleBody"><p>Node Template Engine, a terse language for writing HTML templates, support dynaic code and reusability.</p>
+        <span itemprop="articleBody"><p>Node Template Engine, a terse language for writing HTML templates, support dynaic code and reusability.</p>
 <h1 id="Installation_&amp;_API">Installation &amp; API</h1><ul>
 <li>Installation<br>  $ npm install jade -g</li>
 <li>API<br>  var jade require(“jade”);<br>  var fn = jade.compile(‘string of jade’,options);<br>  fn(locals);</li>
@@ -453,195 +301,55 @@ mixin <span class="function"><span class="title">list</span><span class="params"
 </ul>
 <h2 id="Resources">Resources</h2><p><a href="http://jade-lang.com/" target="_blank" rel="external">JADE</a><br><a href="http://naltatis.github.io/jade-syntax-docs/#basics" target="_blank" rel="external">Jade Syntax - interactive demo</a><br><a href="http://segmentfault.com/a/1190000000357534#articleHeader0" target="_blank" rel="external">Segmentfault</a></p>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Jadejs-Markdown/" rel="tag">#Jadejs Markdown</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/14/Internet-Plus/" rel="prev">互联网+</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/" rel="next">Build a Blog by Hexo + GitHub</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="url">
-                Build a Blog by Hexo + GitHub
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-13T23:02:57-07:00" content="2015-07-13">
-            2015-07-13
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
-<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-<h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
-<span class="label">$npm</span> <span class="keyword">update</span> hexo -<span class="keyword">g</span>
-</code></pre><h3 id="Few_commands_to_start">Few commands to start</h3><h4 id="setup_your_blog">setup your blog</h4><pre><code>$ hexo init your_blog <span class="regexp">//</span> your_blog <span class="keyword">is</span> a <span class="keyword">new</span> directory
-$ cd your_blog
-$ <span class="built_in">npm</span> install 
-</code></pre><h4 id="create_a_new_post">create a new post</h4><pre><code><span class="variable">$hexo</span> <span class="literal">new</span> <span class="string">"hello world"</span>
-</code></pre><h4 id="run_server_/_deploy_local">run server / deploy local</h4><pre><code><span class="variable">$hexo</span> server  // http://localhost:<span class="number">4000</span>, <span class="keyword">default</span> <span class="keyword">port</span>; _config.yml
-</code></pre><h4 id="generate_static_files">generate static files</h4><pre><code><span class="label">$hexo</span> <span class="keyword">generate</span>    <span class="comment">// public folder, </span>
-</code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
-</code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
-</blockquote>
-<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
-<li>Modify _config.yml</li>
-<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
-<li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
-</ul>
-<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
-</code></pre><h3 id="Steps">Steps</h3><ol>
-<li>apply an GitHub “account”</li>
-<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
-<li>config Hexo github address _config.yml<pre>
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: github
-repository: https://github.com/account/account.github.io.git
-> e.g. https://github.com/Strong689/strong689.github.com.git
-branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
-</pre></li>
-</ol>
-</span>
-        
+    <div class="post-spread">
       
     </div>
+  </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/13/hello-world/" itemprop="url">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-13T22:55:04-07:00" content="2015-07-13">
-            2015-07-13
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
 
             </div>
 
             
 
+            
+              <div class="comments" id="comments">
+                
+              </div>
             
         </div>
 
@@ -658,6 +366,15 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -706,6 +423,17 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation_&_API"><span class="nav-number">1.</span> <span class="nav-text">Installation & API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jade_command_line"><span class="nav-number">2.</span> <span class="nav-text">Jade command line</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jade_Syntax"><span class="nav-number">3.</span> <span class="nav-text">Jade Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common"><span class="nav-number">3.1.</span> <span class="nav-text">Common</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attributes"><span class="nav-number">3.2.</span> <span class="nav-text">Attributes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text/PlainText"><span class="nav-number">3.3.</span> <span class="nav-text">Text/PlainText</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Piped_Text_|"><span class="nav-number">3.3.1.</span> <span class="nav-text">Piped Text |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML_Tags"><span class="nav-number">3.3.2.</span> <span class="nav-text">HTML Tags</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Inline_in_a_Tag"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">Inline in a Tag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block_in_a_Tag"><span class="nav-number">3.3.2.2.</span> <span class="nav-text">Block in a Tag</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS_Code_support"><span class="nav-number">3.4.</span> <span class="nav-text">JS Code support</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic_controls"><span class="nav-number">3.5.</span> <span class="nav-text">basic controls</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if,_unless"><span class="nav-number">3.5.1.</span> <span class="nav-text">if, unless</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for,_each,_while"><span class="nav-number">3.5.2.</span> <span class="nav-text">for, each, while</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case"><span class="nav-number">3.5.3.</span> <span class="nav-text">case</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extends_&_inheritance"><span class="nav-number">3.6.</span> <span class="nav-text">extends & inheritance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#extends"><span class="nav-number">3.6.1.</span> <span class="nav-text">extends</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#block"><span class="nav-number">3.6.2.</span> <span class="nav-text">block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#include"><span class="nav-number">3.6.3.</span> <span class="nav-text">include</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interpolation"><span class="nav-number">3.7.</span> <span class="nav-text">interpolation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String_Interpolation,_escaped"><span class="nav-number">3.7.1.</span> <span class="nav-text">String Interpolation, escaped</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String_Interpolation,_Unescaped"><span class="nav-number">3.7.2.</span> <span class="nav-text">String Interpolation, Unescaped</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag_Interpolation,_#[_]"><span class="nav-number">3.7.3.</span> <span class="nav-text">Tag Interpolation, #[ ]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixins"><span class="nav-number">3.8.</span> <span class="nav-text">Mixins</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mixins_decalration_&_reuse"><span class="nav-number">3.8.1.</span> <span class="nav-text">Mixins decalration & reuse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mixin_blocks"><span class="nav-number">3.8.2.</span> <span class="nav-text">mixin blocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mixin_Attributes"><span class="nav-number">3.8.3.</span> <span class="nav-text">Mixin Attributes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest_Arguments"><span class="nav-number">3.8.4.</span> <span class="nav-text">Rest Arguments</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments"><span class="nav-number">3.9.</span> <span class="nav-text">Comments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resources"><span class="nav-number">3.10.</span> <span class="nav-text">Resources</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -749,13 +477,13 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
   
   
   
-  
-  
+    
+    
 
   
 
 
-
+  
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
@@ -774,6 +502,144 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -783,13 +649,6 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
     });
 </script>
 
-
-
-
-  
-  
-
-  
 
 
 
