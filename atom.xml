@@ -1,242 +1,27 @@
-<!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title><![CDATA[Step by Step, Learning by Doing]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://strong689.github.com//"/>
+  <updated>2015-07-19T22:21:40.555Z</updated>
+  <id>http://strong689.github.com//</id>
+  
+  <author>
+    <name><![CDATA[Strong :) Just Code it...]]></name>
     
-
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
-
-
-
-
-  <meta name="keywords" content="Hexo,next" />
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Step by Step, Learning by Doing" type="application/atom+xml" />
-
-
-
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
-
-
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Step by Step, Learning by Doing">
-<meta property="og:url" content="http://strong689.github.com/index.html">
-<meta property="og:site_name" content="Step by Step, Learning by Doing">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Step by Step, Learning by Doing">
-<meta name="twitter:description">
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
-  };
-</script>
-
-    <title> Step by Step, Learning by Doing </title>
-</head>
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-<!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-2589386-2', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-
-<div class="container one-column 
-   page-home 
-">
-    <div class="headband"></div>
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
-      <span class="site-title">Step by Step, Learning by Doing</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
+  </author>
   
-
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-    <ul id="menu" class="menu ">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            <i class="menu-item-icon icon-home"></i> <br />
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-categories"></i> <br />
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            <i class="menu-item-icon icon-about"></i> <br />
-            About
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-archives"></i> <br />
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-tags"></i> <br />
-            Tags
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-        </div>
-    </header>
-
-    <main id="main" class="main">
-        <div class="main-inner">
-            <div id="content" class="content">
-                
-  <section id="posts" class="posts-expand">
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="url">
-                eCommerce Design by MongoDB
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-18T11:03:58-07:00" content="2015-07-18">
-            2015-07-18
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/18/eCommerce-Design-by-MongoDB/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
+  <entry>
+    <title><![CDATA[eCommerce Design by MongoDB]]></title>
+    <link href="http://strong689.github.com/2015/07/18/eCommerce-Design-by-MongoDB/"/>
+    <id>http://strong689.github.com/2015/07/18/eCommerce-Design-by-MongoDB/</id>
+    <published>2015-07-18T18:03:58.000Z</published>
+    <updated>2015-07-19T22:21:40.555Z</updated>
+    <content type="html"><![CDATA[<blockquote>
 <p>电商参考架构</p>
 </blockquote>
 <h3 id="[搭建灵活-可搜索-响应快速的产品目录系统][1]">[搭建灵活-可搜索-响应快速的产品目录系统][1]</h3><blockquote>
@@ -340,94 +125,30 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以基于’productID’查询我们的库存了</span></span><br><span class="line">db.inventory.find(&#123;</span><br><span class="line">	“storeId”:”store100”,</span><br><span class="line">	“productId”:“<span class="number">20034</span>”,</span><br><span class="line">	“vars.sku”:”sku11736”</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;“vars.$”:<span class="number">1</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h3 id="Reference">Reference</h3><p><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-1" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-2-approaches-inventory-optimization" target="_blank" rel="external">2</a><br><a href="http://blog.mongodb.org/post/29127828146/introducing-mongo-connector" target="_blank" rel="external">3</a> </p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>电商参考架构</p>
+</blockquote>
+<h3 id="[搭建灵活-可搜索-响应快速的产品目录系统][1]">[搭建灵活-可搜索-响应快速的产品目录系统][1]</h3><blockquote>
+<p>大数据量电商如何使用MongoDB作]]>
+    </summary>
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="url">
-                Step into MongoDB II - Industry Sample
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-17T23:32:11-07:00" content="2015-07-17">
-            2015-07-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="[快的打车][1]">[快的打车][1]</h3><ul>
+      <category term="MongoDB, eCommerce, Product Catlog,  Inventory" scheme="http://strong689.github.com/tags/MongoDB-eCommerce-Product-Catlog-Inventory/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Design" scheme="http://strong689.github.com/categories/MongoDB/Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into MongoDB II - Industry Sample]]></title>
+    <link href="http://strong689.github.com/2015/07/17/Step-into-MongoDB-II-Industry-Sample/"/>
+    <id>http://strong689.github.com/2015/07/17/Step-into-MongoDB-II-Industry-Sample/</id>
+    <published>2015-07-18T06:32:11.000Z</published>
+    <updated>2015-07-19T22:19:57.904Z</updated>
+    <content type="html"><![CDATA[<h3 id="[快的打车][1]">[快的打车][1]</h3><ul>
 <li><p>场景</p>
 <blockquote>
 <p>1亿多用户，超过300个城市里与300万司机取得了联系<br>两类业务：快的出租车 &amp; 快的一号专车<br>司机与乘客每天高达6百万次的联系<br>管理着将近5亿的订单<br>支持着每秒钟数以万计的读写操作<br>MongoDB每秒支持着5万个操作（读取和写入的比例约为80:20）<br>数据库已经增长到5亿多文档，并且还在持续扩展中  </p>
@@ -476,94 +197,33 @@
 </ul>
 </blockquote>
 <h3 id="From">From</h3><p><a href="http://www.mongoing.com/blog/kuaidi-interview" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/national-tickets-order-system" target="_blank" rel="external">2</a><br><a href="http://www.infoq.com/cn/presentations/glj-mongodb-in-sdo" target="_blank" rel="external">3</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="[快的打车][1]">[快的打车][1]</h3><ul>
+<li><p>场景</p>
+<blockquote>
+<p>1亿多用户，超过300个城市里与300万司机取得了联系<br>两类业务：快的出租车 &amp; 快的一号专车<br>司机与乘客每天高达6百万次的]]>
+    </summary>
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="url">
-                Step into MongoDB I - Overview
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
-            2015-07-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Schema" scheme="http://strong689.github.com/tags/Schema/"/>
+    
+      <category term="Schema Design" scheme="http://strong689.github.com/tags/Schema-Design/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Design" scheme="http://strong689.github.com/categories/MongoDB/Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into MongoDB I - Overview]]></title>
+    <link href="http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/"/>
+    <id>http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/</id>
+    <published>2015-07-17T05:31:31.000Z</published>
+    <updated>2015-07-19T22:20:15.061Z</updated>
+    <content type="html"><![CDATA[<blockquote>
 <p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
 </blockquote>
 <h2 id="Features">Features</h2><blockquote>
@@ -604,94 +264,30 @@
 <h3 id="others">others</h3><blockquote>
 <p>no transaction support</p>
 </blockquote>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
+</blockquote>
+<h2 id="Features">Features</h2><blockquote>
+<p>documen]]>
+    </summary>
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/15/Step-into-Markdown/" itemprop="url">
-                Step into Markdown
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-15T22:21:43-07:00" content="2015-07-15">
-            2015-07-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/15/Step-into-Markdown/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/15/Step-into-Markdown/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** _</span><br></pre></td></tr></table></figure>
+      <category term="MongoDB, Replica Set," scheme="http://strong689.github.com/tags/MongoDB-Replica-Set/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Overview" scheme="http://strong689.github.com/categories/MongoDB/Overview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into Markdown]]></title>
+    <link href="http://strong689.github.com/2015/07/15/Step-into-Markdown/"/>
+    <id>http://strong689.github.com/2015/07/15/Step-into-Markdown/</id>
+    <published>2015-07-16T05:21:43.000Z</published>
+    <updated>2015-07-19T22:21:33.522Z</updated>
+    <content type="html"><![CDATA[<h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** _</span><br></pre></td></tr></table></figure>
 <h4 id="Header">Header</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ## ### #### ...</span><br><span class="line">#### _italics header five_</span><br></pre></td></tr></table></figure>
 <h4 id="Links">Links</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[visit url](url)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -723,86 +319,26 @@
 </blockquote>
  <iframe width="560" height="315" src="https://www.youtube.com/embed/6A5EpqqDOdk" frameborder="0" allowfullscreen></iframe>
 
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span>]]>
+    </summary>
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Internet-Plus/" itemprop="url">
-                互联网+
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-14T23:47:23-07:00" content="2015-07-14">
-            2015-07-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/IoT/" itemprop="url" rel="index"><span itemprop="name">IoT</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/14/Internet-Plus/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/14/Internet-Plus/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
+      <category term="Markdown" scheme="http://strong689.github.com/tags/Markdown/"/>
+    
+      <category term="Markdown" scheme="http://strong689.github.com/categories/Markdown/"/>
+    
+      <category term="Overview" scheme="http://strong689.github.com/categories/Markdown/Overview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[互联网+]]></title>
+    <link href="http://strong689.github.com/2015/07/14/Internet-Plus/"/>
+    <id>http://strong689.github.com/2015/07/14/Internet-Plus/</id>
+    <published>2015-07-15T06:47:23.000Z</published>
+    <updated>2015-07-19T22:12:57.602Z</updated>
+    <content type="html"><![CDATA[<blockquote>
 <p>中国传统企业+Internet</p>
 </blockquote>
 <h2 id="互联网">互联网</h2><ul>
@@ -818,260 +354,249 @@
 <li>+政策 &amp; +人才</li>
 <li>+技术<br>  移动互联 与计算 大数据 物联网<br>  LBS NFC Bluetooth<br>  O2O</li>
 </ul>
-<h3 id="=&gt;_+服务">=&gt; +服务</h3></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+<h3 id="=&gt;_+服务">=&gt; +服务</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>中国传统企业+Internet</p>
+</blockquote>
+<h2 id="互联网">互联网</h2><ul>
+<li>互联网思维</li>
+<li>互联网平台/生态</li>
+<li>互联网渠道</li>
+<li>万物互联 / 物联网<b]]>
+    </summary>
     
-  </section>
-
+      <category term="IoT" scheme="http://strong689.github.com/tags/IoT/"/>
+    
+      <category term="IoT" scheme="http://strong689.github.com/categories/IoT/"/>
+    
+  </entry>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
-  </nav>
+  <entry>
+    <title><![CDATA[Step into Jadejs]]></title>
+    <link href="http://strong689.github.com/2015/07/14/Step-into-Jadejs/"/>
+    <id>http://strong689.github.com/2015/07/14/Step-into-Jadejs/</id>
+    <published>2015-07-15T05:11:29.000Z</published>
+    <updated>2015-07-19T22:21:36.355Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
+<h1 id="Installation_&amp;_API">Installation &amp; API</h1><ul>
+<li>Installation<br>  $ npm install jade -g</li>
+<li>API<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> jade <span class="built_in">require</span>(<span class="string">"jade"</span>);</span><br><span class="line"><span class="keyword">var</span> fn = jade.compile(<span class="string">'string of jade'</span>,options);</span><br><span class="line">fn(locals);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h1 id="Jade_command_line">Jade command line</h1><pre><code>$ jade [-<span class="literal">options</span>] [<span class="keyword">file</span>]
+$ jade layout.jade //compile layout.jade <span class="keyword">file</span> to layout.html <span class="keyword">file</span>
+$ jade layout      //compile whole <span class="string">"layout"</span> <span class="literal">directory</span> 
+</code></pre><h1 id="Jade_Syntax">Jade Syntax</h1><h2 id="Common">Common</h2><ul>
+<li>doctype html/xml/… e.g.-&gt; &lt;!DOCTYPE html&gt;; </li>
+<li>Indented style</li>
+<li>text at the start of line represents an html tag</li>
+<li>self closing tags(img,meta, link…) and explicitly self close (appending /, e.g. abc/ -&gt; <abc>)</abc></li>
+</ul>
+<h2 id="Attributes">Attributes</h2><ul>
+<li>By default, all attributes are escaped, unescapeded attributes need use != instead of =, use !{name} instead of #{name}.</li>
+<li>&amp;attributes can be used to explode an object into attributes of an element, it’s not escaped by default</li>
+<li>Boolean/Style/Class attributes</li>
+<li>Class/ID Literal</li>
+</ul>
+<h2 id="Text/PlainText">Text/PlainText</h2><hr>
+<h3 id="Piped_Text_|">Piped Text |</h3><pre><code>|  <span class="comment">//to prefix the line with a | character(pipe)</span>
+</code></pre><h3 id="HTML_Tags">HTML Tags</h3><h4 id="Inline_in_a_Tag">Inline in a Tag</h4><pre><code><span class="tag">p</span> <span class="tag">h1</span> <span class="tag">h2</span> ... script  
+</code></pre><h4 id="Block_in_a_Tag">Block in a Tag</h4><pre><code><span class="tag">p</span>. <span class="tag">h1</span>. script.  ....
+</code></pre><h2 id="JS_Code_support">JS Code support</h2><ul>
+<li><p>prefix - / unbuffered code &amp; block unbuffered code</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   - var foo = "foo";</span><br><span class="line">-</span><br><span class="line">  each item in list</span><br><span class="line">    li= item</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>prefix = / buffered code ; support JS expressions</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   h1= foo</span><br><span class="line">= foo</span><br><span class="line">p=list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unescaped buffered code<br>  p!= “This is “ + “<em>unescaped</em>“</p>
+</li>
+<li>Jade naturely support if, else, else if, until, while , unless</li>
+</ul>
+<h2 id="basic_controls">basic controls</h2><hr>
+<h3 id="if,_unless">if, unless</h3><pre><code><span class="keyword">if</span> <span class="property">name</span> == <span class="string">"xyz"</span>
+  h1 hello xyz
+<span class="keyword">else</span>
+  h1 My Name <span class="keyword">is</span> <span class="comment">#{name}</span>
+</code></pre><h3 id="for,_each,_while">for, each, while</h3><pre><code><span class="keyword">select
+</span>  each <span class="keyword">book, </span>i in <span class="keyword">books
+</span>    option(value<span class="label">=i</span>) <span class="keyword">Book </span>#{<span class="keyword">book}
+</span><span class="label">ul</span>
+  for <span class="keyword">book </span>in <span class="keyword">books
+</span>    li= <span class="keyword">book
+</span>  <span class="preprocessor">else</span>
+    li no <span class="keyword">books!</span>
+</code></pre><h3 id="case">case</h3><pre><code>case month
+when 1
+  p January
+when 2
+  p February
+other
+  p Month : #{month}
+</code></pre><h2 id="extends_&amp;_inheritance">extends &amp; inheritance</h2><hr>
+<h3 id="extends">extends</h3><pre><code><span class="keyword">extends</span> .<span class="regexp">/view/</span>layout.jade
+</code></pre><h3 id="block">block</h3><ul>
+<li>block, by default, will be replaced within a child template, it’s a recursive process</li>
+<li>(block) append</li>
+<li>(block) prepend</li>
+</ul>
+<h3 id="include">include</h3><ul>
+<li>insert the contents of one jade file into another</li>
+<li>plain text file</li>
+<li>js/css</li>
+<li>filtered text<br> include:markdown article.md</li>
+</ul>
+<h2 id="interpolation">interpolation</h2><hr>
+<h3 id="String_Interpolation,_escaped">String Interpolation, escaped</h3><pre><code>-<span class="ruby">var msg = <span class="string">""</span>;
+</span>h1= msg
+p This is #{<span class="ruby">msg}</span>
+</code></pre><h3 id="String_Interpolation,_Unescaped">String Interpolation, Unescaped</h3><pre><code><span class="change">!{msg}</span>
+</code></pre><h3 id="Tag_Interpolation,_#[_]">Tag Interpolation, #[ ]</h3><pre><code><span class="tag">p</span>. 
+  Please visit my blog on 
+   #[<span class="function"><span class="title">a</span><span class="params">(target=<span class="string">"_blank"</span>, href=<span class="string">"https://strong689.github.io"</span>)</span></span> GitHub]
+</code></pre><h2 id="Mixins">Mixins</h2><hr>
+<p>to create reusable blocks of jade</p>
+<h3 id="Mixins_decalration_&amp;_reuse">Mixins decalration &amp; reuse</h3><pre><code><span class="comment">// Declaration</span>
+mixin myfooter
+  <span class="tag">ul</span> 
+    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"abc.com"</span>)</span></span> about me
+    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/privacy.html"</span>)</span></span> privary
+    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/home.html"</span>)</span></span> home
+mixin <span class="function"><span class="title">myfunction</span><span class="params">(para)</span></span>
+    <span class="tag">li</span>.classname= para    
+<span class="comment">// use</span>
++myfooter
++<span class="function"><span class="title">myfunction</span><span class="params">(<span class="string">"abc"</span>)</span></span>
+</code></pre><h3 id="mixin_blocks">mixin blocks</h3><pre><code>mixin product(name)
+  .product
+    h1= name
+    <span class="keyword">if</span> block
+      block
+    <span class="keyword">else</span>
+      <span class="keyword">p</span> <span class="keyword">no</span> product detail
 
++product(<span class="string">"samsung galaxy III"</span>)
++product(<span class="string">"iphone')
+</span>  <span class="keyword">p</span> old <span class="keyword">version</span>
+  <span class="keyword">p</span> amazing product
+</code></pre><h3 id="Mixin_Attributes">Mixin Attributes</h3><pre><code><span class="comment">//declaration</span>
+mixin <span class="function"><span class="title">link</span><span class="params">(href,name)</span></span>
+  <span class="comment">//- attributes == {class:"btn"}</span>
+  <span class="function"><span class="title">a</span><span class="params">(class!=attributes.class, href=href)</span></span>= name
 
-            </div>
-
-            
-
-            
-        </div>
-
-        
+<span class="comment">//use</span>
++<span class="function"><span class="title">link</span><span class="params">(<span class="string">'/foo'</span>,<span class="string">'foo'</span>)</span><span class="params">(class=<span class="string">'btn'</span>)</span></span>
+</code></pre><h3 id="Rest_Arguments">Rest Arguments</h3><pre><code><span class="comment">//declaration</span>
+mixin <span class="function"><span class="title">list</span><span class="params">(id, ...items)</span></span>
+  <span class="function"><span class="title">ul</span><span class="params">(id=id)</span></span>
+    each item <span class="keyword">in</span> items
+      li= item
+<span class="comment">//to use</span>
++<span class="function"><span class="title">list</span><span class="params">(<span class="string">'mylist'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span>
+</code></pre><h2 id="Comments">Comments</h2><ul>
+<li>single line comment //same like JS comments</li>
+<li>invisible single line comments //-adding a hyphen</li>
+<li>block comment, indented after the first line comment</li>
+<li>normal HTML style conditional comments , e.g.  <!--[if IE]> 
+  script(src='/ie.js') 
+  <![endif]-->
+</li>
+</ul>
+<h2 id="Resources">Resources</h2><p><a href="http://jade-lang.com/" target="_blank" rel="external">JADE</a><br><a href="http://naltatis.github.io/jade-syntax-docs/#basics" target="_blank" rel="external">Jade Syntax - interactive demo</a><br><a href="http://segmentfault.com/a/1190000000357534#articleHeader0" target="_blank" rel="external">Segmentfault</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
+<h1 id="Install]]>
+    </summary>
+    
+      <category term="Jadejs Markdown" scheme="http://strong689.github.com/tags/Jadejs-Markdown/"/>
+    
+      <category term="Jadejs" scheme="http://strong689.github.com/categories/Jadejs/"/>
+    
+      <category term="Overview" scheme="http://strong689.github.com/categories/Jadejs/Overview/"/>
+    
+  </entry>
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      <section class="site-overview">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Strong :) Just Code it..." itemprop="image"/>
-          <p class="site-author-name" itemprop="name">Strong :) Just Code it...</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description"></p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">8</span>
-              <span class="site-state-item-name">posts</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">categories</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">tags</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="menu-item-icon icon-feed"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/strong689" target="_blank">github</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/StrongQZhang" target="_blank">twitter</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/strong689" target="_blank">weibo</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-    </main>
-
-    <footer id="footer" class="footer">
-        <div class="footer-inner">
-            <div class="copyright" >
+  <entry>
+    <title><![CDATA[Build a Blog by Hexo + GitHub]]></title>
+    <link href="http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/"/>
+    <id>http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/</id>
+    <published>2015-07-14T06:02:57.000Z</published>
+    <updated>2015-07-19T22:21:18.814Z</updated>
+    <content type="html"><![CDATA[<h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
+<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
+<h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
+<span class="label">$npm</span> <span class="keyword">update</span> hexo -<span class="keyword">g</span>
+</code></pre><h3 id="Few_commands_to_start">Few commands to start</h3><h4 id="setup_your_blog">setup your blog</h4><pre><code>$ hexo init your_blog <span class="regexp">//</span> your_blog <span class="keyword">is</span> a <span class="keyword">new</span> directory
+$ cd your_blog
+$ <span class="built_in">npm</span> install 
+</code></pre><h4 id="create_a_new_post">create a new post</h4><pre><code><span class="variable">$hexo</span> <span class="literal">new</span> <span class="string">"hello world"</span>
+</code></pre><h4 id="run_server_/_deploy_local">run server / deploy local</h4><pre><code><span class="variable">$hexo</span> server  // http://localhost:<span class="number">4000</span>, <span class="keyword">default</span> <span class="keyword">port</span>; _config.yml
+</code></pre><h4 id="generate_static_files">generate static files</h4><pre><code><span class="label">$hexo</span> <span class="keyword">generate</span>    <span class="comment">// public folder, </span>
+</code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
+</code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
+</blockquote>
+<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
+<li>Modify _config.yml</li>
+<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
+<li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
+</ul>
+<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
+</code></pre><h3 id="Feed_Support">Feed Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h3 id="Category_Support">Category Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-category --save</span><br></pre></td></tr></table></figure>
+<h3 id="Steps">Steps</h3><ol>
+<li>apply an GitHub “account”</li>
+<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
+<li>config Hexo github address _config.yml<pre>
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+type: git
+repository: https://github.com/account/account.github.io.git
+> e.g. https://github.com/Strong689/strong689.github.com.git
+branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
+</pre></li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
+<p>A fast, simple &amp; powerful blog framework, powered by]]>
+    </summary>
+    
+      <category term="Hexo, Blog" scheme="http://strong689.github.com/tags/Hexo-Blog/"/>
+    
+      <category term="Overview" scheme="http://strong689.github.com/categories/Overview/"/>
+    
+      <category term="Hexo" scheme="http://strong689.github.com/categories/Overview/Hexo/"/>
+    
+  </entry>
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
-  <span class="with-love">
-    <i class="icon-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Strong :) Just Code it...</span>
-</div>
-
-<div class="powered-by">
-  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
-</div>
-
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-
-        </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-</div>
-
-<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://strong689.github.com/2015/07/09/hello-world/"/>
+    <id>http://strong689.github.com/2015/07/09/hello-world/</id>
+    <published>2015-07-10T05:11:29.000Z</published>
+    <updated>2015-07-19T22:12:45.467Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+      <category term="Hexo" scheme="http://strong689.github.com/categories/Hexo/"/>
+    
+  </entry>
   
-  
-  
-  
-  
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'strong689';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-    </script>
-  
-
-
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
-
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
-
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        if (CONFIG.sidebar === 'always') {
-            displaySidebar();
-        }
-    });
-</script>
-
-
-
-
-  
-  
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'strong689';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-    </script>
-  
-
-
-
-
-
-
-
-<!-- lazyload -->
-<script type="text/javascript" src="/js/lazyload.js"></script>
-<script type="text/javascript">
-    jQuery(function () {
-        jQuery("#posts img").lazyload({
-            placeholder: "/images/loading.gif",
-            effect: "fadeIn"
-        });
-    });
-</script>
-</body>
-</html>
+</feed>

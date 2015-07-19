@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, Blog," />
+  <meta name="keywords" content="MongoDB, Replica Set,," />
 
 
 
@@ -39,28 +39,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Hexo + GitHubHexojs
-A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
-Installation$npm install hexo-cli -g
-$npm update hexo -g
-Few commands to startsetup your blog$ hexo init your_blog">
+<meta name="description" content="Humongous, MongoDB = JSON +Index  
+
+Features
+document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Build a Blog by Hexo + GitHub">
-<meta property="og:url" content="http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/index.html">
+<meta property="og:title" content="Step into MongoDB I - Overview">
+<meta property="og:url" content="http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/index.html">
 <meta property="og:site_name" content="Step by Step, Learning by Doing">
-<meta property="og:description" content="Hexo + GitHubHexojs
-A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
-Installation$npm install hexo-cli -g
-$npm update hexo -g
-Few commands to startsetup your blog$ hexo init your_blog">
-<meta property="og:updated_time" content="2015-07-19T22:21:18.814Z">
+<meta property="og:description" content="Humongous, MongoDB = JSON +Index  
+
+Features
+document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
+<meta property="og:updated_time" content="2015-07-19T22:20:15.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Build a Blog by Hexo + GitHub">
-<meta name="twitter:description" content="Hexo + GitHubHexojs
-A fast, simple &amp;amp; powerful blog framework, powered by Node.js.
-Installation$npm install hexo-cli -g
-$npm update hexo -g
-Few commands to startsetup your blog$ hexo init your_blog">
+<meta name="twitter:title" content="Step into MongoDB I - Overview">
+<meta name="twitter:description" content="Humongous, MongoDB = JSON +Index  
+
+Features
+document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -70,7 +67,7 @@ Few commands to startsetup your blog$ hexo init your_blog">
   };
 </script>
 
-    <title> Build a Blog by Hexo + GitHub // Step by Step, Learning by Doing </title>
+    <title> Step into MongoDB I - Overview // Step by Step, Learning by Doing </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
@@ -190,7 +187,7 @@ Few commands to startsetup your blog$ hexo init your_blog">
           
           
             
-              Build a Blog by Hexo + GitHub
+              Step into MongoDB I - Overview
             
           
         </h1>
@@ -199,8 +196,8 @@ Few commands to startsetup your blog$ hexo init your_blog">
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-07-13T23:02:57-07:00" content="2015-07-13">
-            2015-07-13
+          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
+            2015-07-16
           </time>
         </span>
 
@@ -208,7 +205,7 @@ Few commands to startsetup your blog$ hexo init your_blog">
           <span class="post-category" >
             &nbsp; | &nbsp; In
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
 
               
               
@@ -216,7 +213,7 @@ Few commands to startsetup your blog$ hexo init your_blog">
               
 
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
 
               
               
@@ -229,8 +226,8 @@ Few commands to startsetup your blog$ hexo init your_blog">
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="commentsCount"></span>
+            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -244,40 +241,47 @@ Few commands to startsetup your blog$ hexo init your_blog">
       
 
       
-        <span itemprop="articleBody"><h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
-<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-<h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
-<span class="label">$npm</span> <span class="keyword">update</span> hexo -<span class="keyword">g</span>
-</code></pre><h3 id="Few_commands_to_start">Few commands to start</h3><h4 id="setup_your_blog">setup your blog</h4><pre><code>$ hexo init your_blog <span class="regexp">//</span> your_blog <span class="keyword">is</span> a <span class="keyword">new</span> directory
-$ cd your_blog
-$ <span class="built_in">npm</span> install 
-</code></pre><h4 id="create_a_new_post">create a new post</h4><pre><code><span class="variable">$hexo</span> <span class="literal">new</span> <span class="string">"hello world"</span>
-</code></pre><h4 id="run_server_/_deploy_local">run server / deploy local</h4><pre><code><span class="variable">$hexo</span> server  // http://localhost:<span class="number">4000</span>, <span class="keyword">default</span> <span class="keyword">port</span>; _config.yml
-</code></pre><h4 id="generate_static_files">generate static files</h4><pre><code><span class="label">$hexo</span> <span class="keyword">generate</span>    <span class="comment">// public folder, </span>
-</code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
-</code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
+        <span itemprop="articleBody"><blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
 </blockquote>
-<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
-<li>Modify _config.yml</li>
-<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
-<li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
+<h2 id="Features">Features</h2><blockquote>
+<p>document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)<br>Replication &amp; High Availability, Rich Document based Query and Update<br>auto-sharding(sharding key) &amp; GridFS, Map/Reduce  </p>
+</blockquote>
+<h3 id="ReplicaSet">ReplicaSet</h3><blockquote>
+<p>Basically master/slave replication<br>automatic fail-over to recovery member nodes<br>consists of two or more nodes that are copies of each other<br>automatically elects a primary(master) if there is no primary currently available<br>Distribute read load<br>arbiter  </p>
+</blockquote>
+<h3 id="Monitoring_&amp;_Diagnostics">Monitoring &amp; Diagnostics</h3><ul>
+<li>query profiler</li>
+<li>Http console</li>
+<li>mongostat</li>
+<li>Memory-mapping, keep indexes in memory</li>
+<li>oplog {ts:{},h{}, op:{},ns:{},o:{},o2:{}}, local, db.oplog.</li>
 </ul>
-<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
-</code></pre><h3 id="Feed_Support">Feed Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
-<h3 id="Category_Support">Category Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-category --save</span><br></pre></td></tr></table></figure>
-<h3 id="Steps">Steps</h3><ol>
-<li>apply an GitHub “account”</li>
-<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
-<li>config Hexo github address _config.yml<pre>
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: git
-repository: https://github.com/account/account.github.io.git
-> e.g. https://github.com/Strong689/strong689.github.com.git
-branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
-</pre></li>
-</ol>
+<h3 id="backup">backup</h3><ul>
+<li>mongoexport, monogoimport</li>
+<li>mongodump mongorestore</li>
+<li>data consistency use —oplog</li>
+<li>use increamental backup </li>
+<li>read oplog and replay(wordnik tools)</li>
+</ul>
+<h3 id="Rollback_MongoDB">Rollback MongoDB</h3><ul>
+<li>Use snapshot + oplog</li>
+<li>Use delayed secondary + oplog</li>
+</ul>
+<h3 id="Ops">Ops</h3><ul>
+<li>Scala up : Vertical</li>
+<li>Scale out: horizontal / auto sharding</li>
+<li>build new index in a huge collections</li>
+</ul>
+<h2 id="Scenario">Scenario</h2><ul>
+<li>real time  CRUD, web 2.0</li>
+<li>buffer, persistent buffer</li>
+<li>big data, web log</li>
+<li>db cluster </li>
+</ul>
+<h3 id="others">others</h3><blockquote>
+<p>no transaction support</p>
+</blockquote>
 </span>
       
     </div>
@@ -286,7 +290,7 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo-Blog/" rel="tag">#Hexo, Blog</a>
+            <a href="/tags/MongoDB-Replica-Set/" rel="tag">#MongoDB, Replica Set,</a>
           
         </div>
       
@@ -295,13 +299,13 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/14/Step-into-Jadejs/" rel="prev">Step into Jadejs</a>
+              <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" rel="prev">Step into MongoDB II - Industry Sample</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/09/hello-world/" rel="next">Hello World</a>
+              <a href="/2015/07/15/Step-into-Markdown/" rel="next">Step into Markdown</a>
             
           </div>
         </div>
@@ -431,7 +435,7 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_GitHub"><span class="nav-number">1.</span> <span class="nav-text">Hexo + GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexojs"><span class="nav-number">1.1.</span> <span class="nav-text">Hexojs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Few_commands_to_start"><span class="nav-number">1.1.2.</span> <span class="nav-text">Few commands to start</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setup_your_blog"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">setup your blog</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create_a_new_post"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">create a new post</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#run_server_/_deploy_local"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">run server / deploy local</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#generate_static_files"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">generate static files</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resources_&_Features"><span class="nav-number">1.1.3.</span> <span class="nav-text">Resources & Features</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy_blog_to_GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">Deploy blog to GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Personalize/Config_Blog"><span class="nav-number">1.2.1.</span> <span class="nav-text">Personalize/Config Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo_GitHub_Deployer"><span class="nav-number">1.2.2.</span> <span class="nav-text">Hexo GitHub Deployer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feed_Support"><span class="nav-number">1.2.3.</span> <span class="nav-text">Feed Support</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Category_Support"><span class="nav-number">1.2.4.</span> <span class="nav-text">Category Support</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps"><span class="nav-number">1.2.5.</span> <span class="nav-text">Steps</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReplicaSet"><span class="nav-number">1.1.</span> <span class="nav-text">ReplicaSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring_&_Diagnostics"><span class="nav-number">1.2.</span> <span class="nav-text">Monitoring & Diagnostics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backup"><span class="nav-number">1.3.</span> <span class="nav-text">backup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rollback_MongoDB"><span class="nav-number">1.4.</span> <span class="nav-text">Rollback MongoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ops"><span class="nav-number">1.5.</span> <span class="nav-text">Ops</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scenario"><span class="nav-number">2.</span> <span class="nav-text">Scenario</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#others"><span class="nav-number">2.1.</span> <span class="nav-text">others</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -487,9 +491,9 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
 
     <script type="text/javascript">
       var disqus_shortname = 'strong689';
-      var disqus_identifier = '2015/07/13/Build-a-Blog-by-Hexo-GitHub/';
-      var disqus_title = 'Build a Blog by Hexo + GitHub';
-      var disqus_url = 'http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/';
+      var disqus_identifier = '2015/07/16/Step-into-MongoDB-I-Overview/';
+      var disqus_title = 'Step into MongoDB I - Overview';
+      var disqus_url = 'http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

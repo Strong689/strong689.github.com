@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="MongoDB, eCommerce, Product Catlog,  Inventory," />
 
 
 
@@ -39,15 +39,49 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Step by Step, Learning by Doing">
-<meta property="og:url" content="http://strong689.github.com/index.html">
+<meta name="description" content="电商参考架构
+
+[搭建灵活-可搜索-响应快速的产品目录系统][1]
+大数据量电商如何使用MongoDB作为一个庞大产品目录持久层的一些最佳实践  多功能商品目录系统的建模和索引的最佳实践，包括商品及商品系列的查询、店铺价格以及支持多样化搜索的目录浏览 
+
+对商品的搜索
+对商品系列的搜索
+对商品在每个店铺价格的检索
+允许目录的多方面搜索和浏览
+
+
+商品数据模型12345678910111213141">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eCommerce Design by MongoDB">
+<meta property="og:url" content="http://strong689.github.com/2015/07/18/eCommerce-Design-by-MongoDB/index.html">
 <meta property="og:site_name" content="Step by Step, Learning by Doing">
-<meta property="og:description">
+<meta property="og:description" content="电商参考架构
+
+[搭建灵活-可搜索-响应快速的产品目录系统][1]
+大数据量电商如何使用MongoDB作为一个庞大产品目录持久层的一些最佳实践  多功能商品目录系统的建模和索引的最佳实践，包括商品及商品系列的查询、店铺价格以及支持多样化搜索的目录浏览 
+
+对商品的搜索
+对商品系列的搜索
+对商品在每个店铺价格的检索
+允许目录的多方面搜索和浏览
+
+
+商品数据模型12345678910111213141">
+<meta property="og:updated_time" content="2015-07-19T22:21:40.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Step by Step, Learning by Doing">
-<meta name="twitter:description">
+<meta name="twitter:title" content="eCommerce Design by MongoDB">
+<meta name="twitter:description" content="电商参考架构
+
+[搭建灵活-可搜索-响应快速的产品目录系统][1]
+大数据量电商如何使用MongoDB作为一个庞大产品目录持久层的一些最佳实践  多功能商品目录系统的建模和索引的最佳实践，包括商品及商品系列的查询、店铺价格以及支持多样化搜索的目录浏览 
+
+对商品的搜索
+对商品系列的搜索
+对商品在每个店铺价格的检索
+允许目录的多方面搜索和浏览
+
+
+商品数据模型12345678910111213141">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +91,7 @@
   };
 </script>
 
-    <title> Step by Step, Learning by Doing </title>
+    <title> eCommerce Design by MongoDB // Step by Step, Learning by Doing </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
@@ -82,9 +116,7 @@
 
 
 
-<div class="container one-column 
-   page-home 
-">
+<div class="container one-column page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-inner"><h1 class="site-meta">
@@ -166,9 +198,9 @@
         <div class="main-inner">
             <div id="content" class="content">
                 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -179,9 +211,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="url">
-                eCommerce Design by MongoDB
-              </a>
+              eCommerce Design by MongoDB
             
           
         </h1>
@@ -235,8 +265,7 @@
       
 
       
-        
-          <span itemprop="articleBody"><blockquote>
+        <span itemprop="articleBody"><blockquote>
 <p>电商参考架构</p>
 </blockquote>
 <h3 id="[搭建灵活-可搜索-响应快速的产品目录系统][1]">[搭建灵活-可搜索-响应快速的产品目录系统][1]</h3><blockquote>
@@ -341,514 +370,57 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以基于’productID’查询我们的库存了</span></span><br><span class="line">db.inventory.find(&#123;</span><br><span class="line">	“storeId”:”store100”,</span><br><span class="line">	“productId”:“<span class="number">20034</span>”,</span><br><span class="line">	“vars.sku”:”sku11736”</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;“vars.$”:<span class="number">1</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h3 id="Reference">Reference</h3><p><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-1" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-2-approaches-inventory-optimization" target="_blank" rel="external">2</a><br><a href="http://blog.mongodb.org/post/29127828146/introducing-mongo-connector" target="_blank" rel="external">3</a> </p>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB-eCommerce-Product-Catlog-Inventory/" rel="tag">#MongoDB, eCommerce, Product Catlog,  Inventory</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" rel="next">Step into MongoDB II - Industry Sample</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="url">
-                Step into MongoDB II - Industry Sample
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-17T23:32:11-07:00" content="2015-07-17">
-            2015-07-17
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="[快的打车][1]">[快的打车][1]</h3><ul>
-<li><p>场景</p>
-<blockquote>
-<p>1亿多用户，超过300个城市里与300万司机取得了联系<br>两类业务：快的出租车 &amp; 快的一号专车<br>司机与乘客每天高达6百万次的联系<br>管理着将近5亿的订单<br>支持着每秒钟数以万计的读写操作<br>MongoDB每秒支持着5万个操作（读取和写入的比例约为80:20）<br>数据库已经增长到5亿多文档，并且还在持续扩展中  </p>
-</blockquote>
-</li>
-<li><p>应用</p>
-<blockquote>
-<p>选择指标：性能(延迟、实时更新的速度),可扩展性,易用性<br>LBS ： MongoDB的地理空间索引及查询<br>可扩展性,历史订单数据的存档：顾客每呼叫一辆出租车，行程的起点及终点、司机的身份以及费用等都会被存储在一条单一的记录中<br>Redis 缓存<br>MySQL 存储顾客运营及订单数据<br>Hadoop 将数据从MongoDB和MySQL中拷贝到Hadoop上进行挖掘及分析<br>使用Nagios来监测应用及数据库<br>使用Java驱动来运行MongoDB2.6  </p>
-</blockquote>
-</li>
-</ul>
-<h3 id="[盛大大数据量项目中的应用][2]">[盛大大数据量项目中的应用][2]</h3><blockquote>
-<p> Best Practices<br>Replica Set: one for primary, one for secondary, one for increamental back up with  a arbiter</p>
-</blockquote>
-<h3 id="[电影票预定系统_design_idea][3]">[电影票预定系统 design idea][3]</h3><h4 id="需求">需求</h4><blockquote>
-<p>每个场次，每个座位，都只有一个库存<br>每个订单所预定的座位有锁定状态，在支付前对应的作为不能被再次购买<br>订单涉及到的座位要不全成功，要不全失败<br>“全国”级的，数据容量不是太大问题，但性能上要支持水平扩展  </p>
-</blockquote>
-<h4 id="描述信息文档结构">描述信息文档结构</h4><ul>
-<li><p>影院描述</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.cinema_detail&#123;</span><br><span class="line">	_id:ObjectId,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	city:<span class="built_in">String</span>,</span><br><span class="line">	location: [,],  <span class="comment">// [ 120.13, 30.16 ], coordinate</span></span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.cinema_detail.ensureIndex(&#123;city:<span class="number">1</span>, name:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">db.cinema_detail.ensureIndex(&#123;location: <span class="string">"2d"</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">3</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">4</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>影厅描述</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.theater_detail&#123;</span><br><span class="line">	_id,</span><br><span class="line">	cinema_id,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	seat:&#123;</span><br><span class="line">		row1:[],</span><br><span class="line">		row2:[],</span><br><span class="line">		row3:[],</span><br><span class="line">		...</span><br><span class="line">	&#125;,</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.theater_detail.ensureIndex(&#123;cinema_id:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>影片描述</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.movie_detail&#123;</span><br><span class="line">	_id,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	director:<span class="built_in">String</span>,</span><br><span class="line">	actors:[],</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.movie_detail.ensureIndex(&#123;name:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="影片放映文档结构">影片放映文档结构</h4><blockquote>
-<p> 放映信息包含放映时间段，放映影厅，票价。虽然Document结构可以做复杂的嵌套，但原则上期望Document尽量小，<br>利用数据Shard，性能优化。所以在movie_schedule的设计上每个影片的每场放映独立一个Document表达。</p>
-</blockquote>
-<ul>
-<li>描述<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.movie_schedule&#123;</span><br><span class="line">	_id,</span><br><span class="line">	cinema_id,</span><br><span class="line">	movie_id,</span><br><span class="line">	theater_id,</span><br><span class="line">	start_time:</span><br><span class="line">	end_time,</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.movie_schedule.ensureIndex(&#123;cinema_id:<span class="number">1</span>, movie_id:<span class="number">1</span>, theater_id:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="交易系统">交易系统</h4><blockquote>
-<p>抽象的来看，售卖系统就是对上诉所有集合的一个整合，外加一套库存字段。<br>我们认为一场放映就是一个主商品，每个座位可以认为是这个商品的SKU，每个SKU都是1份。<br>通过Reference关系结合movie_schedule与theater_detail，注意这里引用了</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	_id: ,</span><br><span class="line">	movie_schedule_id:</span><br><span class="line">	theater_id: ,</span><br><span class="line">	seat:	&#123;</span><br><span class="line">		row1: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row2: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row3: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row4: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>不仅是Reference的引用关系，还复制了theater_detail.seat字段，每个seat都有一个库存数字，<br>因为在MongoDB中一个Document的操作是可以保证原子的，不需要对Collection加任何锁。数字2并不是表示可以卖2次：</p>
-<ul>
-<li>数字2表示，可销售</li>
-<li>数字1表示，已锁定</li>
-<li>数字0表示，已售完</li>
-</ul>
-</blockquote>
-<h3 id="From">From</h3><p><a href="http://www.mongoing.com/blog/kuaidi-interview" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/national-tickets-order-system" target="_blank" rel="external">2</a><br><a href="http://www.infoq.com/cn/presentations/glj-mongodb-in-sdo" target="_blank" rel="external">3</a></p>
-</span>
-        
+    <div class="post-spread">
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="url">
-                Step into MongoDB I - Overview
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
-            2015-07-16
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
-</blockquote>
-<h2 id="Features">Features</h2><blockquote>
-<p>document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)<br>Replication &amp; High Availability, Rich Document based Query and Update<br>auto-sharding(sharding key) &amp; GridFS, Map/Reduce  </p>
-</blockquote>
-<h3 id="ReplicaSet">ReplicaSet</h3><blockquote>
-<p>Basically master/slave replication<br>automatic fail-over to recovery member nodes<br>consists of two or more nodes that are copies of each other<br>automatically elects a primary(master) if there is no primary currently available<br>Distribute read load<br>arbiter  </p>
-</blockquote>
-<h3 id="Monitoring_&amp;_Diagnostics">Monitoring &amp; Diagnostics</h3><ul>
-<li>query profiler</li>
-<li>Http console</li>
-<li>mongostat</li>
-<li>Memory-mapping, keep indexes in memory</li>
-<li>oplog {ts:{},h{}, op:{},ns:{},o:{},o2:{}}, local, db.oplog.</li>
-</ul>
-<h3 id="backup">backup</h3><ul>
-<li>mongoexport, monogoimport</li>
-<li>mongodump mongorestore</li>
-<li>data consistency use —oplog</li>
-<li>use increamental backup </li>
-<li>read oplog and replay(wordnik tools)</li>
-</ul>
-<h3 id="Rollback_MongoDB">Rollback MongoDB</h3><ul>
-<li>Use snapshot + oplog</li>
-<li>Use delayed secondary + oplog</li>
-</ul>
-<h3 id="Ops">Ops</h3><ul>
-<li>Scala up : Vertical</li>
-<li>Scale out: horizontal / auto sharding</li>
-<li>build new index in a huge collections</li>
-</ul>
-<h2 id="Scenario">Scenario</h2><ul>
-<li>real time  CRUD, web 2.0</li>
-<li>buffer, persistent buffer</li>
-<li>big data, web log</li>
-<li>db cluster </li>
-</ul>
-<h3 id="others">others</h3><blockquote>
-<p>no transaction support</p>
-</blockquote>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/15/Step-into-Markdown/" itemprop="url">
-                Step into Markdown
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-15T22:21:43-07:00" content="2015-07-15">
-            2015-07-15
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/15/Step-into-Markdown/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/15/Step-into-Markdown/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** _</span><br></pre></td></tr></table></figure>
-<h4 id="Header">Header</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ## ### #### ...</span><br><span class="line">#### _italics header five_</span><br></pre></td></tr></table></figure>
-<h4 id="Links">Links</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[visit url](url)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>inline link <a href=""></a></li>
-<li>reference link [][]</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Find something by your [<span class="link_label">favorites search engine</span>][<span class="link_reference">favorite</span>];</span><br><span class="line">or try [<span class="link_label">another</span>][<span class="link_reference">alternative</span>].</span><br><span class="line"><span class="code">	</span></span><br><span class="line">[<span class="link_reference">favorite</span>]:<span class="link_url">www.google.com</span></span><br><span class="line">[<span class="link_reference">alternative</span>]:<span class="link_url">www.bing.com</span></span><br></pre></td></tr></table></figure>
-<h4 id="Images">Images</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](url "alt text")</span><br></pre></td></tr></table></figure>
-<ul>
-<li>inline image</li>
-<li>reference image<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   //inline style</span><br><span class="line">![text](url "alt text")</span><br><span class="line">//reference style</span><br><span class="line">![text][logo]</span><br><span class="line"></span><br><span class="line">[logo]:url 'alt text'</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="block_quotes_&gt;">block quotes &gt;</h4><pre><code>&gt; this <span class="keyword">is</span> a <span class="keyword">block</span> quotes <span class="keyword">to</span> <span class="keyword">notify</span> reader pay special attention
-</code></pre><h4 id="Lists_*">Lists *</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* + -</span><br></pre></td></tr></table></figure>
-<h4 id="Paragraphs">Paragraphs</h4><ul>
-<li>hard break</li>
-<li>soft break : two spaces after each new line</li>
-</ul>
-<h4 id="Code_`">Code `</h4><blockquote>
-<p>sample 1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br></pre></td></tr></table></figure></p>
-<p>sample 2<br>Inline <code>code</code> test <code>var num = 123</code> , good sample.<br>sample 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express -g</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="Tablestables_is_not_part_of_core_Markdown_spec-_by_GFM_spec?">Tablestables is not part of core Markdown spec. by GFM spec?</h4><h4 id="Horizontal_rule">Horizontal rule</h4><blockquote>
-<p>three or more - * _  hyphen Asterisks underscore</p>
-</blockquote>
-<h4 id="inline_HTML_support">inline HTML support</h4><h4 id="youtube_videos_sample">youtube videos sample</h4><blockquote>
-<p>sample<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">width</span>=<span class="value">"560"</span> <span class="attribute">height</span>=<span class="value">"315"</span> <span class="attribute">src</span>=<span class="value">"https://www.youtube.com/embed/6A5EpqqDOdk"</span> <span class="attribute">frameborder</span>=<span class="value">"0"</span> <span class="attribute">allowfullscreen</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
- <iframe width="560" height="315" src="https://www.youtube.com/embed/6A5EpqqDOdk" frameborder="0" allowfullscreen></iframe>
-
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Internet-Plus/" itemprop="url">
-                互联网+
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-14T23:47:23-07:00" content="2015-07-14">
-            2015-07-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/IoT/" itemprop="url" rel="index"><span itemprop="name">IoT</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/14/Internet-Plus/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/14/Internet-Plus/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>中国传统企业+Internet</p>
-</blockquote>
-<h2 id="互联网">互联网</h2><ul>
-<li>互联网思维</li>
-<li>互联网平台/生态</li>
-<li>互联网渠道</li>
-<li>万物互联 / 物联网<blockquote>
-<p>   传统行业: 交易,金融,地产,音乐,娱乐…<br>  +信息 +交易 +….  //online 上线/线上</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="=&gt;_营销渠道">=&gt; 营销渠道</h3><h2 id="+">+</h2><ul>
-<li>+政策 &amp; +人才</li>
-<li>+技术<br>  移动互联 与计算 大数据 物联网<br>  LBS NFC Bluetooth<br>  O2O</li>
-</ul>
-<h3 id="=&gt;_+服务">=&gt; +服务</h3></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
-  </nav>
+  </div>
 
 
             </div>
 
             
 
+            
+              <div class="comments" id="comments">
+                
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  </div>
+                
+              </div>
             
         </div>
 
@@ -865,6 +437,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -934,6 +515,17 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#[搭建灵活-可搜索-响应快速的产品目录系统][1]"><span class="nav-number">1.</span> <span class="nav-text">[搭建灵活-可搜索-响应快速的产品目录系统][1]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#商品数据模型"><span class="nav-number">1.1.</span> <span class="nav-text">商品数据模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系列数据模型"><span class="nav-number">1.2.</span> <span class="nav-text">系列数据模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同店铺不同价格"><span class="nav-number">1.3.</span> <span class="nav-text">不同店铺不同价格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览和搜索商品"><span class="nav-number">1.4.</span> <span class="nav-text">浏览和搜索商品</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#[库存优化方法][2]"><span class="nav-number">2.</span> <span class="nav-text">[库存优化方法][2]</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#想要得到的一些特性："><span class="nav-number">2.1.</span> <span class="nav-text">想要得到的一些特性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计原则"><span class="nav-number">2.2.</span> <span class="nav-text">设计原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#店铺模式"><span class="nav-number">2.3.</span> <span class="nav-text">店铺模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#库存数据模型"><span class="nav-number">2.4.</span> <span class="nav-text">库存数据模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -977,16 +569,16 @@
   
   
   
-  
-  
+    
+    
 
   
 
     <script type="text/javascript">
       var disqus_shortname = 'strong689';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
+      var disqus_identifier = '2015/07/18/eCommerce-Design-by-MongoDB/';
+      var disqus_title = 'eCommerce Design by MongoDB';
+      var disqus_url = 'http://strong689.github.com/2015/07/18/eCommerce-Design-by-MongoDB/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -998,11 +590,13 @@
 
       run_disqus_script('count.js');
       
+        run_disqus_script('embed.js');
+      
     </script>
   
 
 
-
+  
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
@@ -1021,6 +615,144 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -1030,32 +762,6 @@
     });
 </script>
 
-
-
-
-  
-  
-
-  
-
-    <script type="text/javascript">
-      var disqus_shortname = 'strong689';
-      var disqus_identifier = 'index.html';
-      var disqus_title = '';
-      var disqus_url = '';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-    </script>
-  
 
 
 
