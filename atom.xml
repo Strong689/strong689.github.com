@@ -279,7 +279,7 @@
     <link href="http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/"/>
     <id>http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/</id>
     <published>2015-07-17T05:31:31.000Z</published>
-    <updated>2015-07-19T22:20:15.061Z</updated>
+    <updated>2015-07-20T03:10:43.231Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
 </blockquote>
@@ -330,11 +330,15 @@
 <p>documen]]>
     </summary>
     
-      <category term="MongoDB, Replica Set," scheme="http://strong689.github.com/tags/MongoDB-Replica-Set/"/>
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Replica Set" scheme="http://strong689.github.com/tags/Replica-Set/"/>
     
       <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
     
       <category term="Overview" scheme="http://strong689.github.com/categories/MongoDB/Overview/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/MongoDB/Overview/Step-Into/"/>
     
   </entry>
   
@@ -343,7 +347,7 @@
     <link href="http://strong689.github.com/2015/07/15/Step-into-Markdown/"/>
     <id>http://strong689.github.com/2015/07/15/Step-into-Markdown/</id>
     <published>2015-07-16T05:21:43.000Z</published>
-    <updated>2015-07-19T22:21:33.522Z</updated>
+    <updated>2015-07-20T03:10:09.883Z</updated>
     <content type="html"><![CDATA[<h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** _</span><br></pre></td></tr></table></figure>
 <h4 id="Header">Header</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ## ### #### ...</span><br><span class="line">#### _italics header five_</span><br></pre></td></tr></table></figure>
 <h4 id="Links">Links</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[visit url](url)</span><br></pre></td></tr></table></figure>
@@ -386,6 +390,8 @@
       <category term="Markdown" scheme="http://strong689.github.com/categories/Markdown/"/>
     
       <category term="Overview" scheme="http://strong689.github.com/categories/Markdown/Overview/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/Markdown/Overview/Step-Into/"/>
     
   </entry>
   
@@ -434,7 +440,7 @@
     <link href="http://strong689.github.com/2015/07/14/Step-into-Jadejs/"/>
     <id>http://strong689.github.com/2015/07/14/Step-into-Jadejs/</id>
     <published>2015-07-15T05:11:29.000Z</published>
-    <updated>2015-07-19T22:21:36.355Z</updated>
+    <updated>2015-07-20T03:11:05.619Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
 <h1 id="Installation_&amp;_API">Installation &amp; API</h1><ul>
@@ -570,11 +576,15 @@ mixin <span class="function"><span class="title">list</span><span class="params"
 <h1 id="Install]]>
     </summary>
     
-      <category term="Jadejs Markdown" scheme="http://strong689.github.com/tags/Jadejs-Markdown/"/>
+      <category term="Jadejs" scheme="http://strong689.github.com/tags/Jadejs/"/>
+    
+      <category term="Markdown" scheme="http://strong689.github.com/tags/Markdown/"/>
     
       <category term="Jadejs" scheme="http://strong689.github.com/categories/Jadejs/"/>
     
       <category term="Overview" scheme="http://strong689.github.com/categories/Jadejs/Overview/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/Jadejs/Overview/Step-Into/"/>
     
   </entry>
   
@@ -583,7 +593,7 @@ mixin <span class="function"><span class="title">list</span><span class="params"
     <link href="http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/"/>
     <id>http://strong689.github.com/2015/07/13/Build-a-Blog-by-Hexo-GitHub/</id>
     <published>2015-07-14T06:02:57.000Z</published>
-    <updated>2015-07-19T22:21:18.814Z</updated>
+    <updated>2015-07-20T03:11:19.931Z</updated>
     <content type="html"><![CDATA[<h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
 <p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
 <h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
