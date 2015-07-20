@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="MongoDB, Replica Set,," />
+  <meta name="keywords" content="MongoDB,Mongoosejs," />
 
 
 
@@ -39,25 +39,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Humongous, MongoDB = JSON +Index  
-
-Features
-document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
+<meta name="description" content="Mongoose: elegant MongoDB object modeling for node.js.
+Installation1$npm instll mongoose -g
+Connection to MongoDBbest practice: opening connection at application start12345678// refer mongoosvar mongo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Step into MongoDB I - Overview">
-<meta property="og:url" content="http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/index.html">
+<meta property="og:title" content="Step into Mongoosejs-I First Step">
+<meta property="og:url" content="http://strong689.github.com/2015/07/19/Mongoosejs-I/index.html">
 <meta property="og:site_name" content="Step by Step, Learning by Doing">
-<meta property="og:description" content="Humongous, MongoDB = JSON +Index  
-
-Features
-document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
-<meta property="og:updated_time" content="2015-07-19T22:20:15.061Z">
+<meta property="og:description" content="Mongoose: elegant MongoDB object modeling for node.js.
+Installation1$npm instll mongoose -g
+Connection to MongoDBbest practice: opening connection at application start12345678// refer mongoosvar mongo">
+<meta property="og:updated_time" content="2015-07-20T01:25:01.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Step into MongoDB I - Overview">
-<meta name="twitter:description" content="Humongous, MongoDB = JSON +Index  
-
-Features
-document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)Replication &amp;amp; High Availability, Rich Document based Query and Updateau">
+<meta name="twitter:title" content="Step into Mongoosejs-I First Step">
+<meta name="twitter:description" content="Mongoose: elegant MongoDB object modeling for node.js.
+Installation1$npm instll mongoose -g
+Connection to MongoDBbest practice: opening connection at application start12345678// refer mongoosvar mongo">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +64,7 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
   };
 </script>
 
-    <title> Step into MongoDB I - Overview // Step by Step, Learning by Doing </title>
+    <title> Step into Mongoosejs-I First Step // Step by Step, Learning by Doing </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
@@ -187,7 +184,7 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
           
           
             
-              Step into MongoDB I - Overview
+              Step into Mongoosejs-I First Step
             
           
         </h1>
@@ -196,8 +193,8 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
-            2015-07-16
+          <time itemprop="dateCreated" datetime="2015-07-19T17:00:55-07:00" content="2015-07-19">
+            2015-07-19
           </time>
         </span>
 
@@ -205,7 +202,7 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
           <span class="post-category" >
             &nbsp; | &nbsp; In
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
 
               
               
@@ -213,7 +210,15 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
               
 
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/Mongoosejs/" itemprop="url" rel="index"><span itemprop="name">Mongoosejs</span></a></span>
 
               
               
@@ -226,8 +231,8 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
+            <a href="/2015/07/19/Mongoosejs-I/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/19/Mongoosejs-I/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -241,47 +246,20 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
-</blockquote>
-<h2 id="Features">Features</h2><blockquote>
-<p>document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)<br>Replication &amp; High Availability, Rich Document based Query and Update<br>auto-sharding(sharding key) &amp; GridFS, Map/Reduce  </p>
-</blockquote>
-<h3 id="ReplicaSet">ReplicaSet</h3><blockquote>
-<p>Basically master/slave replication<br>automatic fail-over to recovery member nodes<br>consists of two or more nodes that are copies of each other<br>automatically elects a primary(master) if there is no primary currently available<br>Distribute read load<br>arbiter  </p>
-</blockquote>
-<h3 id="Monitoring_&amp;_Diagnostics">Monitoring &amp; Diagnostics</h3><ul>
-<li>query profiler</li>
-<li>Http console</li>
-<li>mongostat</li>
-<li>Memory-mapping, keep indexes in memory</li>
-<li>oplog {ts:{},h{}, op:{},ns:{},o:{},o2:{}}, local, db.oplog.</li>
+        <span itemprop="articleBody"><p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
+<h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice: opening connection at application start<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure></p>
+<p>Format of connection string / Options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON objects, Options definition</span></span><br><span class="line"><span class="keyword">var</span> connectionOptions = &#123;</span><br><span class="line">	<span class="string">'username'</span>: <span class="string">"db user name"</span>,</span><br><span class="line">	<span class="string">'password'</span>: <span class="string">"db pwd"</span></span><br><span class="line">&#125;;</span><br><span class="line">mongoose.connect(connectionString,connectionOptions);</span><br></pre></td></tr></table></figure>
+<h3 id="Close_connection">Close connection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// to close default connection</span></span><br><span class="line">mongoose.connection.close(callback); </span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Mongoose\'s connection is closed!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//alternative way to close</span></span><br><span class="line">connection1.close(callback);</span><br><span class="line">connection2.close(callback);</span><br></pre></td></tr></table></figure>
+<h3 id="Events_of_Connection">Events of Connection</h3><p>three events </p>
+<ul>
+<li>connected</li>
+<li>disconnected</li>
+<li>error<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// how to catch events</span></span><br><span class="line">connection1.on(<span class="string">'error'</span>,callback);</span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'[EventName] occur!!'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="backup">backup</h3><ul>
-<li>mongoexport, monogoimport</li>
-<li>mongodump mongorestore</li>
-<li>data consistency use —oplog</li>
-<li>use increamental backup </li>
-<li>read oplog and replay(wordnik tools)</li>
-</ul>
-<h3 id="Rollback_MongoDB">Rollback MongoDB</h3><ul>
-<li>Use snapshot + oplog</li>
-<li>Use delayed secondary + oplog</li>
-</ul>
-<h3 id="Ops">Ops</h3><ul>
-<li>Scala up : Vertical</li>
-<li>Scale out: horizontal / auto sharding</li>
-<li>build new index in a huge collections</li>
-</ul>
-<h2 id="Scenario">Scenario</h2><ul>
-<li>real time  CRUD, web 2.0</li>
-<li>buffer, persistent buffer</li>
-<li>big data, web log</li>
-<li>db cluster </li>
-</ul>
-<h3 id="others">others</h3><blockquote>
-<p>no transaction support</p>
-</blockquote>
+<p><a href="mongoosejs.com">1</a></p>
 </span>
       
     </div>
@@ -290,7 +268,9 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
       
         <div class="post-tags">
           
-            <a href="/tags/MongoDB-Replica-Set/" rel="tag">#MongoDB, Replica Set,</a>
+            <a href="/tags/MongoDB/" rel="tag">#MongoDB</a>
+          
+            <a href="/tags/Mongoosejs/" rel="tag">#Mongoosejs</a>
           
         </div>
       
@@ -299,13 +279,11 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" rel="prev">Step into MongoDB II - Industry Sample</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/15/Step-into-Markdown/" rel="next">Step into Markdown</a>
+              <a href="/2015/07/18/eCommerce-Design-by-MongoDB/" rel="next">eCommerce Design by MongoDB</a>
             
           </div>
         </div>
@@ -435,7 +413,7 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Features"><span class="nav-number">1.</span> <span class="nav-text">Features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReplicaSet"><span class="nav-number">1.1.</span> <span class="nav-text">ReplicaSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitoring_&_Diagnostics"><span class="nav-number">1.2.</span> <span class="nav-text">Monitoring & Diagnostics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backup"><span class="nav-number">1.3.</span> <span class="nav-text">backup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rollback_MongoDB"><span class="nav-number">1.4.</span> <span class="nav-text">Rollback MongoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ops"><span class="nav-number">1.5.</span> <span class="nav-text">Ops</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scenario"><span class="nav-number">2.</span> <span class="nav-text">Scenario</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#others"><span class="nav-number">2.1.</span> <span class="nav-text">others</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection_to_MongoDB"><span class="nav-number">2.</span> <span class="nav-text">Connection to MongoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Close_connection"><span class="nav-number">3.</span> <span class="nav-text">Close connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Events_of_Connection"><span class="nav-number">4.</span> <span class="nav-text">Events of Connection</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -491,9 +469,9 @@ document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)
 
     <script type="text/javascript">
       var disqus_shortname = 'strong689';
-      var disqus_identifier = '2015/07/16/Step-into-MongoDB-I-Overview/';
-      var disqus_title = 'Step into MongoDB I - Overview';
-      var disqus_url = 'http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/';
+      var disqus_identifier = '2015/07/19/Mongoosejs-I/';
+      var disqus_title = 'Step into Mongoosejs-I First Step';
+      var disqus_url = 'http://strong689.github.com/2015/07/19/Mongoosejs-I/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');

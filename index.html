@@ -179,6 +179,115 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/19/Mongoosejs-I/" itemprop="url">
+                Step into Mongoosejs-I First Step
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-19T17:00:55-07:00" content="2015-07-19">
+            2015-07-19
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/Mongoosejs/" itemprop="url" rel="index"><span itemprop="name">Mongoosejs</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/19/Mongoosejs-I/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/19/Mongoosejs-I/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
+<h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice: opening connection at application start<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure></p>
+<p>Format of connection string / Options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON objects, Options definition</span></span><br><span class="line"><span class="keyword">var</span> connectionOptions = &#123;</span><br><span class="line">	<span class="string">'username'</span>: <span class="string">"db user name"</span>,</span><br><span class="line">	<span class="string">'password'</span>: <span class="string">"db pwd"</span></span><br><span class="line">&#125;;</span><br><span class="line">mongoose.connect(connectionString,connectionOptions);</span><br></pre></td></tr></table></figure>
+<h3 id="Close_connection">Close connection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// to close default connection</span></span><br><span class="line">mongoose.connection.close(callback); </span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Mongoose\'s connection is closed!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//alternative way to close</span></span><br><span class="line">connection1.close(callback);</span><br><span class="line">connection2.close(callback);</span><br></pre></td></tr></table></figure>
+<h3 id="Events_of_Connection">Events of Connection</h3><p>three events </p>
+<ul>
+<li>connected</li>
+<li>disconnected</li>
+<li>error<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// how to catch events</span></span><br><span class="line">connection1.on(<span class="string">'error'</span>,callback);</span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'[EventName] occur!!'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="mongoosejs.com">1</a></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="url">
                 eCommerce Design by MongoDB
               </a>
@@ -742,101 +851,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Internet-Plus/" itemprop="url">
-                互联网+
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-14T23:47:23-07:00" content="2015-07-14">
-            2015-07-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/IoT/" itemprop="url" rel="index"><span itemprop="name">IoT</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/14/Internet-Plus/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/14/Internet-Plus/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>中国传统企业+Internet</p>
-</blockquote>
-<h2 id="互联网">互联网</h2><ul>
-<li>互联网思维</li>
-<li>互联网平台/生态</li>
-<li>互联网渠道</li>
-<li>万物互联 / 物联网<blockquote>
-<p>   传统行业: 交易,金融,地产,音乐,娱乐…<br>  +信息 +交易 +….  //online 上线/线上</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="=&gt;_营销渠道">=&gt; 营销渠道</h3><h2 id="+">+</h2><ul>
-<li>+政策 &amp; +人才</li>
-<li>+技术<br>  移动互联 与计算 大数据 物联网<br>  LBS NFC Bluetooth<br>  O2O</li>
-</ul>
-<h3 id="=&gt;_+服务">=&gt; +服务</h3></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -876,21 +890,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

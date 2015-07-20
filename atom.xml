@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-19T22:21:40.555Z</updated>
+  <updated>2015-07-20T01:25:01.986Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Step into Mongoosejs-I First Step]]></title>
+    <link href="http://strong689.github.com/2015/07/19/Mongoosejs-I/"/>
+    <id>http://strong689.github.com/2015/07/19/Mongoosejs-I/</id>
+    <published>2015-07-20T00:00:55.000Z</published>
+    <updated>2015-07-20T01:25:01.986Z</updated>
+    <content type="html"><![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
+<h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice: opening connection at application start<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure></p>
+<p>Format of connection string / Options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON objects, Options definition</span></span><br><span class="line"><span class="keyword">var</span> connectionOptions = &#123;</span><br><span class="line">	<span class="string">'username'</span>: <span class="string">"db user name"</span>,</span><br><span class="line">	<span class="string">'password'</span>: <span class="string">"db pwd"</span></span><br><span class="line">&#125;;</span><br><span class="line">mongoose.connect(connectionString,connectionOptions);</span><br></pre></td></tr></table></figure>
+<h3 id="Close_connection">Close connection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// to close default connection</span></span><br><span class="line">mongoose.connection.close(callback); </span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Mongoose\'s connection is closed!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//alternative way to close</span></span><br><span class="line">connection1.close(callback);</span><br><span class="line">connection2.close(callback);</span><br></pre></td></tr></table></figure>
+<h3 id="Events_of_Connection">Events of Connection</h3><p>three events </p>
+<ul>
+<li>connected</li>
+<li>disconnected</li>
+<li>error<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// how to catch events</span></span><br><span class="line">connection1.on(<span class="string">'error'</span>,callback);</span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'[EventName] occur!!'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="mongoosejs.com">1</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Installation">Installation</h3><figu]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Mongoosejs" scheme="http://strong689.github.com/tags/Mongoosejs/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/Step-Into/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/Step-Into/MongoDB/"/>
+    
+      <category term="Mongoosejs" scheme="http://strong689.github.com/categories/Step-Into/MongoDB/Mongoosejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[eCommerce Design by MongoDB]]></title>
