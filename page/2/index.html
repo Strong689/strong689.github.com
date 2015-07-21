@@ -179,6 +179,197 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="url">
+                eCommerce Design by MongoDB
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-18T11:03:58-07:00" content="2015-07-18">
+            2015-07-18
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/18/eCommerce-Design-by-MongoDB/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/18/eCommerce-Design-by-MongoDB/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>电商参考架构</p>
+</blockquote>
+<h3 id="[搭建灵活-可搜索-响应快速的产品目录系统][1]">[搭建灵活-可搜索-响应快速的产品目录系统][1]</h3><blockquote>
+<p>大数据量电商如何使用MongoDB作为一个庞大产品目录持久层的一些最佳实践<br>  多功能商品目录系统的建模和索引的最佳实践，包括商品及商品系列的查询、店铺价格以及支持多样化搜索的目录浏览 </p>
+<ul>
+<li>对商品的搜索</li>
+<li>对商品系列的搜索</li>
+<li>对商品在每个店铺价格的检索</li>
+<li>允许目录的多方面搜索和浏览</li>
+</ul>
+</blockquote>
+<h4 id="商品数据模型">商品数据模型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//definition: db.product， 只展示了对每件商品而言最重要的信息，例如类别、品牌以及描述：</span></span><br><span class="line">&#123;</span><br><span class="line">	“_id”: “<span class="number">30671</span>”, <span class="comment">//main item ID</span></span><br><span class="line">	“department”: “Shoes”,</span><br><span class="line">	“category”: “Shoes/Women/Pumps”,</span><br><span class="line">	“brand”: “Calvin Klein”,</span><br><span class="line">	“thumbnail”: “http:<span class="comment">//cdn.../pump.jpg”,</span></span><br><span class="line">	“title”: “Evening Platform Pumps”,</span><br><span class="line">	“description”: “Perfect <span class="keyword">for</span> a casual night out or a formal event.”,</span><br><span class="line">	“style”: “Designer”,</span><br><span class="line">	…</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//find by ID</span></span><br><span class="line">db.product.findOne(&#123;_id:<span class="string">"30671"</span>&#125;);</span><br><span class="line"><span class="comment">//find by serias IDs</span></span><br><span class="line">db.product.findOne(&#123;_id:&#123;$<span class="keyword">in</span>:[<span class="string">"30617"</span>,<span class="string">"45212"</span>]&#125;&#125;);  <span class="comment">//$in operator</span></span><br><span class="line"><span class="comment">//find by </span></span><br><span class="line">db.product.findOne(&#123;category:<span class="regexp">/^Shoes/</span>Women/&#125;);		<span class="comment">// regular express</span></span><br></pre></td></tr></table></figure>
+<h4 id="系列数据模型">系列数据模型</h4><blockquote>
+<p>对产品目录而言另一个重要的考量是商品系列，例如现有尺寸、颜色以及风格。<br>  对现有的、也许需要检索的商品系列（例如大小和颜色）而言的处理方法：</p>
+<ul>
+<li>在一个单一文档中存储一个商品以及它所有的系列<br>这种方法拥有能够在一个单一查询中检索一个商品以及其所有系列的优点。<br>然而，它并不是在所有情况下都是最好的方法。避免无限制的文档增长是一个非常重要的最佳实践。<br>如果产品系列的数据以及它们相关数据非常小，在商品文档中存储这些数据也许会有意义。</li>
+<li>创建一个能够关联到主商品的、单独的系列数据模型 (pefer)</li>
+</ul>
+<p>维护了在目录中展示主商品以及当用户请求一个更详细的产品视图时对每个系列的快速查询。<br>  也可以保证商品以及系列文档的一个可预测大小</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//definition: db.variantion  //关联到主商品的、单独的系列数据模型</span></span><br><span class="line">&#123;</span><br><span class="line">	“_id”: ”<span class="number">93284847362823</span>”, <span class="comment">//variant sku, 商品编号</span></span><br><span class="line">	“itemId”: “<span class="number">30671</span>”, <span class="comment">//references the main item</span></span><br><span class="line">	“size”: <span class="number">6.0</span>,</span><br><span class="line">	“color”: “red”</span><br><span class="line">	…</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通过它们的商品编号来快速检索到特定的商品系列 ???</span></span><br><span class="line">db.variation.find(&#123;_id:”<span class="number">93284847362823</span>”&#125;)</span><br><span class="line"><span class="comment">//通过对itemId  属性的查询获得某个特定商品的所有系列</span></span><br><span class="line">db.variation.find(&#123;itemId:”<span class="number">30671</span>”&#125;).sort(&#123;_id:<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="不同店铺不同价格">不同店铺不同价格</h4><blockquote>
+<p>Design: 将每个Price文档的_id设置为<strong>商品ID</strong>或者<strong>商品编号（SKU）</strong>的一个级联，<br>  并且将<strong>商店ID</strong>与价格变量相关联,<br>  这种方法也为处理价格提供很大的灵活性，因为它允许我们在商品或者系列级别对商品进行定价   </p>
+<ul>
+<li>商品：30671_store23  </li>
+<li>某个特定规格的商品：93284847362823_store23<br>可以查询所有价格或者只是某个特定店铺的价格：</li>
+<li>所有价格：db.prices.find({_id:/^30671/})  </li>
+<li><p>某个特定店铺的价格：db.prices.find({_id:/^30671_store23/}) </p>
+<p>可以添加其他组合，<br> 例如每个店铺群的价格，然后在单个查询中使用$in操作符获取对于一个商品而言所有可能的价格:</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.prices.find(&#123;</span><br><span class="line">	_id:&#123;$<span class="keyword">in</span>:[ </span><br><span class="line">		“<span class="number">30671</span>_store23”,</span><br><span class="line">		“<span class="number">30671</span>_sgroup12”,</span><br><span class="line">		“<span class="number">93284847362823</span>_store23”,	</span><br><span class="line">		“<span class="number">93284847362823</span>_sgroup12” </span><br><span class="line">		]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="浏览和搜索商品">浏览和搜索商品</h4><blockquote>
+<p>挑战：</p>
+<pre><code><span class="bullet">* </span>响应时间：在用户浏览的同时，结果的每个页面应该在毫秒内返回  
+<span class="bullet">* </span>多个属性：伴随着用户选择不同的方面（例如，品牌、大小、颜色等），新的查询必须能够在多个文档属性中运行  
+<span class="bullet">* </span>系列级别属性：一些用户选择的属性将会在商品级别进行查询，
+<span class="code">  例如品牌，但是其它的查询则有可能运行于系列级别上，例如尺寸。</span>
+<span class="bullet">* </span>多个系列：每个商品都有可能有成千上万个系列，但是我们只希望每个商品只展示一次，因此，结果必须消除重复项。
+<span class="bullet">* </span>排序：用户需要能够在多个属性上进行排序，例如价格、尺寸，此外排序操作必须能够高效运行。
+<span class="bullet">* </span>分页：每个页面只返回少量结果，这就要求确定性排序。
+</code></pre><p>Solution: MongoDB提供一个开源的[连接件项目][3]<br>  它允许MongoDB和Apache Solr以及Elasticsearch同时使用。<br>  然而，对于我们的参考架构，我们想完全在MongoDB中实现一个多方面搜索。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为了实现这个功能，我们创建了另一个集合，用于存储所谓的摘要文档。  </span></span><br><span class="line">  这些文档包含了我们需要基于多个搜索方面对产品目录中商品进行快速检索的所有信息。</span><br><span class="line">&#123;</span><br><span class="line">	“_id”: “<span class="number">30671</span>”,</span><br><span class="line">	“title”: “Evening Platform Pumps”,</span><br><span class="line">	“department”: “Shoes”,</span><br><span class="line">	“Category”: “Women/Shoes/Pumps”,</span><br><span class="line">	“price”: <span class="number">149.95</span>,</span><br><span class="line">	“attrs”: [“brand”: “Calvin Klein”, …],</span><br><span class="line">	“sattrs”: [“style”: ”Designer”, …],</span><br><span class="line">	“vars”: [</span><br><span class="line">		&#123;</span><br><span class="line">		“sku”: “<span class="number">93284847362823</span>”,</span><br><span class="line">		“attrs”: [&#123;“size”: <span class="number">6.0</span>&#125;, &#123;“color”: “red”&#125;, …],</span><br><span class="line">		“sattrs”: [&#123;“width”: <span class="number">8.0</span>&#125;, &#123;“heelHeight”: <span class="number">5.0</span>&#125;, …],</span><br><span class="line">		&#125;, … <span class="comment">//Many more SKUs</span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过使用这个数据模型，我们可以创建以下复合索引：<br>  假设用户将会选择部门来重新定义他们的搜索结果。<br>  对于没有部门的一个产品目录，我们可以非常轻易地从另一个像类别或者类型等比较普遍的方面开始。<br>  然后，我们可以执行需要进行多方面搜索的查询，并且快速将结果返回到页面：</p>
+<ul>
+<li>部门+属性+类别+ _id</li>
+<li>部门+变量属性+类别+ _id</li>
+<li>部门+类别+ _id</li>
+<li>部门+价格+ _id</li>
+<li>部门+评分+ _id</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从商品ID获取摘要</span></span><br><span class="line">db.variation.find(&#123;_id:”<span class="number">30671</span>”&#125;)</span><br><span class="line"><span class="comment">//获取特定商品系列的摘要</span></span><br><span class="line">db.variation.find(&#123;vars.sku:”<span class="number">93284847362823</span>”&#125;,&#123;“vars.$”:<span class="number">1</span>&#125;)</span><br><span class="line"><span class="comment">//通过部门获取所有商品的摘要</span></span><br><span class="line">db.variation.find(&#123;department:”Shoes”&#125;)</span><br><span class="line"><span class="comment">//使用一系列混合的参数获取摘要</span></span><br><span class="line">db.variation.find(&#123; “department”:”Shoes”,“vars.attr”: &#123;“color”:”red”&#125;,“category”: “^<span class="regexp">/Shoes/</span>Women”&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="[库存优化方法][2]">[库存优化方法][2]</h3><blockquote>
+<p>可以通过电商的店铺及应用访问到的、可靠的、集中的库存系统是提高和丰富用户体验中一个非常庞大的基础部分。</p>
+</blockquote>
+<h4 id="想要得到的一些特性：">想要得到的一些特性：</h4><ul>
+<li>可靠地检查产品的实时库存</li>
+<li>提供用户在某个指定实体店提货的选项</li>
+<li>在某个商品有促销的情况下，判断每日补给的需求</li>
+</ul>
+<h4 id="设计原则">设计原则</h4><blockquote>
+<p>电商参考架构中的库存系统应该要做的事情：<br>  需要的是构建一个高性能、可水平扩展的系统，<br>  在一个庞大的、地理分布的区域中的店铺和用户都能够与MongoDB进行实时交互来查看和更新目录。</p>
+</blockquote>
+<ul>
+<li>提供一个库存的360°视图，可以在任何时间被任何客户端访问</li>
+<li>能够被任何需要库存数据的系统使用</li>
+<li>解决大数据量、以读取为主的工作负载，例如：库存检查</li>
+<li>解决大数据量的实时写操作，例如：库存更新</li>
+<li>支持批量写入操作以更新系统记录</li>
+<li>地理上分离</li>
+<li>伴随着库存中店铺数量或者商品数量的增多，保持水平扩展</li>
+</ul>
+<h4 id="店铺模式">店铺模式</h4><blockquote>
+<p>用户案例的一个基本需求是为每个店铺维护一个关于所有库存的、集中的、实时的视图。<br>  首先需要为店铺集合创建视图，从而将的库存与地理位置相联系起来。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每个店铺都使用一个相当直接的文档</span></span><br><span class="line">&#123;</span><br><span class="line">	“_id”:ObjectId(“<span class="number">78</span>s89453d8chw28h428f2423”),</span><br><span class="line">	“className”:”catalog.Store”,</span><br><span class="line">	“storeId”:”store100”,</span><br><span class="line">	“name”:”Bessemer Store”,</span><br><span class="line">	“address”:&#123;</span><br><span class="line">	“addr1”:”<span class="number">1</span> Main St.”,</span><br><span class="line">	“city”:”Bessemer”,</span><br><span class="line">	“state”:”AL”,</span><br><span class="line">	“zip”:”<span class="number">12345</span>”,</span><br><span class="line">	“country”:”USA”</span><br><span class="line">	&#125;,</span><br><span class="line">	“location”:[-<span class="number">86.95444</span>, <span class="number">33.40178</span>],</span><br><span class="line">	…</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建下列的索引来优化在店铺数据中最经常使用读取类型：</p>
+<ul>
+<li>{“storeId”:1},{“unique”:true}: 获取某个特定商店的库存</li>
+<li>{“name”:1}:根据名字获取商店名称</li>
+<li>{“address.zip”:1}: 获取一个邮编内的所有店铺，例如：店铺定位程序</li>
+<li>{“location”: 2dsphere}:获取某一个特定地理位置周围的所有商店</li>
+</ul>
+</blockquote>
+<h4 id="库存数据模型">库存数据模型</h4><blockquote>
+<p>创建一个库存集合来跟踪每一个商品以及它们所有商品系列的真实库存量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将数据从店铺集合复制到库存集合,最小化对数据库的来回读取数目,同时降低应用级的连接</span></span><br><span class="line"><span class="comment">// db.inventory</span></span><br><span class="line">&#123;</span><br><span class="line">	“_id”:”<span class="number">902372093572409542</span>jbf42r2f2432”,</span><br><span class="line">	“storeId”:”store100”,				<span class="comment">// 知道哪个商店有什么商品是非常必要的</span></span><br><span class="line">	“location”:[-<span class="number">86.95444</span>, <span class="number">33.40178</span>],	<span class="comment">// 查询离用户附近的库存</span></span><br><span class="line">	“productId”:”<span class="number">20034</span>”,  				<span class="comment">// </span></span><br><span class="line">	“vars”:[</span><br><span class="line">		&#123;“sku”:”sku1”, “quantity”:”<span class="number">5</span>”&#125;,  <span class="comment">// 在商品级别文档中表示库存 </span></span><br><span class="line">		&#123;“sku”:”sku2”, “quantity”:”<span class="number">23</span>”&#125;, <span class="comment">// 更大的文档以降低数据冗余度，可以减少在库存集合中需要查询或者更新的文档总数</span></span><br><span class="line">		&#123;“sku”:”sku3”, “quantity”:”<span class="number">2</span>”&#125;,</span><br><span class="line">		…</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建索引</p>
+<ul>
+<li>{storeId:1}: 得到某一个指定商店库存中的所有商品</li>
+<li>{productId:1},{storeId:1}: 获取一个指定店铺中某个产品的库存</li>
+<li>{productId:1},{location:”2dsphere”}:获取在一定距离之内的某个产品的所有库存</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以基于’productID’查询我们的库存了</span></span><br><span class="line">db.inventory.find(&#123;</span><br><span class="line">	“storeId”:”store100”,</span><br><span class="line">	“productId”:“<span class="number">20034</span>”,</span><br><span class="line">	“vars.sku”:”sku11736”</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;“vars.$”:<span class="number">1</span>&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="Reference">Reference</h3><p><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-1" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/retail-reference-architecture-part-2-approaches-inventory-optimization" target="_blank" rel="external">2</a><br><a href="http://blog.mongodb.org/post/29127828146/introducing-mongo-connector" target="_blank" rel="external">3</a> </p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="url">
                 Step into MongoDB II - Industry Sample
               </a>
@@ -598,7 +789,7 @@
           <span class="post-category" >
             &nbsp; | &nbsp; In
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/IoT/" itemprop="url" rel="index"><span itemprop="name">IoT</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Internet-Plus/" itemprop="url" rel="index"><span itemprop="name">Internet Plus</span></a></span>
 
               
               
@@ -627,7 +818,8 @@
 
       
         
-          <span itemprop="articleBody"><blockquote>
+          <span itemprop="articleBody"><p>总理提出的互联网+，貌似总理只是顺应当下的互联网趋势而提出，但其实内容是相当丰富的。即：让国家做顶层的设计，大框架的分配社会资源，接着让创业者去填满社会方方面面宏观调控无法渗透和填满的市场空间。大道至简，三个字和一个符号就把民族复兴的基调定好了。</p>
+<blockquote>
 <p>中国传统企业+Internet</p>
 </blockquote>
 <h2 id="互联网">互联网</h2><ul>
@@ -644,229 +836,6 @@
 <li>+技术<br>  移动互联 与计算 大数据 物联网<br>  LBS NFC Bluetooth<br>  O2O</li>
 </ul>
 <h3 id="=&gt;_+服务">=&gt; +服务</h3></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/14/Step-into-Jadejs/" itemprop="url">
-                Step into Jadejs
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-14T22:11:29-07:00" content="2015-07-14">
-            2015-07-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Jadejs/" itemprop="url" rel="index"><span itemprop="name">Jadejs</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Jadejs/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Jadejs/Overview/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/14/Step-into-Jadejs/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/14/Step-into-Jadejs/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><blockquote>
-<p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
-<h1 id="Installation_&amp;_API">Installation &amp; API</h1><ul>
-<li>Installation<br>  $ npm install jade -g</li>
-<li>API<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> jade <span class="built_in">require</span>(<span class="string">"jade"</span>);</span><br><span class="line"><span class="keyword">var</span> fn = jade.compile(<span class="string">'string of jade'</span>,options);</span><br><span class="line">fn(locals);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h1 id="Jade_command_line">Jade command line</h1><pre><code>$ jade [-<span class="literal">options</span>] [<span class="keyword">file</span>]
-$ jade layout.jade //compile layout.jade <span class="keyword">file</span> to layout.html <span class="keyword">file</span>
-$ jade layout      //compile whole <span class="string">"layout"</span> <span class="literal">directory</span> 
-</code></pre><h1 id="Jade_Syntax">Jade Syntax</h1><h2 id="Common">Common</h2><ul>
-<li>doctype html/xml/… e.g.-&gt; &lt;!DOCTYPE html&gt;; </li>
-<li>Indented style</li>
-<li>text at the start of line represents an html tag</li>
-<li>self closing tags(img,meta, link…) and explicitly self close (appending /, e.g. abc/ -&gt; <abc>)</abc></li>
-</ul>
-<h2 id="Attributes">Attributes</h2><ul>
-<li>By default, all attributes are escaped, unescapeded attributes need use != instead of =, use !{name} instead of #{name}.</li>
-<li>&amp;attributes can be used to explode an object into attributes of an element, it’s not escaped by default</li>
-<li>Boolean/Style/Class attributes</li>
-<li>Class/ID Literal</li>
-</ul>
-<h2 id="Text/PlainText">Text/PlainText</h2><hr>
-<h3 id="Piped_Text_|">Piped Text |</h3><pre><code>|  <span class="comment">//to prefix the line with a | character(pipe)</span>
-</code></pre><h3 id="HTML_Tags">HTML Tags</h3><h4 id="Inline_in_a_Tag">Inline in a Tag</h4><pre><code><span class="tag">p</span> <span class="tag">h1</span> <span class="tag">h2</span> ... script  
-</code></pre><h4 id="Block_in_a_Tag">Block in a Tag</h4><pre><code><span class="tag">p</span>. <span class="tag">h1</span>. script.  ....
-</code></pre><h2 id="JS_Code_support">JS Code support</h2><ul>
-<li><p>prefix - / unbuffered code &amp; block unbuffered code</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   - var foo = "foo";</span><br><span class="line">-</span><br><span class="line">  each item in list</span><br><span class="line">    li= item</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>prefix = / buffered code ; support JS expressions</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   h1= foo</span><br><span class="line">= foo</span><br><span class="line">p=list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>unescaped buffered code<br>  p!= “This is “ + “<em>unescaped</em>“</p>
-</li>
-<li>Jade naturely support if, else, else if, until, while , unless</li>
-</ul>
-<h2 id="basic_controls">basic controls</h2><hr>
-<h3 id="if,_unless">if, unless</h3><pre><code><span class="keyword">if</span> <span class="property">name</span> == <span class="string">"xyz"</span>
-  h1 hello xyz
-<span class="keyword">else</span>
-  h1 My Name <span class="keyword">is</span> <span class="comment">#{name}</span>
-</code></pre><h3 id="for,_each,_while">for, each, while</h3><pre><code><span class="keyword">select
-</span>  each <span class="keyword">book, </span>i in <span class="keyword">books
-</span>    option(value<span class="label">=i</span>) <span class="keyword">Book </span>#{<span class="keyword">book}
-</span><span class="label">ul</span>
-  for <span class="keyword">book </span>in <span class="keyword">books
-</span>    li= <span class="keyword">book
-</span>  <span class="preprocessor">else</span>
-    li no <span class="keyword">books!</span>
-</code></pre><h3 id="case">case</h3><pre><code>case month
-when 1
-  p January
-when 2
-  p February
-other
-  p Month : #{month}
-</code></pre><h2 id="extends_&amp;_inheritance">extends &amp; inheritance</h2><hr>
-<h3 id="extends">extends</h3><pre><code><span class="keyword">extends</span> .<span class="regexp">/view/</span>layout.jade
-</code></pre><h3 id="block">block</h3><ul>
-<li>block, by default, will be replaced within a child template, it’s a recursive process</li>
-<li>(block) append</li>
-<li>(block) prepend</li>
-</ul>
-<h3 id="include">include</h3><ul>
-<li>insert the contents of one jade file into another</li>
-<li>plain text file</li>
-<li>js/css</li>
-<li>filtered text<br> include:markdown article.md</li>
-</ul>
-<h2 id="interpolation">interpolation</h2><hr>
-<h3 id="String_Interpolation,_escaped">String Interpolation, escaped</h3><pre><code>-<span class="ruby">var msg = <span class="string">""</span>;
-</span>h1= msg
-p This is #{<span class="ruby">msg}</span>
-</code></pre><h3 id="String_Interpolation,_Unescaped">String Interpolation, Unescaped</h3><pre><code><span class="change">!{msg}</span>
-</code></pre><h3 id="Tag_Interpolation,_#[_]">Tag Interpolation, #[ ]</h3><pre><code><span class="tag">p</span>. 
-  Please visit my blog on 
-   #[<span class="function"><span class="title">a</span><span class="params">(target=<span class="string">"_blank"</span>, href=<span class="string">"https://strong689.github.io"</span>)</span></span> GitHub]
-</code></pre><h2 id="Mixins">Mixins</h2><hr>
-<p>to create reusable blocks of jade</p>
-<h3 id="Mixins_decalration_&amp;_reuse">Mixins decalration &amp; reuse</h3><pre><code><span class="comment">// Declaration</span>
-mixin myfooter
-  <span class="tag">ul</span> 
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"abc.com"</span>)</span></span> about me
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/privacy.html"</span>)</span></span> privary
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/home.html"</span>)</span></span> home
-mixin <span class="function"><span class="title">myfunction</span><span class="params">(para)</span></span>
-    <span class="tag">li</span>.classname= para    
-<span class="comment">// use</span>
-+myfooter
-+<span class="function"><span class="title">myfunction</span><span class="params">(<span class="string">"abc"</span>)</span></span>
-</code></pre><h3 id="mixin_blocks">mixin blocks</h3><pre><code>mixin product(name)
-  .product
-    h1= name
-    <span class="keyword">if</span> block
-      block
-    <span class="keyword">else</span>
-      <span class="keyword">p</span> <span class="keyword">no</span> product detail
-
-+product(<span class="string">"samsung galaxy III"</span>)
-+product(<span class="string">"iphone')
-</span>  <span class="keyword">p</span> old <span class="keyword">version</span>
-  <span class="keyword">p</span> amazing product
-</code></pre><h3 id="Mixin_Attributes">Mixin Attributes</h3><pre><code><span class="comment">//declaration</span>
-mixin <span class="function"><span class="title">link</span><span class="params">(href,name)</span></span>
-  <span class="comment">//- attributes == {class:"btn"}</span>
-  <span class="function"><span class="title">a</span><span class="params">(class!=attributes.class, href=href)</span></span>= name
-
-<span class="comment">//use</span>
-+<span class="function"><span class="title">link</span><span class="params">(<span class="string">'/foo'</span>,<span class="string">'foo'</span>)</span><span class="params">(class=<span class="string">'btn'</span>)</span></span>
-</code></pre><h3 id="Rest_Arguments">Rest Arguments</h3><pre><code><span class="comment">//declaration</span>
-mixin <span class="function"><span class="title">list</span><span class="params">(id, ...items)</span></span>
-  <span class="function"><span class="title">ul</span><span class="params">(id=id)</span></span>
-    each item <span class="keyword">in</span> items
-      li= item
-<span class="comment">//to use</span>
-+<span class="function"><span class="title">list</span><span class="params">(<span class="string">'mylist'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span>
-</code></pre><h2 id="Comments">Comments</h2><ul>
-<li>single line comment //same like JS comments</li>
-<li>invisible single line comments //-adding a hyphen</li>
-<li>block comment, indented after the first line comment</li>
-<li>normal HTML style conditional comments , e.g.  <!--[if IE]> 
-  script(src='/ie.js') 
-  <![endif]-->
-</li>
-</ul>
-<h2 id="Resources">Resources</h2><p><a href="http://jade-lang.com/" target="_blank" rel="external">JADE</a><br><a href="http://naltatis.github.io/jade-syntax-docs/#basics" target="_blank" rel="external">Jade Syntax - interactive demo</a><br><a href="http://segmentfault.com/a/1190000000357534#articleHeader0" target="_blank" rel="external">Segmentfault</a></p>
-</span>
         
       
     </div>
@@ -924,21 +893,21 @@ mixin <span class="function"><span class="title">list</span><span class="params"
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
