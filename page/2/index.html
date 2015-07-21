@@ -179,6 +179,405 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="url">
+                Step into MongoDB II - Industry Sample
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-17T23:32:11-07:00" content="2015-07-17">
+            2015-07-17
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Design/" itemprop="url" rel="index"><span itemprop="name">Design</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/17/Step-into-MongoDB-II-Industry-Sample/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/17/Step-into-MongoDB-II-Industry-Sample/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="[快的打车][1]">[快的打车][1]</h3><ul>
+<li><p>场景</p>
+<blockquote>
+<p>1亿多用户，超过300个城市里与300万司机取得了联系<br>两类业务：快的出租车 &amp; 快的一号专车<br>司机与乘客每天高达6百万次的联系<br>管理着将近5亿的订单<br>支持着每秒钟数以万计的读写操作<br>MongoDB每秒支持着5万个操作（读取和写入的比例约为80:20）<br>数据库已经增长到5亿多文档，并且还在持续扩展中  </p>
+</blockquote>
+</li>
+<li><p>应用</p>
+<blockquote>
+<p>选择指标：性能(延迟、实时更新的速度),可扩展性,易用性<br>LBS ： MongoDB的地理空间索引及查询<br>可扩展性,历史订单数据的存档：顾客每呼叫一辆出租车，行程的起点及终点、司机的身份以及费用等都会被存储在一条单一的记录中<br>Redis 缓存<br>MySQL 存储顾客运营及订单数据<br>Hadoop 将数据从MongoDB和MySQL中拷贝到Hadoop上进行挖掘及分析<br>使用Nagios来监测应用及数据库<br>使用Java驱动来运行MongoDB2.6  </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="[盛大大数据量项目中的应用][2]">[盛大大数据量项目中的应用][2]</h3><blockquote>
+<p> Best Practices<br>Replica Set: one for primary, one for secondary, one for increamental back up with  a arbiter</p>
+</blockquote>
+<h3 id="[电影票预定系统_design_idea][3]">[电影票预定系统 design idea][3]</h3><h4 id="需求">需求</h4><blockquote>
+<p>每个场次，每个座位，都只有一个库存<br>每个订单所预定的座位有锁定状态，在支付前对应的作为不能被再次购买<br>订单涉及到的座位要不全成功，要不全失败<br>“全国”级的，数据容量不是太大问题，但性能上要支持水平扩展  </p>
+</blockquote>
+<h4 id="描述信息文档结构">描述信息文档结构</h4><ul>
+<li><p>影院描述</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.cinema_detail&#123;</span><br><span class="line">	_id:ObjectId,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	city:<span class="built_in">String</span>,</span><br><span class="line">	location: [,],  <span class="comment">// [ 120.13, 30.16 ], coordinate</span></span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.cinema_detail.ensureIndex(&#123;city:<span class="number">1</span>, name:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">db.cinema_detail.ensureIndex(&#123;location: <span class="string">"2d"</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">3</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">4</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>影厅描述</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.theater_detail&#123;</span><br><span class="line">	_id,</span><br><span class="line">	cinema_id,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	seat:&#123;</span><br><span class="line">		row1:[],</span><br><span class="line">		row2:[],</span><br><span class="line">		row3:[],</span><br><span class="line">		...</span><br><span class="line">	&#125;,</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.theater_detail.ensureIndex(&#123;cinema_id:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>影片描述</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.movie_detail&#123;</span><br><span class="line">	_id,</span><br><span class="line">	name:<span class="built_in">String</span>,</span><br><span class="line">	director:<span class="built_in">String</span>,</span><br><span class="line">	actors:[],</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.movie_detail.ensureIndex(&#123;name:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="影片放映文档结构">影片放映文档结构</h4><blockquote>
+<p> 放映信息包含放映时间段，放映影厅，票价。虽然Document结构可以做复杂的嵌套，但原则上期望Document尽量小，<br>利用数据Shard，性能优化。所以在movie_schedule的设计上每个影片的每场放映独立一个Document表达。</p>
+</blockquote>
+<ul>
+<li>描述<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">CinemaManager.movie_schedule&#123;</span><br><span class="line">	_id,</span><br><span class="line">	cinema_id,</span><br><span class="line">	movie_id,</span><br><span class="line">	theater_id,</span><br><span class="line">	start_time:</span><br><span class="line">	end_time,</span><br><span class="line">	comments:<span class="built_in">String</span></span><br><span class="line">&#125;</span><br><span class="line">db.movie_schedule.ensureIndex(&#123;cinema_id:<span class="number">1</span>, movie_id:<span class="number">1</span>, theater_id:<span class="number">1</span>&#125;)&#123;</span><br><span class="line">	<span class="string">"createdCollectionAutomatically"</span> : <span class="literal">false</span>,</span><br><span class="line">	<span class="string">"numIndexesBefore"</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">"numIndexesAfter"</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">"ok"</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="交易系统">交易系统</h4><blockquote>
+<p>抽象的来看，售卖系统就是对上诉所有集合的一个整合，外加一套库存字段。<br>我们认为一场放映就是一个主商品，每个座位可以认为是这个商品的SKU，每个SKU都是1份。<br>通过Reference关系结合movie_schedule与theater_detail，注意这里引用了</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	_id: ,</span><br><span class="line">	movie_schedule_id:</span><br><span class="line">	theater_id: ,</span><br><span class="line">	seat:	&#123;</span><br><span class="line">		row1: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row2: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row3: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">		row4: [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不仅是Reference的引用关系，还复制了theater_detail.seat字段，每个seat都有一个库存数字，<br>因为在MongoDB中一个Document的操作是可以保证原子的，不需要对Collection加任何锁。数字2并不是表示可以卖2次：</p>
+<ul>
+<li>数字2表示，可销售</li>
+<li>数字1表示，已锁定</li>
+<li>数字0表示，已售完</li>
+</ul>
+</blockquote>
+<h3 id="From">From</h3><p><a href="http://www.mongoing.com/blog/kuaidi-interview" target="_blank" rel="external">1</a><br><a href="http://www.mongoing.com/blog/national-tickets-order-system" target="_blank" rel="external">2</a><br><a href="http://www.infoq.com/cn/presentations/glj-mongodb-in-sdo" target="_blank" rel="external">3</a></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="url">
+                Step into MongoDB - Overview I
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
+            2015-07-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
+</blockquote>
+<h2 id="Features">Features</h2><blockquote>
+<p>document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)<br>Replication &amp; High Availability, Rich Document based Query and Update<br>auto-sharding(sharding key) &amp; GridFS, Map/Reduce  </p>
+</blockquote>
+<h3 id="ReplicaSet">ReplicaSet</h3><blockquote>
+<p>Basically master/slave replication<br>automatic fail-over to recovery member nodes<br>consists of two or more nodes that are copies of each other<br>automatically elects a primary(master) if there is no primary currently available<br>Distribute read load<br>arbiter  </p>
+</blockquote>
+<h3 id="Monitoring_&amp;_Diagnostics">Monitoring &amp; Diagnostics</h3><ul>
+<li>query profiler</li>
+<li>Http console</li>
+<li>mongostat</li>
+<li>Memory-mapping, keep indexes in memory</li>
+<li>oplog {ts:{},h{}, op:{},ns:{},o:{},o2:{}}, local, db.oplog.</li>
+</ul>
+<h3 id="backup">backup</h3><ul>
+<li>mongoexport, monogoimport</li>
+<li>mongodump mongorestore</li>
+<li>data consistency use —oplog</li>
+<li>use increamental backup </li>
+<li>read oplog and replay(wordnik tools)</li>
+</ul>
+<h3 id="Rollback_MongoDB">Rollback MongoDB</h3><ul>
+<li>Use snapshot + oplog</li>
+<li>Use delayed secondary + oplog</li>
+</ul>
+<h3 id="Ops">Ops</h3><ul>
+<li>Scala up : Vertical</li>
+<li>Scale out: horizontal / auto sharding</li>
+<li>build new index in a huge collections</li>
+</ul>
+<h2 id="Scenario">Scenario</h2><ul>
+<li>real time  CRUD, web 2.0</li>
+<li>buffer, persistent buffer</li>
+<li>big data, web log</li>
+<li>db cluster </li>
+</ul>
+<h3 id="others">others</h3><blockquote>
+<p>no transaction support</p>
+</blockquote>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/07/15/Step-into-Markdown/" itemprop="url">
+                Step into Markdown
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-15T22:21:43-07:00" content="2015-07-15">
+            2015-07-15
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Markdown/Overview/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/15/Step-into-Markdown/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/15/Step-into-Markdown/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h4 id="Italics_and_Bold">Italics and Bold</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">** _</span><br></pre></td></tr></table></figure>
+<h4 id="Header">Header</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ## ### #### ...</span><br><span class="line">#### _italics header five_</span><br></pre></td></tr></table></figure>
+<h4 id="Links">Links</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[visit url](url)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>inline link <a href=""></a></li>
+<li>reference link [][]</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Find something by your [<span class="link_label">favorites search engine</span>][<span class="link_reference">favorite</span>];</span><br><span class="line">or try [<span class="link_label">another</span>][<span class="link_reference">alternative</span>].</span><br><span class="line"><span class="code">	</span></span><br><span class="line">[<span class="link_reference">favorite</span>]:<span class="link_url">www.google.com</span></span><br><span class="line">[<span class="link_reference">alternative</span>]:<span class="link_url">www.bing.com</span></span><br></pre></td></tr></table></figure>
+<h4 id="Images">Images</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](url "alt text")</span><br></pre></td></tr></table></figure>
+<ul>
+<li>inline image</li>
+<li>reference image<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   //inline style</span><br><span class="line">![text](url "alt text")</span><br><span class="line">//reference style</span><br><span class="line">![text][logo]</span><br><span class="line"></span><br><span class="line">[logo]:url 'alt text'</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="block_quotes_&gt;">block quotes &gt;</h4><pre><code>&gt; this <span class="keyword">is</span> a <span class="keyword">block</span> quotes <span class="keyword">to</span> <span class="keyword">notify</span> reader pay special attention
+</code></pre><h4 id="Lists_*">Lists *</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* + -</span><br></pre></td></tr></table></figure>
+<h4 id="Paragraphs">Paragraphs</h4><ul>
+<li>hard break</li>
+<li>soft break : two spaces after each new line</li>
+</ul>
+<h4 id="Code_`">Code `</h4><blockquote>
+<p>sample 1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str =<span class="string">"test"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br></pre></td></tr></table></figure></p>
+<p>sample 2<br>Inline <code>code</code> test <code>var num = 123</code> , good sample.<br>sample 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install express -g</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="Tablestables_is_not_part_of_core_Markdown_spec-_by_GFM_spec?">Tablestables is not part of core Markdown spec. by GFM spec?</h4><h4 id="Horizontal_rule">Horizontal rule</h4><blockquote>
+<p>three or more - * _  hyphen Asterisks underscore</p>
+</blockquote>
+<h4 id="inline_HTML_support">inline HTML support</h4><h4 id="youtube_videos_sample">youtube videos sample</h4><blockquote>
+<p>sample<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">width</span>=<span class="value">"560"</span> <span class="attribute">height</span>=<span class="value">"315"</span> <span class="attribute">src</span>=<span class="value">"https://www.youtube.com/embed/6A5EpqqDOdk"</span> <span class="attribute">frameborder</span>=<span class="value">"0"</span> <span class="attribute">allowfullscreen</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/6A5EpqqDOdk" frameborder="0" allowfullscreen></iframe>
+
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/14/Internet-Plus/" itemprop="url">
                 互联网+
               </a>
@@ -486,220 +885,11 @@ mixin <span class="function"><span class="title">list</span><span class="params"
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="url">
-                Build a Blog by Hexo + GitHub
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-13T23:02:57-07:00" content="2015-07-13">
-            2015-07-13
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
-<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
-<h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
-<span class="label">$npm</span> <span class="keyword">update</span> hexo -<span class="keyword">g</span>
-</code></pre><h3 id="Few_commands_to_start">Few commands to start</h3><h4 id="setup_your_blog">setup your blog</h4><pre><code>$ hexo init your_blog <span class="regexp">//</span> your_blog <span class="keyword">is</span> a <span class="keyword">new</span> directory
-$ cd your_blog
-$ <span class="built_in">npm</span> install 
-</code></pre><h4 id="create_a_new_post">create a new post</h4><pre><code><span class="variable">$hexo</span> <span class="literal">new</span> <span class="string">"hello world"</span>
-</code></pre><h4 id="run_server_/_deploy_local">run server / deploy local</h4><pre><code><span class="variable">$hexo</span> server  // http://localhost:<span class="number">4000</span>, <span class="keyword">default</span> <span class="keyword">port</span>; _config.yml
-</code></pre><h4 id="generate_static_files">generate static files</h4><pre><code><span class="label">$hexo</span> <span class="keyword">generate</span>    <span class="comment">// public folder, </span>
-</code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
-</code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
-</blockquote>
-<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
-<li>Modify _config.yml</li>
-<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
-<li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
-</ul>
-<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
-</code></pre><h3 id="Feed_Support">Feed Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
-<h3 id="Category_Support">Category Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-category --save</span><br></pre></td></tr></table></figure>
-<h3 id="Steps">Steps</h3><ol>
-<li>apply an GitHub “account”</li>
-<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
-<li>config Hexo github address _config.yml<pre>
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-type: git
-repository: https://github.com/account/account.github.io.git
-> e.g. https://github.com/Strong689/strong689.github.com.git
-branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
-</pre></li>
-</ol>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/09/hello-world/" itemprop="url">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-09T22:11:29-07:00" content="2015-07-09">
-            2015-07-09
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/09/hello-world/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/09/hello-world/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&raquo;</a>
   </nav>
 
 
@@ -734,21 +924,21 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

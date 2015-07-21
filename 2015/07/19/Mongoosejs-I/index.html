@@ -39,26 +39,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Mongoose: elegant MongoDB object modeling for node.js.
+<meta name="description" content="Mongoose: elegant *MongoDB object modeling for node.js.
 Installation1$npm instll mongoose -g
 Connection to MongoDBbest practice
 
 opening connection at application start
 a connection equals a database">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Step into Mongoosejs-I First Step">
+<meta property="og:title" content="Step into Mongoosejs - step I">
 <meta property="og:url" content="http://strong689.github.com/2015/07/19/Mongoosejs-I/index.html">
 <meta property="og:site_name" content="Step by Step, Learning by Doing">
-<meta property="og:description" content="Mongoose: elegant MongoDB object modeling for node.js.
+<meta property="og:description" content="Mongoose: elegant *MongoDB object modeling for node.js.
 Installation1$npm instll mongoose -g
 Connection to MongoDBbest practice
 
 opening connection at application start
 a connection equals a database">
-<meta property="og:updated_time" content="2015-07-20T01:51:08.968Z">
+<meta property="og:updated_time" content="2015-07-21T06:33:08.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Step into Mongoosejs-I First Step">
-<meta name="twitter:description" content="Mongoose: elegant MongoDB object modeling for node.js.
+<meta name="twitter:title" content="Step into Mongoosejs - step I">
+<meta name="twitter:description" content="Mongoose: elegant *MongoDB object modeling for node.js.
 Installation1$npm instll mongoose -g
 Connection to MongoDBbest practice
 
@@ -73,7 +73,7 @@ a connection equals a database">
   };
 </script>
 
-    <title> Step into Mongoosejs-I First Step // Step by Step, Learning by Doing </title>
+    <title> Step into Mongoosejs - step I // Step by Step, Learning by Doing </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 <!--[if lte IE 8]>
@@ -193,7 +193,7 @@ a connection equals a database">
           
           
             
-              Step into Mongoosejs-I First Step
+              Step into Mongoosejs - step I
             
           
         </h1>
@@ -255,12 +255,13 @@ a connection equals a database">
       
 
       
-        <span itemprop="articleBody"><p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+        <span itemprop="articleBody"><p><a href="http://mongoosejs.com" target="_blank" rel="external"><strong>Mongoose</strong></a><em>: elegant <em>*MongoDB</em></em> object modeling for node.js.</p>
 <h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
 <h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice</p>
 <ul>
 <li>opening connection at application start</li>
 <li>a connection equals a database</li>
+<li>mongoose model reply on connection being defined</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure>
 <p>Format of connection string / Simple options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
@@ -287,7 +288,6 @@ a connection equals a database">
 <li>model(name, [schema], [collection]), to define or retrieve a model</li>
 <li>modelNames(), return an array of model names created on this connection</li>
 </ul>
-<p><a href="mongoosejs.com">1</a></p>
 </span>
       
     </div>
@@ -306,6 +306,8 @@ a connection equals a database">
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/19/Mongoosejs-II/" rel="prev">Step into Mongoosejs - step II</a>
             
           </div>
 
@@ -378,21 +380,21 @@ a connection equals a database">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
@@ -498,7 +500,7 @@ a connection equals a database">
     <script type="text/javascript">
       var disqus_shortname = 'strong689';
       var disqus_identifier = '2015/07/19/Mongoosejs-I/';
-      var disqus_title = 'Step into Mongoosejs-I First Step';
+      var disqus_title = 'Step into Mongoosejs - step I';
       var disqus_url = 'http://strong689.github.com/2015/07/19/Mongoosejs-I/';
 
       function run_disqus_script(disqus_script){

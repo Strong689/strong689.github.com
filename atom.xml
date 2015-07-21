@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-20T01:51:08.968Z</updated>
+  <updated>2015-07-21T06:44:27.274Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -16,17 +16,193 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Step into Mongoosejs-I First Step]]></title>
+    <title><![CDATA[Admin UI of MongoDB]]></title>
+    <link href="http://strong689.github.com/2015/07/20/Admin-UI-of-MongoDB/"/>
+    <id>http://strong689.github.com/2015/07/20/Admin-UI-of-MongoDB/</id>
+    <published>2015-07-21T06:42:44.000Z</published>
+    <updated>2015-07-21T06:44:27.274Z</updated>
+    <content type="html"><![CDATA[<h2 id="Admin_UIs_of_MongoDB"><a href="http://docs.mongodb.org/ecosystem/tools/administration-interfaces" target="_blank" rel="external">Admin UIs</a> of MongoDB</h2><ul>
+<li>mongo shell</li>
+<li>GUI-Style (some for administration, some for data viewing)<ul>
+<li>MongoDB Cloud Manager: deploying and managing MongoDB instanaces with monitoing and backup capabilities</li>
+<li><strong>mongo-express</strong>:open source, by node.js and express.js</li>
+<li>Edda : log visualizer, (pip install edda), it takes logs as input and creates a timeline of notable events in the set</li>
+<li><strong>Fluentd</strong>: open source <strong>log</strong> management tool</li>
+<li>HumongouS.io: web-based UI for MongoDB</li>
+<li><strong>mongobird</strong>: operations and administration management tool for MongoDB with dashboards, forecast warning, and various graphs.</li>
+<li>mongoCMS: a MongoDB-backed content manager specifically developed to manage rich content applications such as blogs and other web data</li>
+<li>NoSQL Manager for MongoDB: a desktop GUI tool </li>
+<li>NoSQL Viewer:</li>
+<li><strong>JSON Studio</strong>: a suite of data access applications enabling easy access to data stored in MongoDB using a high-level interface </li>
+<li>Mongo Management Studio (CE/EE)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Admin_UIs_of_MongoDB"><a href="http://docs.mongodb.org/ecosystem/tools/administration-interfaces" target="_blank" rel="external">Adm]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Tools" scheme="http://strong689.github.com/tags/Tools/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Tools" scheme="http://strong689.github.com/categories/MongoDB/Tools/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/MongoDB/Tools/Step-Into/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into MongoDB - Overview II]]></title>
+    <link href="http://strong689.github.com/2015/07/20/Step-into-MongoDB-II-Overview/"/>
+    <id>http://strong689.github.com/2015/07/20/Step-into-MongoDB-II-Overview/</id>
+    <published>2015-07-21T05:35:35.000Z</published>
+    <updated>2015-07-21T06:40:06.281Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index</p>
+</blockquote>
+<h2 id="MongoDB_vs_MySQL(Relational_Database)">MongoDB vs MySQL(Relational Database)</h2><p> NoSQL vs RDBMS , Strengths vs weakness</p>
+<ul>
+<li>RDBMS<blockquote>
+<ul>
+<li>relational database structure is easy to ensure data integrity and security (money related, BANK)</li>
+<li>structured table, simple way of representing data or business models (view, index, SP, trigger)</li>
+<li>SQL, easy to retrieve or query data</li>
+<li>complex, multi-row transactions support</li>
+<li>no ability to scale horizontally ( at least, for current rdbms product) </li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>NoSQL<blockquote>
+<p> Not to replace RDBMS, it fulfills different areas’ need (large website, User Generated Content)</p>
+<ul>
+<li>no rely on object-relational mapping</li>
+<li>support high transaction loads</li>
+<li>no tables’ join opeation support</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="the_goodness_of_MongoDB">the goodness of MongoDB</h2><ul>
+<li><p>Scenarios MongoDB specialized in</p>
+<blockquote>
+<ul>
+<li>high read/write load<ul>
+<li>High Availability</li>
+<li>Data grow quick and go big</li>
+<li>Data location based</li>
+<li>Flexible, Data Schema unstable</li>
+<li>Scalable </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>use cases MongoDB is good at</p>
+<blockquote>
+<ul>
+<li>Catalog<ul>
+<li>Content Management</li>
+<li>Personalization</li>
+<li>Single(360) View</li>
+<li>Internet of Things</li>
+<li>Mobile</li>
+<li>Real-Time Analytics</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index</p>
+</blockquote>
+<h2 id="MongoDB_vs_MySQL(Relational_Database)">MongoDB v]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Replica Set" scheme="http://strong689.github.com/tags/Replica-Set/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Overview" scheme="http://strong689.github.com/categories/MongoDB/Overview/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/MongoDB/Overview/Step-Into/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into Mongoosejs - step II]]></title>
+    <link href="http://strong689.github.com/2015/07/19/Mongoosejs-II/"/>
+    <id>http://strong689.github.com/2015/07/19/Mongoosejs-II/</id>
+    <published>2015-07-20T03:15:41.000Z</published>
+    <updated>2015-07-21T06:33:25.884Z</updated>
+    <content type="html"><![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Data_Types">Data Types</h3><ul>
+<li>String, utf-8 encoded</li>
+<li>Number, MongoDB support long and double, but mongoosejs does not</li>
+<li>Boolean, true or false</li>
+<li>Date (ISODate object, expires, min, max )</li>
+<li>Buffer (.copy(target), .equals(other), .writer())</li>
+<li>ObjectId ( var id = new mongoose.Types.ObjectId;)</li>
+<li>Array ([] or schema; #$shift(), #remove(), .$pop(), .addToSet([args…]), .indexOf(obj), inspect(), .nonAtomicPush([args…]) , .pop(), .pull([args…]), .push([args…]), .set(), .shift(), .sort(), .splice(), .toObject(options), .unshift() )</li>
+<li>Mixed, (empty object {} or Schema.Types.Mixed )</li>
+<li>custom SchemaTypes</li>
+</ul>
+<h3 id="Schema">Schema</h3><p>Schema define data structure.</p>
+<blockquote>
+<p>define schema early, just after require mongoose<br>  easy to update schema even though data exit and no offline or down time</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//define account schema, any website need the account information, even if an anonymous account</span></span><br><span class="line"><span class="keyword">var</span> accountSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">	email: &#123;type: <span class="built_in">String</span>, unique: <span class="literal">true</span>&#125;,</span><br><span class="line">	password: <span class="built_in">String</span>,</span><br><span class="line">	name: <span class="built_in">String</span>,</span><br><span class="line">	createdOn: &#123;type: <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now&#125;,</span><br><span class="line">	updatedOn: <span class="built_in">Date</span>,</span><br><span class="line">	lastLogin: <span class="built_in">Date</span>,</span><br><span class="line">	location: [],</span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Model">Model</h3><ul>
+<li>Model is comiled version of Schema, Schema + Model = Class of OOP</li>
+<li>An instance of model maps to a document in a database of MongoDB</li>
+<li>Collection coorespond to table of RDBMS, </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//build Account model by default connection / class Account</span></span><br><span class="line">mongoose.model(<span class="string">'Account'</span>, accountSchema, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="comment">// or by specific connection</span></span><br><span class="line"><span class="comment">//connection1.model('Account', accountSchema);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Instance, an instance of a model refers to a document </span></span><br><span class="line"><span class="keyword">var</span> myAccount = <span class="keyword">new</span> Account(&#123;</span><br><span class="line">    email: <span class="string">'myemailaddress@xxx.com'</span>,</span><br><span class="line">    password: <span class="string">'pwd'</span>,</span><br><span class="line">    name: <span class="string">'myName'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or js code</span></span><br><span class="line">myAccount.name = <span class="string">'myNewName'</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>for code above, Model name is Account, Collection name is “accounts”.</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+<h3 id="Data_Types">Data Types</h3><ul>
+<li>]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Mongoosejs" scheme="http://strong689.github.com/tags/Mongoosejs/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/Step-Into/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/Step-Into/MongoDB/"/>
+    
+      <category term="Mongoosejs" scheme="http://strong689.github.com/categories/Step-Into/MongoDB/Mongoosejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step into Mongoosejs - step I]]></title>
     <link href="http://strong689.github.com/2015/07/19/Mongoosejs-I/"/>
     <id>http://strong689.github.com/2015/07/19/Mongoosejs-I/</id>
     <published>2015-07-20T00:00:55.000Z</published>
-    <updated>2015-07-20T01:51:08.968Z</updated>
-    <content type="html"><![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
+    <updated>2015-07-21T06:33:08.096Z</updated>
+    <content type="html"><![CDATA[<p><a href="http://mongoosejs.com" target="_blank" rel="external"><strong>Mongoose</strong></a><em>: elegant <em>*MongoDB</em></em> object modeling for node.js.</p>
 <h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
 <h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice</p>
 <ul>
 <li>opening connection at application start</li>
 <li>a connection equals a database</li>
+<li>mongoose model reply on connection being defined</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure>
 <p>Format of connection string / Simple options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
@@ -53,11 +229,9 @@
 <li>model(name, [schema], [collection]), to define or retrieve a model</li>
 <li>modelNames(), return an array of model names created on this connection</li>
 </ul>
-<p><a href="mongoosejs.com">1</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
-<h3 id="Installation">Installation</h3><figu]]>
+    <![CDATA[<p><a href="http://mongoosejs.com" target="_blank" rel="external"><strong>Mongoose</strong></a><em>: elegant <em>*MongoDB</em></em> object m]]>
     </summary>
     
       <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
@@ -275,11 +449,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Step into MongoDB I - Overview]]></title>
+    <title><![CDATA[Step into MongoDB - Overview I]]></title>
     <link href="http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/"/>
     <id>http://strong689.github.com/2015/07/16/Step-into-MongoDB-I-Overview/</id>
     <published>2015-07-17T05:31:31.000Z</published>
-    <updated>2015-07-20T03:10:43.231Z</updated>
+    <updated>2015-07-21T06:34:42.842Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
 </blockquote>
