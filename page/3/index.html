@@ -179,6 +179,142 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="url">
+                Step into MongoDB - Overview I
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-16T22:31:31-07:00" content="2015-07-16">
+            2015-07-16
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Overview/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/16/Step-into-MongoDB-I-Overview/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/16/Step-into-MongoDB-I-Overview/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>Hu<strong>mongo</strong>us, MongoDB = JSON +Index  </p>
+</blockquote>
+<h2 id="Features">Features</h2><blockquote>
+<p>document/Object/collection oriented, JSON/BSON, Key/Value, fully indexed(object)<br>Replication &amp; High Availability, Rich Document based Query and Update<br>auto-sharding(sharding key) &amp; GridFS, Map/Reduce  </p>
+</blockquote>
+<h3 id="ReplicaSet">ReplicaSet</h3><blockquote>
+<p>Basically master/slave replication<br>automatic fail-over to recovery member nodes<br>consists of two or more nodes that are copies of each other<br>automatically elects a primary(master) if there is no primary currently available<br>Distribute read load<br>arbiter  </p>
+</blockquote>
+<h3 id="Monitoring_&amp;_Diagnostics">Monitoring &amp; Diagnostics</h3><ul>
+<li>query profiler</li>
+<li>Http console</li>
+<li>mongostat</li>
+<li>Memory-mapping, keep indexes in memory</li>
+<li>oplog {ts:{},h{}, op:{},ns:{},o:{},o2:{}}, local, db.oplog.</li>
+</ul>
+<h3 id="backup">backup</h3><ul>
+<li>mongoexport, monogoimport</li>
+<li>mongodump mongorestore</li>
+<li>data consistency use —oplog</li>
+<li>use increamental backup </li>
+<li>read oplog and replay(wordnik tools)</li>
+</ul>
+<h3 id="Rollback_MongoDB">Rollback MongoDB</h3><ul>
+<li>Use snapshot + oplog</li>
+<li>Use delayed secondary + oplog</li>
+</ul>
+<h3 id="Ops">Ops</h3><ul>
+<li>Scala up : Vertical</li>
+<li>Scale out: horizontal / auto sharding</li>
+<li>build new index in a huge collections</li>
+</ul>
+<h2 id="Scenario">Scenario</h2><ul>
+<li>real time  CRUD, web 2.0</li>
+<li>buffer, persistent buffer</li>
+<li>big data, web log</li>
+<li>db cluster </li>
+</ul>
+<h3 id="others">others</h3><blockquote>
+<p>no transaction support</p>
+</blockquote>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/15/Step-into-Markdown/" itemprop="url">
                 Step into Markdown
               </a>
@@ -735,99 +871,11 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/09/hello-world/" itemprop="url">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-09T22:11:29-07:00" content="2015-07-09">
-            2015-07-09
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/09/hello-world/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/09/hello-world/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </nav>
 
 
@@ -862,21 +910,21 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

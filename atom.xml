@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-23T06:33:11.306Z</updated>
+  <updated>2015-07-23T07:03:56.784Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -16,11 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[User Story vs Use Case]]></title>
+    <link href="http://strong689.github.com/2015/07/22/User-Story-vs-Use-Case/"/>
+    <id>http://strong689.github.com/2015/07/22/User-Story-vs-Use-Case/</id>
+    <published>2015-07-23T06:35:08.000Z</published>
+    <updated>2015-07-23T07:03:56.784Z</updated>
+    <content type="html"><![CDATA[<p>Thought: use “user story” with acceptance criteria is a best practice in scrum process, no one use “use case”.</p>
+<h3 id="User_story">User story</h3><p><strong>lightweight</strong>  </p>
+<blockquote>
+<p> a short description of something that can be written on a card,<br>   focused on the value or result they get from doing this thing<br>   Format: As an [actor] I want [action] so that [achievement]<br>   A User Story doesn’t capture all the details, it’s an informal support for the discussion.  </p>
+</blockquote>
+<h3 id="Acceptance_criteria">Acceptance criteria</h3><p>Writing the acceptance criteria is the first step of fleshing out the details of your user story.</p>
+<blockquote>
+<p>define the boundaries of a user story, and are used to confirm when a story is completed and working as intended</p>
+</blockquote>
+<p>example  </p>
+<blockquote>
+<p>As a conference attendee, I want to be able to register online, so I can register quickly and cut down on paperwork, the acceptance criteria could include:  </p>
+<ol>
+<li>A user cannot submit a form without completing all the mandatory fields</li>
+<li>Information from the form is stored in the registrations database</li>
+<li>Protection against spam is working</li>
+<li>Payment can be made via credit card</li>
+<li>An acknowledgment email is sent to the user after submitting the form.</li>
+</ol>
+</blockquote>
+<h3 id="Use_case">Use case</h3><p><strong>heavyweight</strong><br>use case describes a “Normal Flow” of steps and/or actions and “Alternative Flows” which are detailed. </p>
+<blockquote>
+<p>formal specification, usually created as a formal document, detail description of a set of interactions between a system and and one or more roles, roles can be people or systems, including something as below, </p>
+<ul>
+<li>Use case title</li>
+<li>Rationale/description/goal</li>
+<li>Actor/user</li>
+<li>Preconditions (the things that must have already happened in the system)</li>
+<li>Standard path or Main success scenario (what will usually happen, described as a series of steps)</li>
+<li>Alternate paths or Extensions(variations on the above/edge cases)</li>
+<li>Post conditions (what the system will have done by the end of the steps). </li>
+</ul>
+</blockquote>
+<p><a href="http://www.boost.co.nz/blog/2012/01/use-cases-or-user-stories/" target="_blank" rel="external">resource</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Thought: use “user story” with acceptance criteria is a best practice in scrum process, no one use “use case”.</p>
+<h3 id="User_story">Us]]>
+    </summary>
+    
+      <category term="Use Case" scheme="http://strong689.github.com/tags/Use-Case/"/>
+    
+      <category term="User Story" scheme="http://strong689.github.com/tags/User-Story/"/>
+    
+      <category term="Thought" scheme="http://strong689.github.com/categories/Thought/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Thought in Software Engineering Process]]></title>
     <link href="http://strong689.github.com/2015/07/22/Thought-in-Software-Engineering-Process/"/>
     <id>http://strong689.github.com/2015/07/22/Thought-in-Software-Engineering-Process/</id>
     <published>2015-07-23T06:31:30.000Z</published>
-    <updated>2015-07-23T06:33:11.306Z</updated>
+    <updated>2015-07-23T06:36:31.438Z</updated>
     <content type="html"><![CDATA[<p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of tools make good cooperation, better communication, </p>
 <ul>
 <li>Infrastructure support: ESB, MQ, …</li>
@@ -42,9 +96,9 @@
     <![CDATA[<p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of]]>
     </summary>
     
-      <category term="Idea" scheme="http://strong689.github.com/tags/Idea/"/>
+      <category term="Communication" scheme="http://strong689.github.com/tags/Communication/"/>
     
-      <category term="Thought" scheme="http://strong689.github.com/tags/Thought/"/>
+      <category term="Software Engineering Process" scheme="http://strong689.github.com/tags/Software-Engineering-Process/"/>
     
   </entry>
   
