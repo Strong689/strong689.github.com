@@ -179,6 +179,90 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/22/Thought-in-Software-Engineering-Process/" itemprop="url">
+                Thought in Software Engineering Process
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-22T23:31:30-07:00" content="2015-07-22">
+            2015-07-22
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/22/Thought-in-Software-Engineering-Process/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/22/Thought-in-Software-Engineering-Process/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of tools make good cooperation, better communication, </p>
+<ul>
+<li>Infrastructure support: ESB, MQ, …</li>
+<li>projecct management, scheoudule, execution</li>
+<li>engineering process tool</li>
+<li>requirement specification: trace change</li>
+<li>design document</li>
+<li>IDE: VS Studio, sublime, webstorm, text editor,</li>
+<li>testing case</li>
+<li>software quality tools</li>
+<li>maintenanec - refactor, re-engineering</li>
+<li>Configurationn and deployment tools</li>
+<li>modern communication tool: email, live meeting, screen share,..</li>
+<li>prototying method </li>
+<li>agile/ scrum </li>
+</ul>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/22/Step-Into-mongo-shell/" itemprop="url">
                 Step Into mongo shell
               </a>
@@ -650,127 +734,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/19/Mongoosejs-II/" itemprop="url">
-                Step into Mongoosejs - step II
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-19T20:15:41-07:00" content="2015-07-19">
-            2015-07-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/Mongoosejs/" itemprop="url" rel="index"><span itemprop="name">Mongoosejs</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/19/Mongoosejs-II/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/19/Mongoosejs-II/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><strong>Mongoose</strong>: elegant <strong>MongoDB</strong> object modeling for node.js.</p>
-<h3 id="Data_Types">Data Types</h3><ul>
-<li>String, utf-8 encoded</li>
-<li>Number, MongoDB support long and double, but mongoosejs does not</li>
-<li>Boolean, true or false</li>
-<li>Date (ISODate object, expires, min, max )</li>
-<li>Buffer (.copy(target), .equals(other), .writer())</li>
-<li>ObjectId ( var id = new mongoose.Types.ObjectId;)</li>
-<li>Array ([] or schema; #$shift(), #remove(), .$pop(), .addToSet([args…]), .indexOf(obj), inspect(), .nonAtomicPush([args…]) , .pop(), .pull([args…]), .push([args…]), .set(), .shift(), .sort(), .splice(), .toObject(options), .unshift() )</li>
-<li>Mixed, (empty object {} or Schema.Types.Mixed )</li>
-<li>custom SchemaTypes</li>
-</ul>
-<h3 id="Schema">Schema</h3><p>Schema define data structure.</p>
-<blockquote>
-<p>define schema early, just after require mongoose<br>  easy to update schema even though data exit and no offline or down time</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//define account schema, any website need the account information, even if an anonymous account</span></span><br><span class="line"><span class="keyword">var</span> accountSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">	email: &#123;type: <span class="built_in">String</span>, unique: <span class="literal">true</span>&#125;,</span><br><span class="line">	password: <span class="built_in">String</span>,</span><br><span class="line">	name: <span class="built_in">String</span>,</span><br><span class="line">	createdOn: &#123;type: <span class="built_in">Date</span>, <span class="keyword">default</span>: <span class="built_in">Date</span>.now&#125;,</span><br><span class="line">	updatedOn: <span class="built_in">Date</span>,</span><br><span class="line">	lastLogin: <span class="built_in">Date</span>,</span><br><span class="line">	location: [],</span><br><span class="line">	...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="Model">Model</h3><ul>
-<li>Model is comiled version of Schema, Schema + Model = Class of OOP</li>
-<li>An instance of model maps to a document in a database of MongoDB</li>
-<li>Collection coorespond to table of RDBMS, </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//build Account model by default connection / class Account</span></span><br><span class="line">mongoose.model(<span class="string">'Account'</span>, accountSchema, <span class="string">'accounts'</span>);</span><br><span class="line"><span class="comment">// or by specific connection</span></span><br><span class="line"><span class="comment">//connection1.model('Account', accountSchema);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Instance, an instance of a model refers to a document </span></span><br><span class="line"><span class="keyword">var</span> myAccount = <span class="keyword">new</span> Account(&#123;</span><br><span class="line">    email: <span class="string">'myemailaddress@xxx.com'</span>,</span><br><span class="line">    password: <span class="string">'pwd'</span>,</span><br><span class="line">    name: <span class="string">'myName'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// or js code</span></span><br><span class="line">myAccount.name = <span class="string">'myNewName'</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>for code above, Model name is Account, Collection name is “accounts”.</p>
-</blockquote>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -810,7 +773,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -824,7 +787,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

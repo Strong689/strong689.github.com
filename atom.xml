@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-23T03:52:59.535Z</updated>
+  <updated>2015-07-23T06:33:11.306Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Thought in Software Engineering Process]]></title>
+    <link href="http://strong689.github.com/2015/07/22/Thought-in-Software-Engineering-Process/"/>
+    <id>http://strong689.github.com/2015/07/22/Thought-in-Software-Engineering-Process/</id>
+    <published>2015-07-23T06:31:30.000Z</published>
+    <updated>2015-07-23T06:33:11.306Z</updated>
+    <content type="html"><![CDATA[<p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of tools make good cooperation, better communication, </p>
+<ul>
+<li>Infrastructure support: ESB, MQ, …</li>
+<li>projecct management, scheoudule, execution</li>
+<li>engineering process tool</li>
+<li>requirement specification: trace change</li>
+<li>design document</li>
+<li>IDE: VS Studio, sublime, webstorm, text editor,</li>
+<li>testing case</li>
+<li>software quality tools</li>
+<li>maintenanec - refactor, re-engineering</li>
+<li>Configurationn and deployment tools</li>
+<li>modern communication tool: email, live meeting, screen share,..</li>
+<li>prototying method </li>
+<li>agile/ scrum </li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of]]>
+    </summary>
+    
+      <category term="Idea" scheme="http://strong689.github.com/tags/Idea/"/>
+    
+      <category term="Thought" scheme="http://strong689.github.com/tags/Thought/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Step Into mongo shell]]></title>
