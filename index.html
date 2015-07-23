@@ -179,6 +179,99 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/22/Step-Into-mongo-shell/" itemprop="url">
+                Step Into mongo shell
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-22T20:42:19-07:00" content="2015-07-22">
+            2015-07-22
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/mongo-shell/" itemprop="url" rel="index"><span itemprop="name">mongo shell</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/mongo-shell/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/22/Step-Into-mongo-shell/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/22/Step-Into-mongo-shell/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Tips: retrieve previous commands issued in shell with up or down arrow key (Windows something like, C:\Users\myaccount.dbshell)</p>
+<h3 id="Start_Shell">Start Shell</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//start shell without connection to a database</span><br><span class="line">mongo --nodb </span><br><span class="line"></span><br><span class="line">//execute js file</span><br><span class="line">mongo localhost:<span class="number">27017</span>/<span class="built_in">test</span>DB file.js</span><br><span class="line">//alternative use load  <span class="keyword">function</span> n the shell</span><br><span class="line">load(<span class="string">"file.js"</span>)  // execute js, file.js located on <span class="string">"data"</span> directory</span><br></pre></td></tr></table></figure>
+<h3 id="Basic_commands">Basic commands</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">use &lt;db_name&gt;				// switch current db to db_name</span><br><span class="line">show dbs / databases 		// list all databases on server</span><br><span class="line">show collections / tables   // list all tables on current db</span><br><span class="line">db or db.getName)			// show current db <span class="keyword">in</span> shell</span><br><span class="line">// </span><br><span class="line">show roles					// list all roles of current db</span><br><span class="line">show users					// list all users of current db</span><br><span class="line">show profile</span><br><span class="line">//how to get <span class="built_in">command</span> reference <span class="keyword">in</span> the shell</span><br><span class="line"><span class="built_in">help</span> or db.help() or db.collection.help()</span><br><span class="line"> </span><br><span class="line">//database can created automatically when saving data to MongoDB <span class="keyword">in</span> shell</span><br><span class="line">//Delete a database</span><br><span class="line">db.dropDatabase()		//drop current dtabase, delete all associated files </span><br><span class="line">//Delete a collection</span><br><span class="line">db.collection.drop()	//remove table and index</span><br><span class="line">//running <span class="keyword">in</span> secure mode</span><br><span class="line">db.auth()				//authenticate user</span><br><span class="line">// refer to another database using same connection</span><br><span class="line">db.getSiblingDB();		//without explicitly switch the current database</span><br></pre></td></tr></table></figure>
+<h3 id="CRUD_at_mongo_shell">CRUD at mongo shell</h3><h4 id="Overview">Overview</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">table = db.myCollection;	//table refer a specific collection</span><br><span class="line">table.find(); 				//<span class="built_in">return</span> a cursor</span><br><span class="line">table.findOne();			//<span class="built_in">return</span> a single document or null</span><br><span class="line">table.count();				//count of documents</span><br><span class="line">table.save();				//insert new or update existing document</span><br><span class="line">table.insert();				//insert new document</span><br><span class="line">table.update();				//update existing document</span><br><span class="line">table.remove();				//delete existing document</span><br><span class="line">//build index</span><br><span class="line">table.createIndex();</span><br></pre></td></tr></table></figure>
+<h4 id="Create&amp;Update">Create&amp;Update</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//Loop samples <span class="keyword">in</span> shell</span><br><span class="line">use my		//switch current db to my</span><br><span class="line"><span class="keyword">for</span>( var i=<span class="number">1</span>;i&lt;=<span class="number">200</span>;i++) db.my.save(&#123;tag:<span class="string">"number"</span>,val:i&#125;);</span><br><span class="line"><span class="keyword">for</span>( var i=<span class="number">201</span>;i&lt;=<span class="number">250</span>;i++) db.my.save(&#123;tag:i&#125;);</span><br><span class="line">//it <span class="built_in">command</span></span><br><span class="line">it			//iterate cursor</span><br><span class="line">//Loop to <span class="built_in">return</span> all </span><br><span class="line">var cursor = db.my.find();</span><br><span class="line">//method I</span><br><span class="line"><span class="keyword">while</span>( cursor.hasNext()) &#123;</span><br><span class="line">	printjson(cursor.next());	</span><br><span class="line">&#125;</span><br><span class="line">//method II</span><br><span class="line">cursor.forEach(printjson);</span><br><span class="line">//method III</span><br><span class="line">var myArray = db.my.find().toArray();</span><br><span class="line">printjson(myArray[<span class="number">2</span>]);</span><br><span class="line">//update</span><br><span class="line">db.my.update(&#123;val:<span class="number">6</span>&#125;,&#123;<span class="variable">$set</span>:&#123;tag:<span class="string">"NUMBER"</span>&#125;&#125;);</span><br><span class="line">// to very update</span><br><span class="line">db.my.find().limit(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="Query">Query</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//SQL: select tag, val from my <span class="built_in">where</span> tag = <span class="string">"number"</span></span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;).count();</span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>,tag:<span class="literal">true</span>&#125;).limit(<span class="number">16</span>);</span><br><span class="line">db.my.findOne(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>&#125;);</span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>,tag:<span class="literal">true</span>&#125;).forEach(printjson);</span><br><span class="line">//SQL: select * from my <span class="built_in">where</span> tag &gt; <span class="number">200</span></span><br><span class="line">db.my.find(&#123;tag:&#123;<span class="variable">$gt</span>:<span class="number">200</span>&#125;&#125;).forEach(printjson);</span><br></pre></td></tr></table></figure>
+<h4 id="Delete">Delete</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//remove() <span class="keyword">function</span></span><br><span class="line">db.my.remove(&#123;tag:<span class="string">"NUMBER"</span>&#125;);</span><br><span class="line">// to verify</span><br><span class="line">db.my.find().limit(<span class="number">20</span>);</span><br></pre></td></tr></table></figure></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/21/entrepreneur-comments/" itemprop="url">
                 Entrepreneur Comments
               </a>
@@ -678,134 +771,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/19/Mongoosejs-I/" itemprop="url">
-                Step into Mongoosejs - step I
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-19T17:00:55-07:00" content="2015-07-19">
-            2015-07-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/Mongoosejs/" itemprop="url" rel="index"><span itemprop="name">Mongoosejs</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/19/Mongoosejs-I/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/19/Mongoosejs-I/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><a href="http://mongoosejs.com" target="_blank" rel="external"><strong>Mongoose</strong></a><em>: elegant <em>*MongoDB</em></em> object modeling for node.js.</p>
-<h3 id="Installation">Installation</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> instll mongoose -g</span><br></pre></td></tr></table></figure>
-<h3 id="Connection_to_MongoDB">Connection to MongoDB</h3><p>best practice</p>
-<ul>
-<li>opening connection at application start</li>
-<li>a connection equals a database</li>
-<li>mongoose model reply on connection being defined</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// refer mongoos</span></span><br><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// open a connection to a specific server.db</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="string">"mongodb://locahost:27017/testDB"</span>;</span><br><span class="line">mongoose.connect(connectionString);  <span class="comment">//default connection</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> connection1 = mongoose.coFateConnection</span><br><span class="line"><span class="keyword">var</span> connectionString2 = <span class="string">"mongodb://locahost:27017/DB2"</span>;</span><br><span class="line"><span class="keyword">var</span> connection2 = mongoose.createConnection(connectionString2);</span><br></pre></td></tr></table></figure>
-<p>Format of connection string / Simple options of connection<br>  Format: mongodb://username:password@domain:port/db  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON objects, Options definition</span></span><br><span class="line"><span class="keyword">var</span> connectionOptions = &#123;</span><br><span class="line">	<span class="string">'username'</span>: <span class="string">"db user name"</span>,</span><br><span class="line">	<span class="string">'password'</span>: <span class="string">"db pwd"</span></span><br><span class="line">&#125;;</span><br><span class="line">mongoose.connect(connectionString,connectionOptions);</span><br></pre></td></tr></table></figure>
-<h3 id="Close_connection">Close connection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// to close default connection</span></span><br><span class="line">mongoose.connection.close(callback); </span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Mongoose\'s connection is closed!'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//alternative way to close</span></span><br><span class="line">connection1.close(callback);</span><br><span class="line">connection2.close(callback);</span><br></pre></td></tr></table></figure>
-<h3 id="Events_of_Connection">Events of Connection</h3><p>a bunch of events list</p>
-<ul>
-<li>connecting</li>
-<li>connected</li>
-<li>open</li>
-<li>disconnecting</li>
-<li>disconnected</li>
-<li>close</li>
-<li>reconnected</li>
-<li>error</li>
-<li>fullsetup</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// how to catch events</span></span><br><span class="line">connection1.on(<span class="string">'error'</span>,callback);</span><br><span class="line"><span class="keyword">var</span> callback = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'[EventName]Error occur!!'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="Method_of_connection">Method of connection</h3><ul>
-<li>open(connection_string, [database], [port], [options], [callback])</li>
-<li>openSet(uris, [database], [options], [callback]), to open the connection to a replica set</li>
-<li>close([callback])</li>
-<li>collection(name, [options]), to retrieve a collection(create it if not cached)</li>
-<li>model(name, [schema], [collection]), to define or retrieve a model</li>
-<li>modelNames(), return an array of model names created on this connection</li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -845,21 +810,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
