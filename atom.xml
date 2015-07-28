@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-28T06:16:57.138Z</updated>
+  <updated>2015-07-28T06:18:50.054Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://strong689.github.com/2015/07/27/Step-Into-Write-Concern-of-MongoDB/"/>
     <id>http://strong689.github.com/2015/07/27/Step-Into-Write-Concern-of-MongoDB/</id>
     <published>2015-07-28T05:22:09.000Z</published>
-    <updated>2015-07-28T06:16:57.138Z</updated>
+    <updated>2015-07-28T06:18:50.054Z</updated>
     <content type="html"><![CDATA[<p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert, udpate and delete.<br>A weak write concern: write operations return quickly, but data maybe not persist well(including replica set).<br>A strong write concern: clients wait after mongodb confirm the write operation suncessful.</p>
 <h3 id="Levels">Levels</h3><p>listed from weakest to strongest</p>
 <ul>
@@ -57,9 +57,13 @@
     <![CDATA[<p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert]]>
     </summary>
     
-      <category term="-Step Into -MongoDB" scheme="http://strong689.github.com/tags/Step-Into-MongoDB/"/>
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
     
-      <category term="-Step Into -MongoDB" scheme="http://strong689.github.com/categories/Step-Into-MongoDB/"/>
+      <category term="Step Into" scheme="http://strong689.github.com/tags/Step-Into/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/Step-Into/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/Step-Into/MongoDB/"/>
     
   </entry>
   
