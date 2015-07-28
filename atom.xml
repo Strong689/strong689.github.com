@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-23T07:03:56.784Z</updated>
+  <updated>2015-07-28T06:16:57.138Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -16,11 +16,242 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Step Into Write Concern of MongoDB]]></title>
+    <link href="http://strong689.github.com/2015/07/27/Step-Into-Write-Concern-of-MongoDB/"/>
+    <id>http://strong689.github.com/2015/07/27/Step-Into-Write-Concern-of-MongoDB/</id>
+    <published>2015-07-28T05:22:09.000Z</published>
+    <updated>2015-07-28T06:16:57.138Z</updated>
+    <content type="html"><![CDATA[<p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert, udpate and delete.<br>A weak write concern: write operations return quickly, but data maybe not persist well(including replica set).<br>A strong write concern: clients wait after mongodb confirm the write operation suncessful.</p>
+<h3 id="Levels">Levels</h3><p>listed from weakest to strongest</p>
+<ul>
+<li><p>Unacknowledged {W:0}</p>
+<blockquote>
+<p>similar to errors ignored</p>
+</blockquote>
+</li>
+<li><p>Acknowledged {W:1}<br>used in writing unimportant data, e.g. some operation log, user’s behavior(click, time staying in one page)</p>
+<blockquote>
+<p>default write concern<br>the mongod confirms that it received the write operation and applied the change to the in-memory view of data<br>allows clients to catch network, duplicate key, and other errors<br>does not confirm that the write operation has persisted to the disk system  </p>
+</blockquote>
+</li>
+<li><p>Journaled {w:1,j:true}<br>used in writing key, business data, e.g. order, account </p>
+<blockquote>
+<p>committing the data to the journal(journaling enabled first)<br>ensures that MongoDB can recover the data following a shutdown or power interruption  </p>
+</blockquote>
+</li>
+<li><p>Replica Acknowledged {w:2}</p>
+<blockquote>
+<p>guarantee write sucessfully to one Replica Set beside the primary</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Timeouts">Timeouts</h3><ul>
+<li>set at client side</li>
+<li>wtimeout: in milliseconds</li>
+<li>wtimeout causes write operations to return with an error after the specified limit, even if the required write concern will eventually succeed</li>
+<li>MongoDB does not “rollback” or undo modifications made before the wtimeout interval expired</li>
+</ul>
+<h3 id="getLastError()">getLastError()</h3><p>Driver implicitly and immediately call this method after one write operation<br>depending on level of Write Corcern</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//after insert(), implicitly call db.getLastError(); if capturing error, assign it to err of callback function.</span></span><br><span class="line"><span class="comment">// when w:-1, err is always null</span></span><br><span class="line"><span class="comment">// when w:0, except network error, normally no other error can be captured</span></span><br><span class="line"><span class="comment">// when w:1, return error from mongod to err parameter</span></span><br><span class="line">db.collection(<span class="string">"test"</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">    collection.insert(&#123;		</span><br><span class="line">        name: <span class="string">"world peace"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">        assert.equal(<span class="literal">null</span>, err);</span><br><span class="line">        <span class="built_in">console</span>.log(result);</span><br><span class="line">        db.close();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert]]>
+    </summary>
+    
+      <category term="-Step Into -MongoDB" scheme="http://strong689.github.com/tags/Step-Into-MongoDB/"/>
+    
+      <category term="-Step Into -MongoDB" scheme="http://strong689.github.com/categories/Step-Into-MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step Into MongoDB Query Operators]]></title>
+    <link href="http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/"/>
+    <id>http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/</id>
+    <published>2015-07-27T03:50:27.000Z</published>
+    <updated>2015-07-28T05:23:04.791Z</updated>
+    <content type="html"><![CDATA[<h2 id="Comparison_Operator">Comparison Operator</h2><table>
+<thead>
+<tr>
+<th>Operator</th>
+<th style="text-align:center">JavaScript</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">js Example</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$eq</td>
+<td style="text-align:center">==</td>
+<td style="text-align:center">{field:{$eq:value}}</td>
+<td style="text-align:center">a == b</td>
+<td style="text-align:center">equal to a specified value(js: === )</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">{field:{$gt:value}}</td>
+<td style="text-align:center">a &gt; b</td>
+<td style="text-align:center">greater than</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">{field:{$gte:value}}</td>
+<td style="text-align:center">a &gt;= b</td>
+<td style="text-align:center">greater than or equal to</td>
+</tr>
+<tr>
+<td>$lt</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">{field:{$lt:value}}</td>
+<td style="text-align:center">a &lt; b</td>
+<td style="text-align:center">less than</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">{field:{$lte:value}}</td>
+<td style="text-align:center">a &lt;= b</td>
+<td style="text-align:center">less than or equal to</td>
+</tr>
+<tr>
+<td>$ne</td>
+<td style="text-align:center">!=</td>
+<td style="text-align:center">{field:{$ne:value}}</td>
+<td style="text-align:center">a != b</td>
+<td style="text-align:center">not equal to</td>
+</tr>
+<tr>
+<td>$in</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{field:{$in:[<value1>, … <valuen>]}}</valuen></value1></td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Matches any of the values specified in an array</td>
+</tr>
+<tr>
+<td>$nin</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{field:{$nin:[<value1>, … <valuen>]}}</valuen></value1></td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Matches none of the values specified in an array</td>
+</tr>
+</tbody>
+</table>
+<p>Examples<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">return</span> all account documents with name <span class="string">"Strong"</span></span><br><span class="line">db.account.find(&#123;name:&#123;<span class="variable">$eq</span>:<span class="string">"Strong"</span>&#125;&#125;); </span><br><span class="line">//ruturn all accounts whose age are less than <span class="number">18</span></span><br><span class="line">db.account.find(&#123;age:&#123;<span class="variable">$lte</span>:<span class="number">18</span>&#125;&#125;);		</span><br><span class="line">//Return all documents <span class="keyword">in</span> the inventory collection <span class="built_in">where</span> the quantity does not equal <span class="number">5</span> nor <span class="number">15</span></span><br><span class="line">db.inventory.find(&#123;quantity:&#123;<span class="variable">$nin</span>:[<span class="number">5</span>, <span class="number">15</span>]&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Logical_Operator">Logical Operator</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">JavaScript</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">js Example</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$and</td>
+<td style="text-align:center">&amp;&amp;</td>
+<td style="text-align:center">{$and:[{},…{expressionN}]}</td>
+<td style="text-align:center">x &lt; a &amp;&amp; x &gt; b</td>
+<td style="text-align:center">and, match the conditions of both clauses</td>
+</tr>
+<tr>
+<td style="text-align:center">$or</td>
+<td style="text-align:center">OR</td>
+<td style="text-align:center">{$or:[{},…{expressionN}]}</td>
+<td style="text-align:center">x &lt; a OR x &gt; b</td>
+<td style="text-align:center">or, match the conditions of either clause</td>
+</tr>
+<tr>
+<td style="text-align:center">$not</td>
+<td style="text-align:center">!</td>
+<td style="text-align:center">{$not:[{},…{expressionN}]}</td>
+<td style="text-align:center">!(x == y)</td>
+<td style="text-align:center">not, do not match the query expression</td>
+</tr>
+<tr>
+<td style="text-align:center">$nor</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{$nor:[{},…{expressionN}]}</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Joins query clauses with a logical NOR returns all documents that fail to match both clauses</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE: OR stands for || for js opeator above.</p>
+<h3 id="$and_example">$and example</h3><p>$and performs a logical AND operation on an array of two or more expressions and selects the documents that satisfy all the expressions in the array<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//AND query with multiple expressions </span><br><span class="line">db.inventory.find(&#123;<span class="variable">$and</span>:[&#123;price:&#123;<span class="variable">$ne</span>:<span class="number">1.99</span>&#125;&#125;,&#123;price:&#123;<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;]&#125;);</span><br><span class="line">//implicit AND operation</span><br><span class="line">db.inventory.find(&#123;price:&#123;<span class="variable">$ne</span>:<span class="number">1.99</span>,<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>This query will select all documents in the inventory collection where:  </p>
+<ul>
+<li>the price field value is not equal to 1.99 <strong>and</strong></li>
+<li>the price field exists.</li>
+</ul>
+<h3 id="$nor_example">$nor example</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//query with two expressions</span><br><span class="line">db.inventory.find(&#123;<span class="variable">$nor</span>:[&#123;price:<span class="number">19.99</span>&#125;,&#123;isSale:<span class="literal">true</span>&#125;]&#125;);</span><br></pre></td></tr></table></figure>
+<p>This query will return all documents that:</p>
+<ul>
+<li>contain the <strong>price</strong> field whose value is not equal to 19.99 and contain the <strong>isSale</strong> field whose value is not equal to true <strong>or</strong></li>
+<li>contain the <strong>price</strong> field whose value is not equal to 19.99 but do not contain the <strong>isSale</strong> field <strong>or</strong></li>
+<li>do not contain the <strong>price</strong> field but contain the <strong>isSale</strong> field whose value is not equal to true <strong>or</strong></li>
+<li>do not contain the <strong>price</strong> field and do not contain the <strong>isSale</strong> field</li>
+</ul>
+<h2 id="Field_Check_Operator">Field Check Operator</h2><h3 id="$exists">$exists</h3><p>Matches documents that have the specified field, {field: {$exists:boolean value}}  .<br>When boolean value is true, $exists matches the documents that contain the field, including documents where the field value is null. If boolean value is false, the query returns only the documents that do not contain the field.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.find(&#123;quanity:&#123;<span class="variable">$exists</span>:<span class="literal">true</span>, <span class="variable">$nin</span> : [<span class="number">5</span>,<span class="number">15</span>] &#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="$type">$type</h3><p>$type selects the documents where the value of the field is an instance of the specified numeric BSON type.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123;field:&#123;<span class="variable">$type</span>:n&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>NOTE: </p>
+<blockquote>
+<p>n stands for numeric BSON type<br>  1 for Double<br>  2 for String<br>  3 Object<br>  4 Array<br>  7 ObjectId<br>  8 Boolean<br>  9 Date<br>  10 Null<br>  11 Regular Expression<br>  13 JavaScript<br>  15 js with scope<br>  16 32 bit integer<br>  17 timestamp<br>  18 64 bit integer<br>  255 Min key(but query with -1)<br>  127 Max key</p>
+</blockquote>
+<h2 id="Operator_for_Array">Operator for Array</h2><h3 id="$all">$all</h3><p>Match arrays that contain all elements specified in the query<br>Like SQL’s in operator, the difference is that $all must match all values within [], but in can only match any one value within ().<br>{field:{$all:[value1, … valueN]}}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// </span><br><span class="line">db.accounts.find(&#123;age : &#123;<span class="variable">$all</span> : [<span class="number">16</span>, <span class="number">17</span>]&#125;&#125;);</span><br><span class="line">// &#123;name: <span class="string">'Jobs'</span>, age: <span class="number">26</span>, age: [ <span class="number">16</span>, <span class="number">18</span>, <span class="number">19</span> ] &#125; : can<span class="string">'t match</span><br><span class="line">// &#123;name: '</span>Bill<span class="string">', age: 26, age: [ 16, 17, 19 ] &#125; : match</span><br><span class="line">	</span><br><span class="line">###elemMatch</span><br><span class="line">The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.</span><br><span class="line">&gt; Format: &#123; &lt;field&gt;: &#123; $elemMatch: &#123; &lt;q1&gt;, &lt;q2&gt;, ... &#125; &#125; &#125;</span><br><span class="line">  It does not need touse $elemMatch operator for single query condition </span><br><span class="line"></span><br><span class="line">````bash</span><br><span class="line">//collection scores</span><br><span class="line">&#123; _id: 1, results: [ 82, 85, 88 ] &#125;</span><br><span class="line">&#123; _id: 2, results: [ 75, 88, 89 ] &#125;</span><br><span class="line">// match element </span><br><span class="line">db.scores.find( &#123; results: &#123; $elemMatch: &#123; $gte: 80, $lt: 85 &#125; &#125; &#125; )</span><br><span class="line"></span><br><span class="line">//collection survey</span><br><span class="line">&#123; _id: 1, results: [ &#123; product: "abc", score: 10 &#125;, &#123; product: "xyz", score: 5 &#125; ] &#125;</span><br><span class="line">&#123; _id: 2, results: [ &#123; product: "abc", score: 8 &#125;, &#123; product: "xyz", score: 7 &#125; ] &#125;</span><br><span class="line">&#123; _id: 3, results: [ &#123; product: "abc", score: 7 &#125;, &#123; product: "xyz", score: 8 &#125; ] &#125;</span><br><span class="line">//match embeded documents</span><br><span class="line">db.survey.find(&#123;results:&#123;$elemMatch:&#123;product:"xyz", score:&#123;$gte:8&#125;&#125;&#125;&#125;);</span></span><br></pre></td></tr></table></figure>
+<h3 id="$size">$size</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">return</span> all documents <span class="keyword">in</span> collection <span class="built_in">where</span> **field** is an array with N elements</span><br><span class="line">db.collection.find(&#123;field:&#123;<span class="variable">$size</span>:<span class="number">2</span>&#125;&#125;);</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="comment">##More on query</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Null</span></span><br><span class="line">understand it by a sample **employee** collection</span><br><span class="line">&gt; &#123; <span class="string">"_id"</span> : <span class="number">1</span>, <span class="string">"name"</span> : <span class="string">"Strong"</span>, <span class="string">"age"</span> : null &#125;  // age is a NULL value</span><br><span class="line">  &#123; <span class="string">"_id"</span> : <span class="number">2</span>, <span class="string">"name"</span> : <span class="string">"Jacky"</span>, <span class="string">"age"</span> : <span class="number">33</span> &#125;</span><br><span class="line">  &#123; <span class="string">"_id"</span> : <span class="number">3</span>, <span class="string">"name"</span> : <span class="string">"Garry"</span>, <span class="string">"addr"</span> : <span class="number">38</span> &#125;	 // no age field</span><br><span class="line"></span><br><span class="line">````bash</span><br><span class="line">db.employee.find(&#123;age:null&#125;);  // <span class="built_in">return</span> Garry &amp; Strong</span><br><span class="line">// only <span class="built_in">return</span> Strong</span><br><span class="line">db.employee.find(&#123;age:&#123;<span class="variable">$in</span>:null,<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="$where">$where</h3><p>$where provides flexibility<br>use the $where operator to pass either a string containing a JavaScript expression or a full JavaScript function to the query system<br>cannot take advantage of indexes  </p>
+<blockquote>
+<p>different expression, same result<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find(&#123;age:&#123;$gt:<span class="number">35</span>&#125;&#125;);</span><br><span class="line"><span class="comment">//Reference the document in the JavaScript expression or function using either **this** or **obj**</span></span><br><span class="line">db.employee.find(&#123;$where:<span class="string">"this.age &gt; 35"</span>&#125;); </span><br><span class="line">db.employee.find(<span class="string">"this.age&gt;35"</span>);</span><br><span class="line"></span><br><span class="line">fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.age &gt; <span class="number">35</span>&#125;;</span><br><span class="line">db.employee.find(fn);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="sort">sort</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find().sort(&#123;age:<span class="number">1</span>&#125;);  <span class="comment">//ascending sequence by age,  yourger first</span></span><br><span class="line">db.employee.find().sor(&#123;age:-<span class="number">1</span>&#125;);  <span class="comment">//descending order by age, older first</span></span><br></pre></td></tr></table></figure>
+<h3 id="skip_&amp;_limit">skip &amp; limit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find().skip(<span class="number">10</span>).limit(<span class="number">20</span>); // <span class="built_in">return</span> <span class="number">20</span> records from the tenth record</span><br></pre></td></tr></table></figure>
+<h3 id="$mod">$mod</h3><blockquote>
+<p>Format: { field: { $mod: [ divisor, remainder ] } }</p>
+</blockquote>
+<h3 id="$regex">$regex</h3><p>regular expression</p>
+<blockquote>
+<p>Syntax:<br>  { <field>: { $regex: /pattern/, $options: ‘<options>‘ } }<br>  { <field>: { $regex: ‘pattern’, $options: ‘<options>‘ } }<br>  { <field>: { $regex: /pattern/<options> } }</options></field></options></field></options></field></p>
+</blockquote>
+<p><strong>need more steps</strong></p>
+<h3 id="$text">$text</h3><p>$text performs a text search on the content of the fields indexed with a text index. </p>
+<blockquote>
+<p>Syntax:  { $text: { $search: <string>, $language: <string> } }</string></string></p>
+</blockquote>
+<p><strong>need more steps</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Comparison_Operator">Comparison Operator</h2><table>
+<thead>
+<tr>
+<th>Operator</th>
+<th style="text-align:center">JavaScript</th>
+<t]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="Query Operator" scheme="http://strong689.github.com/tags/Query-Operator/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/tags/Step-Into/"/>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/categories/MongoDB/"/>
+    
+      <category term="Step Into" scheme="http://strong689.github.com/categories/MongoDB/Step-Into/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[User Story vs Use Case]]></title>
     <link href="http://strong689.github.com/2015/07/22/User-Story-vs-Use-Case/"/>
     <id>http://strong689.github.com/2015/07/22/User-Story-vs-Use-Case/</id>
     <published>2015-07-23T06:35:08.000Z</published>
-    <updated>2015-07-23T07:03:56.784Z</updated>
+    <updated>2015-07-23T07:05:57.830Z</updated>
     <content type="html"><![CDATA[<p>Thought: use “user story” with acceptance criteria is a best practice in scrum process, no one use “use case”.</p>
 <h3 id="User_story">User story</h3><p><strong>lightweight</strong>  </p>
 <blockquote>
@@ -66,6 +297,10 @@
       <category term="User Story" scheme="http://strong689.github.com/tags/User-Story/"/>
     
       <category term="Thought" scheme="http://strong689.github.com/categories/Thought/"/>
+    
+      <category term="Scrum" scheme="http://strong689.github.com/categories/Thought/Scrum/"/>
+    
+      <category term="Agile" scheme="http://strong689.github.com/categories/Thought/Scrum/Agile/"/>
     
   </entry>
   

@@ -1,0 +1,876 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+
+
+  <meta name="keywords" content="MongoDB,Query Operator,Step Into," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Step by Step, Learning by Doing" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="Comparison Operator
+
+
+Operator
+JavaScript
+Example
+js Example
+Description
+
+
+
+
+$eq
+==
+{field:{$eq:value}}
+a == b
+equal to a specified value(js: === )
+
+
+$gt
+&amp;gt;
+{field:{$gt:value}}
+a &amp;gt; b
+greater than">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Step Into MongoDB Query Operators">
+<meta property="og:url" content="http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/index.html">
+<meta property="og:site_name" content="Step by Step, Learning by Doing">
+<meta property="og:description" content="Comparison Operator
+
+
+Operator
+JavaScript
+Example
+js Example
+Description
+
+
+
+
+$eq
+==
+{field:{$eq:value}}
+a == b
+equal to a specified value(js: === )
+
+
+$gt
+&amp;gt;
+{field:{$gt:value}}
+a &amp;gt; b
+greater than">
+<meta property="og:updated_time" content="2015-07-28T05:23:04.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Step Into MongoDB Query Operators">
+<meta name="twitter:description" content="Comparison Operator
+
+
+Operator
+JavaScript
+Example
+js Example
+Description
+
+
+
+
+$eq
+==
+{field:{$eq:value}}
+a == b
+equal to a specified value(js: === )
+
+
+$gt
+&amp;gt;
+{field:{$gt:value}}
+a &amp;gt; b
+greater than">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+    <title> Step Into MongoDB Query Operators // Step by Step, Learning by Doing </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-2589386-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">Step by Step, Learning by Doing</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Step Into MongoDB Query Operators
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-26T20:50:27-07:00" content="2015-07-26">
+            2015-07-26
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/MongoDB/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/26/Step-Into-MongoDB-Query-Operators/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/26/Step-Into-MongoDB-Query-Operators/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="Comparison_Operator">Comparison Operator</h2><table>
+<thead>
+<tr>
+<th>Operator</th>
+<th style="text-align:center">JavaScript</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">js Example</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$eq</td>
+<td style="text-align:center">==</td>
+<td style="text-align:center">{field:{$eq:value}}</td>
+<td style="text-align:center">a == b</td>
+<td style="text-align:center">equal to a specified value(js: === )</td>
+</tr>
+<tr>
+<td>$gt</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">{field:{$gt:value}}</td>
+<td style="text-align:center">a &gt; b</td>
+<td style="text-align:center">greater than</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">{field:{$gte:value}}</td>
+<td style="text-align:center">a &gt;= b</td>
+<td style="text-align:center">greater than or equal to</td>
+</tr>
+<tr>
+<td>$lt</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">{field:{$lt:value}}</td>
+<td style="text-align:center">a &lt; b</td>
+<td style="text-align:center">less than</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:center">{field:{$lte:value}}</td>
+<td style="text-align:center">a &lt;= b</td>
+<td style="text-align:center">less than or equal to</td>
+</tr>
+<tr>
+<td>$ne</td>
+<td style="text-align:center">!=</td>
+<td style="text-align:center">{field:{$ne:value}}</td>
+<td style="text-align:center">a != b</td>
+<td style="text-align:center">not equal to</td>
+</tr>
+<tr>
+<td>$in</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{field:{$in:[<value1>, … <valuen>]}}</valuen></value1></td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Matches any of the values specified in an array</td>
+</tr>
+<tr>
+<td>$nin</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{field:{$nin:[<value1>, … <valuen>]}}</valuen></value1></td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Matches none of the values specified in an array</td>
+</tr>
+</tbody>
+</table>
+<p>Examples<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">return</span> all account documents with name <span class="string">"Strong"</span></span><br><span class="line">db.account.find(&#123;name:&#123;<span class="variable">$eq</span>:<span class="string">"Strong"</span>&#125;&#125;); </span><br><span class="line">//ruturn all accounts whose age are less than <span class="number">18</span></span><br><span class="line">db.account.find(&#123;age:&#123;<span class="variable">$lte</span>:<span class="number">18</span>&#125;&#125;);		</span><br><span class="line">//Return all documents <span class="keyword">in</span> the inventory collection <span class="built_in">where</span> the quantity does not equal <span class="number">5</span> nor <span class="number">15</span></span><br><span class="line">db.inventory.find(&#123;quantity:&#123;<span class="variable">$nin</span>:[<span class="number">5</span>, <span class="number">15</span>]&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Logical_Operator">Logical Operator</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">JavaScript</th>
+<th style="text-align:center">Example</th>
+<th style="text-align:center">js Example</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$and</td>
+<td style="text-align:center">&amp;&amp;</td>
+<td style="text-align:center">{$and:[{},…{expressionN}]}</td>
+<td style="text-align:center">x &lt; a &amp;&amp; x &gt; b</td>
+<td style="text-align:center">and, match the conditions of both clauses</td>
+</tr>
+<tr>
+<td style="text-align:center">$or</td>
+<td style="text-align:center">OR</td>
+<td style="text-align:center">{$or:[{},…{expressionN}]}</td>
+<td style="text-align:center">x &lt; a OR x &gt; b</td>
+<td style="text-align:center">or, match the conditions of either clause</td>
+</tr>
+<tr>
+<td style="text-align:center">$not</td>
+<td style="text-align:center">!</td>
+<td style="text-align:center">{$not:[{},…{expressionN}]}</td>
+<td style="text-align:center">!(x == y)</td>
+<td style="text-align:center">not, do not match the query expression</td>
+</tr>
+<tr>
+<td style="text-align:center">$nor</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">{$nor:[{},…{expressionN}]}</td>
+<td style="text-align:center">n/a</td>
+<td style="text-align:center">Joins query clauses with a logical NOR returns all documents that fail to match both clauses</td>
+</tr>
+</tbody>
+</table>
+<p>NOTE: OR stands for || for js opeator above.</p>
+<h3 id="$and_example">$and example</h3><p>$and performs a logical AND operation on an array of two or more expressions and selects the documents that satisfy all the expressions in the array<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//AND query with multiple expressions </span><br><span class="line">db.inventory.find(&#123;<span class="variable">$and</span>:[&#123;price:&#123;<span class="variable">$ne</span>:<span class="number">1.99</span>&#125;&#125;,&#123;price:&#123;<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;]&#125;);</span><br><span class="line">//implicit AND operation</span><br><span class="line">db.inventory.find(&#123;price:&#123;<span class="variable">$ne</span>:<span class="number">1.99</span>,<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>This query will select all documents in the inventory collection where:  </p>
+<ul>
+<li>the price field value is not equal to 1.99 <strong>and</strong></li>
+<li>the price field exists.</li>
+</ul>
+<h3 id="$nor_example">$nor example</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//query with two expressions</span><br><span class="line">db.inventory.find(&#123;<span class="variable">$nor</span>:[&#123;price:<span class="number">19.99</span>&#125;,&#123;isSale:<span class="literal">true</span>&#125;]&#125;);</span><br></pre></td></tr></table></figure>
+<p>This query will return all documents that:</p>
+<ul>
+<li>contain the <strong>price</strong> field whose value is not equal to 19.99 and contain the <strong>isSale</strong> field whose value is not equal to true <strong>or</strong></li>
+<li>contain the <strong>price</strong> field whose value is not equal to 19.99 but do not contain the <strong>isSale</strong> field <strong>or</strong></li>
+<li>do not contain the <strong>price</strong> field but contain the <strong>isSale</strong> field whose value is not equal to true <strong>or</strong></li>
+<li>do not contain the <strong>price</strong> field and do not contain the <strong>isSale</strong> field</li>
+</ul>
+<h2 id="Field_Check_Operator">Field Check Operator</h2><h3 id="$exists">$exists</h3><p>Matches documents that have the specified field, {field: {$exists:boolean value}}  .<br>When boolean value is true, $exists matches the documents that contain the field, including documents where the field value is null. If boolean value is false, the query returns only the documents that do not contain the field.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.inventory.find(&#123;quanity:&#123;<span class="variable">$exists</span>:<span class="literal">true</span>, <span class="variable">$nin</span> : [<span class="number">5</span>,<span class="number">15</span>] &#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="$type">$type</h3><p>$type selects the documents where the value of the field is an instance of the specified numeric BSON type.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find(&#123;field:&#123;<span class="variable">$type</span>:n&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>NOTE: </p>
+<blockquote>
+<p>n stands for numeric BSON type<br>  1 for Double<br>  2 for String<br>  3 Object<br>  4 Array<br>  7 ObjectId<br>  8 Boolean<br>  9 Date<br>  10 Null<br>  11 Regular Expression<br>  13 JavaScript<br>  15 js with scope<br>  16 32 bit integer<br>  17 timestamp<br>  18 64 bit integer<br>  255 Min key(but query with -1)<br>  127 Max key</p>
+</blockquote>
+<h2 id="Operator_for_Array">Operator for Array</h2><h3 id="$all">$all</h3><p>Match arrays that contain all elements specified in the query<br>Like SQL’s in operator, the difference is that $all must match all values within [], but in can only match any one value within ().<br>{field:{$all:[value1, … valueN]}}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// </span><br><span class="line">db.accounts.find(&#123;age : &#123;<span class="variable">$all</span> : [<span class="number">16</span>, <span class="number">17</span>]&#125;&#125;);</span><br><span class="line">// &#123;name: <span class="string">'Jobs'</span>, age: <span class="number">26</span>, age: [ <span class="number">16</span>, <span class="number">18</span>, <span class="number">19</span> ] &#125; : can<span class="string">'t match</span><br><span class="line">// &#123;name: '</span>Bill<span class="string">', age: 26, age: [ 16, 17, 19 ] &#125; : match</span><br><span class="line">	</span><br><span class="line">###elemMatch</span><br><span class="line">The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.</span><br><span class="line">&gt; Format: &#123; &lt;field&gt;: &#123; $elemMatch: &#123; &lt;q1&gt;, &lt;q2&gt;, ... &#125; &#125; &#125;</span><br><span class="line">  It does not need touse $elemMatch operator for single query condition </span><br><span class="line"></span><br><span class="line">````bash</span><br><span class="line">//collection scores</span><br><span class="line">&#123; _id: 1, results: [ 82, 85, 88 ] &#125;</span><br><span class="line">&#123; _id: 2, results: [ 75, 88, 89 ] &#125;</span><br><span class="line">// match element </span><br><span class="line">db.scores.find( &#123; results: &#123; $elemMatch: &#123; $gte: 80, $lt: 85 &#125; &#125; &#125; )</span><br><span class="line"></span><br><span class="line">//collection survey</span><br><span class="line">&#123; _id: 1, results: [ &#123; product: "abc", score: 10 &#125;, &#123; product: "xyz", score: 5 &#125; ] &#125;</span><br><span class="line">&#123; _id: 2, results: [ &#123; product: "abc", score: 8 &#125;, &#123; product: "xyz", score: 7 &#125; ] &#125;</span><br><span class="line">&#123; _id: 3, results: [ &#123; product: "abc", score: 7 &#125;, &#123; product: "xyz", score: 8 &#125; ] &#125;</span><br><span class="line">//match embeded documents</span><br><span class="line">db.survey.find(&#123;results:&#123;$elemMatch:&#123;product:"xyz", score:&#123;$gte:8&#125;&#125;&#125;&#125;);</span></span><br></pre></td></tr></table></figure>
+<h3 id="$size">$size</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//<span class="built_in">return</span> all documents <span class="keyword">in</span> collection <span class="built_in">where</span> **field** is an array with N elements</span><br><span class="line">db.collection.find(&#123;field:&#123;<span class="variable">$size</span>:<span class="number">2</span>&#125;&#125;);</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"><span class="comment">##More on query</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###Null</span></span><br><span class="line">understand it by a sample **employee** collection</span><br><span class="line">&gt; &#123; <span class="string">"_id"</span> : <span class="number">1</span>, <span class="string">"name"</span> : <span class="string">"Strong"</span>, <span class="string">"age"</span> : null &#125;  // age is a NULL value</span><br><span class="line">  &#123; <span class="string">"_id"</span> : <span class="number">2</span>, <span class="string">"name"</span> : <span class="string">"Jacky"</span>, <span class="string">"age"</span> : <span class="number">33</span> &#125;</span><br><span class="line">  &#123; <span class="string">"_id"</span> : <span class="number">3</span>, <span class="string">"name"</span> : <span class="string">"Garry"</span>, <span class="string">"addr"</span> : <span class="number">38</span> &#125;	 // no age field</span><br><span class="line"></span><br><span class="line">````bash</span><br><span class="line">db.employee.find(&#123;age:null&#125;);  // <span class="built_in">return</span> Garry &amp; Strong</span><br><span class="line">// only <span class="built_in">return</span> Strong</span><br><span class="line">db.employee.find(&#123;age:&#123;<span class="variable">$in</span>:null,<span class="variable">$exists</span>:<span class="literal">true</span>&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="$where">$where</h3><p>$where provides flexibility<br>use the $where operator to pass either a string containing a JavaScript expression or a full JavaScript function to the query system<br>cannot take advantage of indexes  </p>
+<blockquote>
+<p>different expression, same result<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find(&#123;age:&#123;$gt:<span class="number">35</span>&#125;&#125;);</span><br><span class="line"><span class="comment">//Reference the document in the JavaScript expression or function using either **this** or **obj**</span></span><br><span class="line">db.employee.find(&#123;$where:<span class="string">"this.age &gt; 35"</span>&#125;); </span><br><span class="line">db.employee.find(<span class="string">"this.age&gt;35"</span>);</span><br><span class="line"></span><br><span class="line">fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="keyword">return</span> <span class="keyword">this</span>.age &gt; <span class="number">35</span>&#125;;</span><br><span class="line">db.employee.find(fn);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="sort">sort</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find().sort(&#123;age:<span class="number">1</span>&#125;);  <span class="comment">//ascending sequence by age,  yourger first</span></span><br><span class="line">db.employee.find().sor(&#123;age:-<span class="number">1</span>&#125;);  <span class="comment">//descending order by age, older first</span></span><br></pre></td></tr></table></figure>
+<h3 id="skip_&amp;_limit">skip &amp; limit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.employee.find().skip(<span class="number">10</span>).limit(<span class="number">20</span>); // <span class="built_in">return</span> <span class="number">20</span> records from the tenth record</span><br></pre></td></tr></table></figure>
+<h3 id="$mod">$mod</h3><blockquote>
+<p>Format: { field: { $mod: [ divisor, remainder ] } }</p>
+</blockquote>
+<h3 id="$regex">$regex</h3><p>regular expression</p>
+<blockquote>
+<p>Syntax:<br>  { <field>: { $regex: /pattern/, $options: ‘<options>‘ } }<br>  { <field>: { $regex: ‘pattern’, $options: ‘<options>‘ } }<br>  { <field>: { $regex: /pattern/<options> } }</options></field></options></field></options></field></p>
+</blockquote>
+<p><strong>need more steps</strong></p>
+<h3 id="$text">$text</h3><p>$text performs a text search on the content of the fields indexed with a text index. </p>
+<blockquote>
+<p>Syntax:  { $text: { $search: <string>, $language: <string> } }</string></string></p>
+</blockquote>
+<p><strong>need more steps</strong></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag">#MongoDB</a>
+          
+            <a href="/tags/Query-Operator/" rel="tag">#Query Operator</a>
+          
+            <a href="/tags/Step-Into/" rel="tag">#Step Into</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/" rel="prev">Step Into Write Concern of MongoDB</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/22/User-Story-vs-Use-Case/" rel="next">User Story vs Use Case</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div id="disqus_thread">
+                    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Strong :) Just Code it..." itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Strong :) Just Code it...</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">categories</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/strong689" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/StrongQZhang" target="_blank">twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/strong689" target="_blank">weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparison_Operator"><span class="nav-number">1.</span> <span class="nav-text">Comparison Operator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical_Operator"><span class="nav-number">2.</span> <span class="nav-text">Logical Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#$and_example"><span class="nav-number">2.1.</span> <span class="nav-text">$and example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$nor_example"><span class="nav-number">2.2.</span> <span class="nav-text">$nor example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Field_Check_Operator"><span class="nav-number">3.</span> <span class="nav-text">Field Check Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#$exists"><span class="nav-number">3.1.</span> <span class="nav-text">$exists</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$type"><span class="nav-number">3.2.</span> <span class="nav-text">$type</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operator_for_Array"><span class="nav-number">4.</span> <span class="nav-text">Operator for Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#$all"><span class="nav-number">4.1.</span> <span class="nav-text">$all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$size"><span class="nav-number">4.2.</span> <span class="nav-text">$size</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$where"><span class="nav-number">4.3.</span> <span class="nav-text">$where</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">4.4.</span> <span class="nav-text">sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skip_&_limit"><span class="nav-number">4.5.</span> <span class="nav-text">skip & limit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$mod"><span class="nav-number">4.6.</span> <span class="nav-text">$mod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$regex"><span class="nav-number">4.7.</span> <span class="nav-text">$regex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$text"><span class="nav-number">4.8.</span> <span class="nav-text">$text</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Strong :) Just Code it...</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'strong689';
+      var disqus_identifier = '2015/07/26/Step-Into-MongoDB-Query-Operators/';
+      var disqus_title = 'Step Into MongoDB Query Operators';
+      var disqus_url = 'http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
