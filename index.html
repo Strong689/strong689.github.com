@@ -179,6 +179,305 @@
           
           
             
+              <a class="post-title-link" href="/2015/08/09/mongodbjs-vs-mongoosejs/" itemprop="url">
+                mongodbjs vs mongoosejs
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-08-09T22:11:52-07:00" content="2015-08-09">
+            2015-08-09
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/versus/" itemprop="url" rel="index"><span itemprop="name">versus</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/09/mongodbjs-vs-mongoosejs/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/09/mongodbjs-vs-mongoosejs/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="mongodbjs_vs_mongoosejs">mongodbjs vs mongoosejs </h1><p><a href="http://voidcanvas.com/mongoose-vs-mongodb-native/" target="_blank" rel="external">comparison</a></p>
+<h3 id="mongodbjs">mongodbjs</h3><ul>
+<li>the native mongodb driver</li>
+<li>performance better than mongoose</li>
+<li>no schema fixed, e.g. two product, t-shirt vs digital camera<br>different kind of products have different property sets, which require flexible document model  </li>
+</ul>
+<h3 id="mongoosejs">mongoosejs</h3><ul>
+<li>higher level interface to MongoDB, it actually uses mongodb.js</li>
+<li>fixed schema, like order, account, </li>
+<li>coding level, schema can be easily changed </li>
+<li>ODM, object document modeling tool</li>
+<li>schema&amp;model instantiate the same object whenever you need to create and save something</li>
+<li>development faster than mongodbjs</li>
+</ul>
+<p>it’s better to <strong>use the mongoDB native drivers while still using mongoose for the good stuff</strong>.</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/02/Step-Into-Vagrant/" itemprop="url">
+                Step Into Vagrant
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-08-02T21:35:28-07:00" content="2015-08-02">
+            2015-08-02
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/02/Step-Into-Vagrant/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/02/Step-Into-Vagrant/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>I have idea about what Vagrant is because a training used it providing a environment long time ago, but thinking how to play it now, the bad is that my memory is empty, now i try to recover those basic things, and step into a little bit with others.</p>
+<h2 id="Vagrant"><a href="https://www.vagrantup.com/" target="_blank" rel="external">Vagrant</a></h2><p>Create and configure lightweight, reproducible, and portable development environments<br>Written in Ruby, a computer software that creates and configures <strong>virtual development environments</strong><br>It can be seen as a <strong>higher-level wrapper</strong> around <strong>virtualization software</strong> such as </p>
+<ul>
+<li>VirtualBox</li>
+<li>VMware</li>
+<li>KVM </li>
+<li>Linux Containers (LXC)</li>
+</ul>
+<p>and around <strong>configuration management software</strong> such as </p>
+<ul>
+<li>Ansible</li>
+<li>Chef</li>
+<li>Salt</li>
+<li>Puppet</li>
+</ul>
+<p>supports server environments like <strong>Amazon EC2</strong> , Natively support <strong>Docker</strong> containers.<br><a href="https://github.com/astaxie/Go-in-Action/blob/master/ebook/zh/01.2.md" target="_blank" rel="external">Refer</a></p>
+<h2 id="Act_on">Act on</h2><ul>
+<li>for Dev, unify development environment for team</li>
+<li>for Ops, standardize same server environment</li>
+</ul>
+<h3 id="common_commands">common commands</h3><blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init		// initialize </span><br><span class="line">$ vagrant up 		// start vm</span><br><span class="line">$ vagrant halt		// stop vm</span><br><span class="line">$ vagrant reload	// restart vm</span><br><span class="line">$ vagrant ssh 		// access vm by ssh</span><br><span class="line">$ vagrant status	// check vm status</span><br><span class="line">$ vagrant destroy 	// destory current vm</span><br><span class="line">$ vagrant package	// package.box can be distributed</span><br></pre></td></tr></table></figure>
+<h3 id="Step_by_Step">Step by Step</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// create vagrantfile</span><br><span class="line">$ vagrant init  // create a box image file on current directory</span><br><span class="line">// add vagrant image </span><br><span class="line">$ vagrant box add hashicorp/precise64 // download from vagrant cloud, Ubuntu OS </span><br><span class="line">// configure vagrantfile</span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">end</span><br><span class="line">// launch vagrant</span><br><span class="line">$ vagrant up </span><br><span class="line">// access virtual machine by ssh </span><br><span class="line">$ vagrant ssh  // directory sychronized ( /vagrant of VM &lt;&gt; current directory Vagrantfile located)</span><br></pre></td></tr></table></figure>
+<h2 id="Automated_Provisioning">Automated Provisioning</h2><p>automatically install softwares required</p>
+<h3 id="step_1">step 1</h3><p>create a Bash script(bootstrap.sh) at directory Vagrantfile located</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//<span class="comment">#!/usr/bin/env bash</span></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y apache2</span><br><span class="line">rm -rf /var/www</span><br><span class="line">ln -fs /vagrant /var/www</span><br></pre></td></tr></table></figure>
+<h3 id="step_2">step 2</h3><p>configure Vagrant </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">  config.vm.provision : shell, path: <span class="string">"bootstrap.sh"</span>   //vagrant use shell provisioner </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="Vagrant_network">Vagrant network</h2><p>allow Host machine access the Vagrant VM<br>forwarded_port map host’s port 4567 to guest’s (VM) port 80.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">  config.vm.provision :shell, path: <span class="string">"bootstrap.sh"</span></span><br><span class="line">  config.vm.network :forwarded_port, host: <span class="number">4567</span>, guest: <span class="number">80</span></span><br><span class="line">  // or &gt; config.vm.network : private_network, ip:<span class="string">"192.168.1.101"</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>visit <a href="http://127.0.0.1:4567" target="_blank" rel="external">http://127.0.0.1:4567</a> , access VM after it restarts // <a href="http://192.168.1.101" target="_blank" rel="external">http://192.168.1.101</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vagrant</span> reload // restart VM</span><br></pre></td></tr></table></figure></p>
+<h2 id="docker_vs_vagrant">docker vs vagrant</h2><p><a href="http://stackoverflow.com/questions/16647069/should-i-use-vagrant-or-docker-io-for-creating-an-isolated-environment" target="_blank" rel="external">comparison 1</a><br><a href="https://medium.com/@_marcos_otero/docker-vs-vagrant-582135beb623" target="_blank" rel="external">comparison 2</a><br><a href="https://www.scriptrock.com/articles/docker-vs-vagrant" target="_blank" rel="external">comparison 3</a></p>
+<ul>
+<li>Vagrant </li>
+</ul>
+<blockquote>
+<p>for development stage, allow you to install all you need to develop your application in an easy and simple way<br>  a virtual machine manager, it allows you to script the virtual machine configuration as well as the provisioning. However, it is still a virtual machine depending on Virtual Box (or others) with a huge overhead. It requires you to have a hard drive file that can be huge, it takes a lot of ram, and performance can be not very good.</p>
+</blockquote>
+<ul>
+<li>Docker </li>
+</ul>
+<blockquote>
+<p>for production stage, a technology that allows you to run self-contained applications eliminating worries about dependencies and libraries<br>  uses kernel cgroup and namespacing via lxc. It means that you are using the same kernel as the host and the same file system. You can use Dockerfile with the docker build command in order to handle the provisioning and configuration of your container. You have example at docs.docker.com on how to make your Dockerfile, it is very intuitive.</p>
+</blockquote>
+<p>The only reason you could want to use vagrant is if you need to do BSD, Windows or other non-linux development on your ubuntu box. Otherwise, go for Docker.</p>
+<h2 id="docker_&amp;_vagrant_complementing_each_other">docker &amp; vagrant complementing each other</h2><ol>
+<li>Install a Vagrant virtual machine in your computer containing the same OS you will have in your server ( normally Ubuntu Linux 12.04 LTS 64 bits). This means that you can program in any OS you want and still expect your program will run in your server.</li>
+<li>Install your Docker packages to create Docker containers inside your virtual machine created for Vagrant. This step is better if you can install them through an script.</li>
+<li>Inside your containers put your applications ( Nginx, Memcached, MongoDB, etc)</li>
+<li>Configure a shell script, Puppet or Chef script to install Docker and run your Docker containers each time Vagrant begins.</li>
+<li>Test your containers in your Vagrant VM inside your computer.</li>
+<li>Thanks to providers now you can take the same file ( your Vagrant file ) and just type vagrant up —provider=“provider” where the provider is your next host and Vagrant will take care of everything. For example, if you choose AWS then Vagrant will: Connect to your AMI in AWS, install the same OS you used in your computer, install Docker, launch your Docker containers and give you a ssh session.</li>
+<li>Test your containers in AWS and look that they behave exactly as you expect.</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/01/Today-s-reading-of-MongoDB/" itemprop="url">
+                Today's reading of MongoDB
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-08-01T10:05:21-07:00" content="2015-08-01">
+            2015-08-01
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/01/Today-s-reading-of-MongoDB/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/01/Today-s-reading-of-MongoDB/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>something about,<br>embedded documents<br>atomicity and transaction<br>$isolated operator</p>
+<h3 id="two-phase_commit">two-phase commit</h3><p>only transaction-like for multiple document<br>multi-document transaction, rollback-like functionality, not really an all or nothing transaction</p>
+<ul>
+<li>atomicity, rollback previous state</li>
+<li>consistency, consistent state recovery<br>intermediate data presentation</li>
+</ul>
+<p>concurrency control : two approach, unique index, update if current</p>
+<h3 id="Update_if_current_pattern">Update if current pattern</h3><p>an approach to currency control for multiple clients operate the same data</p>
+<h3 id="version_pattern">version pattern</h3><blockquote>
+<p>variant : <strong>version pattern</strong> , similar to Update if current pattern<br>  to add an version field to document schema, application/client need increment the version field upon each update operation to a specific document.<br>  version field can be set 1 as default value for a document creation / insert operation. </p>
+</blockquote>
+<p>it need ensure client application query data including the version field.</p>
+<p>version can be implemented by “auto-incrementing sequence” field</p>
+<h2 id="SQL2Mongo">SQL2Mongo</h2><p><a href="https://mssql2mongo.codeplex.com/" target="_blank" rel="external">SQL2Mongo</a> : tool to migrate all schema and data from MSSQL to mongodb, </p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/" itemprop="url">
                 Step Into Write Concern of MongoDB
               </a>
@@ -528,317 +827,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/22/User-Story-vs-Use-Case/" itemprop="url">
-                User Story vs Use Case
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-22T23:35:08-07:00" content="2015-07-22">
-            2015-07-22
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Thought/" itemprop="url" rel="index"><span itemprop="name">Thought</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Thought/Scrum/" itemprop="url" rel="index"><span itemprop="name">Scrum</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Thought/Scrum/Agile/" itemprop="url" rel="index"><span itemprop="name">Agile</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/22/User-Story-vs-Use-Case/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/22/User-Story-vs-Use-Case/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Thought: use “user story” with acceptance criteria is a best practice in scrum process, no one use “use case”.</p>
-<h3 id="User_story">User story</h3><p><strong>lightweight</strong>  </p>
-<blockquote>
-<p> a short description of something that can be written on a card,<br>   focused on the value or result they get from doing this thing<br>   Format: As an [actor] I want [action] so that [achievement]<br>   A User Story doesn’t capture all the details, it’s an informal support for the discussion.  </p>
-</blockquote>
-<h3 id="Acceptance_criteria">Acceptance criteria</h3><p>Writing the acceptance criteria is the first step of fleshing out the details of your user story.</p>
-<blockquote>
-<p>define the boundaries of a user story, and are used to confirm when a story is completed and working as intended</p>
-</blockquote>
-<p>example  </p>
-<blockquote>
-<p>As a conference attendee, I want to be able to register online, so I can register quickly and cut down on paperwork, the acceptance criteria could include:  </p>
-<ol>
-<li>A user cannot submit a form without completing all the mandatory fields</li>
-<li>Information from the form is stored in the registrations database</li>
-<li>Protection against spam is working</li>
-<li>Payment can be made via credit card</li>
-<li>An acknowledgment email is sent to the user after submitting the form.</li>
-</ol>
-</blockquote>
-<h3 id="Use_case">Use case</h3><p><strong>heavyweight</strong><br>use case describes a “Normal Flow” of steps and/or actions and “Alternative Flows” which are detailed. </p>
-<blockquote>
-<p>formal specification, usually created as a formal document, detail description of a set of interactions between a system and and one or more roles, roles can be people or systems, including something as below, </p>
-<ul>
-<li>Use case title</li>
-<li>Rationale/description/goal</li>
-<li>Actor/user</li>
-<li>Preconditions (the things that must have already happened in the system)</li>
-<li>Standard path or Main success scenario (what will usually happen, described as a series of steps)</li>
-<li>Alternate paths or Extensions(variations on the above/edge cases)</li>
-<li>Post conditions (what the system will have done by the end of the steps). </li>
-</ul>
-</blockquote>
-<p><a href="http://www.boost.co.nz/blog/2012/01/use-cases-or-user-stories/" target="_blank" rel="external">resource</a></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/22/Thought-in-Software-Engineering-Process/" itemprop="url">
-                Thought in Software Engineering Process
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-22T23:31:30-07:00" content="2015-07-22">
-            2015-07-22
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/22/Thought-in-Software-Engineering-Process/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/22/Thought-in-Software-Engineering-Process/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Team work is a must practice to achieve a big software developing goal today, there are many people involved in same project,  a bunch of tools make good cooperation, better communication, </p>
-<ul>
-<li>Infrastructure support: ESB, MQ, …</li>
-<li>projecct management, scheoudule, execution</li>
-<li>engineering process tool</li>
-<li>requirement specification: trace change</li>
-<li>design document</li>
-<li>IDE: VS Studio, sublime, webstorm, text editor,</li>
-<li>testing case</li>
-<li>software quality tools</li>
-<li>maintenanec - refactor, re-engineering</li>
-<li>Configurationn and deployment tools</li>
-<li>modern communication tool: email, live meeting, screen share,..</li>
-<li>prototying method </li>
-<li>agile/ scrum </li>
-</ul>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/22/Step-Into-mongo-shell/" itemprop="url">
-                Step Into mongo shell
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-22T20:42:19-07:00" content="2015-07-22">
-            2015-07-22
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/mongo-shell/" itemprop="url" rel="index"><span itemprop="name">mongo shell</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/mongo-shell/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/22/Step-Into-mongo-shell/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/22/Step-Into-mongo-shell/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Tips: retrieve previous commands issued in shell with up or down arrow key (Windows something like, C:\Users\myaccount.dbshell)</p>
-<h3 id="Start_Shell">Start Shell</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//start shell without connection to a database</span><br><span class="line">mongo --nodb </span><br><span class="line"></span><br><span class="line">//execute js file</span><br><span class="line">mongo localhost:<span class="number">27017</span>/<span class="built_in">test</span>DB file.js</span><br><span class="line">//alternative use load  <span class="keyword">function</span> n the shell</span><br><span class="line">load(<span class="string">"file.js"</span>)  // execute js, file.js located on <span class="string">"data"</span> directory</span><br></pre></td></tr></table></figure>
-<h3 id="Basic_commands">Basic commands</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">use &lt;db_name&gt;				// switch current db to db_name</span><br><span class="line">show dbs / databases 		// list all databases on server</span><br><span class="line">show collections / tables   // list all tables on current db</span><br><span class="line">db or db.getName)			// show current db <span class="keyword">in</span> shell</span><br><span class="line">// </span><br><span class="line">show roles					// list all roles of current db</span><br><span class="line">show users					// list all users of current db</span><br><span class="line">show profile</span><br><span class="line">//how to get <span class="built_in">command</span> reference <span class="keyword">in</span> the shell</span><br><span class="line"><span class="built_in">help</span> or db.help() or db.collection.help()</span><br><span class="line"> </span><br><span class="line">//database can created automatically when saving data to MongoDB <span class="keyword">in</span> shell</span><br><span class="line">//Delete a database</span><br><span class="line">db.dropDatabase()		//drop current dtabase, delete all associated files </span><br><span class="line">//Delete a collection</span><br><span class="line">db.collection.drop()	//remove table and index</span><br><span class="line">//running <span class="keyword">in</span> secure mode</span><br><span class="line">db.auth()				//authenticate user</span><br><span class="line">// refer to another database using same connection</span><br><span class="line">db.getSiblingDB();		//without explicitly switch the current database</span><br></pre></td></tr></table></figure>
-<h3 id="CRUD_at_mongo_shell">CRUD at mongo shell</h3><h4 id="Overview">Overview</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">table = db.myCollection;	//table refer a specific collection</span><br><span class="line">table.find(); 				//<span class="built_in">return</span> a cursor</span><br><span class="line">table.findOne();			//<span class="built_in">return</span> a single document or null</span><br><span class="line">table.count();				//count of documents</span><br><span class="line">table.save();				//insert new or update existing document</span><br><span class="line">table.insert();				//insert new document</span><br><span class="line">table.update();				//update existing document</span><br><span class="line">table.remove();				//delete existing document</span><br><span class="line">//build index</span><br><span class="line">table.createIndex();</span><br></pre></td></tr></table></figure>
-<h4 id="Create&amp;Update">Create&amp;Update</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//Loop samples <span class="keyword">in</span> shell</span><br><span class="line">use my		//switch current db to my</span><br><span class="line"><span class="keyword">for</span>( var i=<span class="number">1</span>;i&lt;=<span class="number">200</span>;i++) db.my.save(&#123;tag:<span class="string">"number"</span>,val:i&#125;);</span><br><span class="line"><span class="keyword">for</span>( var i=<span class="number">201</span>;i&lt;=<span class="number">250</span>;i++) db.my.save(&#123;tag:i&#125;);</span><br><span class="line">//it <span class="built_in">command</span></span><br><span class="line">it			//iterate cursor</span><br><span class="line">//Loop to <span class="built_in">return</span> all </span><br><span class="line">var cursor = db.my.find();</span><br><span class="line">//method I</span><br><span class="line"><span class="keyword">while</span>( cursor.hasNext()) &#123;</span><br><span class="line">	printjson(cursor.next());	</span><br><span class="line">&#125;</span><br><span class="line">//method II</span><br><span class="line">cursor.forEach(printjson);</span><br><span class="line">//method III</span><br><span class="line">var myArray = db.my.find().toArray();</span><br><span class="line">printjson(myArray[<span class="number">2</span>]);</span><br><span class="line">//update</span><br><span class="line">db.my.update(&#123;val:<span class="number">6</span>&#125;,&#123;<span class="variable">$set</span>:&#123;tag:<span class="string">"NUMBER"</span>&#125;&#125;);</span><br><span class="line">// to very update</span><br><span class="line">db.my.find().limit(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="Query">Query</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//SQL: select tag, val from my <span class="built_in">where</span> tag = <span class="string">"number"</span></span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;).count();</span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>,tag:<span class="literal">true</span>&#125;).limit(<span class="number">16</span>);</span><br><span class="line">db.my.findOne(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>&#125;);</span><br><span class="line">db.my.find(&#123;tag:<span class="string">"number"</span>&#125;,&#123;val:<span class="literal">true</span>,tag:<span class="literal">true</span>&#125;).forEach(printjson);</span><br><span class="line">//SQL: select * from my <span class="built_in">where</span> tag &gt; <span class="number">200</span></span><br><span class="line">db.my.find(&#123;tag:&#123;<span class="variable">$gt</span>:<span class="number">200</span>&#125;&#125;).forEach(printjson);</span><br></pre></td></tr></table></figure>
-<h4 id="Delete">Delete</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//remove() <span class="keyword">function</span></span><br><span class="line">db.my.remove(&#123;tag:<span class="string">"NUMBER"</span>&#125;);</span><br><span class="line">// to verify</span><br><span class="line">db.my.find().limit(<span class="number">20</span>);</span><br></pre></td></tr></table></figure></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
 
@@ -873,7 +866,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -887,7 +880,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

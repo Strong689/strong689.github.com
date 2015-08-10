@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-07-28T06:18:50.054Z</updated>
+  <updated>2015-08-10T05:17:20.446Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -14,6 +14,146 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mongodbjs vs mongoosejs]]></title>
+    <link href="http://strong689.github.com/2015/08/09/mongodbjs-vs-mongoosejs/"/>
+    <id>http://strong689.github.com/2015/08/09/mongodbjs-vs-mongoosejs/</id>
+    <published>2015-08-10T05:11:52.000Z</published>
+    <updated>2015-08-10T05:17:20.446Z</updated>
+    <content type="html"><![CDATA[<h1 id="mongodbjs_vs_mongoosejs">mongodbjs vs mongoosejs </h1><p><a href="http://voidcanvas.com/mongoose-vs-mongodb-native/" target="_blank" rel="external">comparison</a></p>
+<h3 id="mongodbjs">mongodbjs</h3><ul>
+<li>the native mongodb driver</li>
+<li>performance better than mongoose</li>
+<li>no schema fixed, e.g. two product, t-shirt vs digital camera<br>different kind of products have different property sets, which require flexible document model  </li>
+</ul>
+<h3 id="mongoosejs">mongoosejs</h3><ul>
+<li>higher level interface to MongoDB, it actually uses mongodb.js</li>
+<li>fixed schema, like order, account, </li>
+<li>coding level, schema can be easily changed </li>
+<li>ODM, object document modeling tool</li>
+<li>schema&amp;model instantiate the same object whenever you need to create and save something</li>
+<li>development faster than mongodbjs</li>
+</ul>
+<p>it’s better to <strong>use the mongoDB native drivers while still using mongoose for the good stuff</strong>.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="mongodbjs_vs_mongoosejs">mongodbjs vs mongoosejs </h1><p><a href="http://voidcanvas.com/mongoose-vs-mongodb-native/" target="_blank"]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+      <category term="mongodbjs" scheme="http://strong689.github.com/tags/mongodbjs/"/>
+    
+      <category term="mongoosejs" scheme="http://strong689.github.com/tags/mongoosejs/"/>
+    
+      <category term="versus" scheme="http://strong689.github.com/categories/versus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Step Into Vagrant]]></title>
+    <link href="http://strong689.github.com/2015/08/02/Step-Into-Vagrant/"/>
+    <id>http://strong689.github.com/2015/08/02/Step-Into-Vagrant/</id>
+    <published>2015-08-03T04:35:28.000Z</published>
+    <updated>2015-08-10T04:53:47.888Z</updated>
+    <content type="html"><![CDATA[<p>I have idea about what Vagrant is because a training used it providing a environment long time ago, but thinking how to play it now, the bad is that my memory is empty, now i try to recover those basic things, and step into a little bit with others.</p>
+<h2 id="Vagrant"><a href="https://www.vagrantup.com/" target="_blank" rel="external">Vagrant</a></h2><p>Create and configure lightweight, reproducible, and portable development environments<br>Written in Ruby, a computer software that creates and configures <strong>virtual development environments</strong><br>It can be seen as a <strong>higher-level wrapper</strong> around <strong>virtualization software</strong> such as </p>
+<ul>
+<li>VirtualBox</li>
+<li>VMware</li>
+<li>KVM </li>
+<li>Linux Containers (LXC)</li>
+</ul>
+<p>and around <strong>configuration management software</strong> such as </p>
+<ul>
+<li>Ansible</li>
+<li>Chef</li>
+<li>Salt</li>
+<li>Puppet</li>
+</ul>
+<p>supports server environments like <strong>Amazon EC2</strong> , Natively support <strong>Docker</strong> containers.<br><a href="https://github.com/astaxie/Go-in-Action/blob/master/ebook/zh/01.2.md" target="_blank" rel="external">Refer</a></p>
+<h2 id="Act_on">Act on</h2><ul>
+<li>for Dev, unify development environment for team</li>
+<li>for Ops, standardize same server environment</li>
+</ul>
+<h3 id="common_commands">common commands</h3><blockquote>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant init		// initialize </span><br><span class="line">$ vagrant up 		// start vm</span><br><span class="line">$ vagrant halt		// stop vm</span><br><span class="line">$ vagrant reload	// restart vm</span><br><span class="line">$ vagrant ssh 		// access vm by ssh</span><br><span class="line">$ vagrant status	// check vm status</span><br><span class="line">$ vagrant destroy 	// destory current vm</span><br><span class="line">$ vagrant package	// package.box can be distributed</span><br></pre></td></tr></table></figure>
+<h3 id="Step_by_Step">Step by Step</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// create vagrantfile</span><br><span class="line">$ vagrant init  // create a box image file on current directory</span><br><span class="line">// add vagrant image </span><br><span class="line">$ vagrant box add hashicorp/precise64 // download from vagrant cloud, Ubuntu OS </span><br><span class="line">// configure vagrantfile</span><br><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">end</span><br><span class="line">// launch vagrant</span><br><span class="line">$ vagrant up </span><br><span class="line">// access virtual machine by ssh </span><br><span class="line">$ vagrant ssh  // directory sychronized ( /vagrant of VM &lt;&gt; current directory Vagrantfile located)</span><br></pre></td></tr></table></figure>
+<h2 id="Automated_Provisioning">Automated Provisioning</h2><p>automatically install softwares required</p>
+<h3 id="step_1">step 1</h3><p>create a Bash script(bootstrap.sh) at directory Vagrantfile located</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//<span class="comment">#!/usr/bin/env bash</span></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y apache2</span><br><span class="line">rm -rf /var/www</span><br><span class="line">ln -fs /vagrant /var/www</span><br></pre></td></tr></table></figure>
+<h3 id="step_2">step 2</h3><p>configure Vagrant </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">  config.vm.provision : shell, path: <span class="string">"bootstrap.sh"</span>   //vagrant use shell provisioner </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="Vagrant_network">Vagrant network</h2><p>allow Host machine access the Vagrant VM<br>forwarded_port map host’s port 4567 to guest’s (VM) port 80.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">"2"</span>) <span class="keyword">do</span> |config|</span><br><span class="line">  config.vm.box = <span class="string">"hashicorp/precise64"</span></span><br><span class="line">  config.vm.provision :shell, path: <span class="string">"bootstrap.sh"</span></span><br><span class="line">  config.vm.network :forwarded_port, host: <span class="number">4567</span>, guest: <span class="number">80</span></span><br><span class="line">  // or &gt; config.vm.network : private_network, ip:<span class="string">"192.168.1.101"</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>visit <a href="http://127.0.0.1:4567" target="_blank" rel="external">http://127.0.0.1:4567</a> , access VM after it restarts // <a href="http://192.168.1.101" target="_blank" rel="external">http://192.168.1.101</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$vagrant</span> reload // restart VM</span><br></pre></td></tr></table></figure></p>
+<h2 id="docker_vs_vagrant">docker vs vagrant</h2><p><a href="http://stackoverflow.com/questions/16647069/should-i-use-vagrant-or-docker-io-for-creating-an-isolated-environment" target="_blank" rel="external">comparison 1</a><br><a href="https://medium.com/@_marcos_otero/docker-vs-vagrant-582135beb623" target="_blank" rel="external">comparison 2</a><br><a href="https://www.scriptrock.com/articles/docker-vs-vagrant" target="_blank" rel="external">comparison 3</a></p>
+<ul>
+<li>Vagrant </li>
+</ul>
+<blockquote>
+<p>for development stage, allow you to install all you need to develop your application in an easy and simple way<br>  a virtual machine manager, it allows you to script the virtual machine configuration as well as the provisioning. However, it is still a virtual machine depending on Virtual Box (or others) with a huge overhead. It requires you to have a hard drive file that can be huge, it takes a lot of ram, and performance can be not very good.</p>
+</blockquote>
+<ul>
+<li>Docker </li>
+</ul>
+<blockquote>
+<p>for production stage, a technology that allows you to run self-contained applications eliminating worries about dependencies and libraries<br>  uses kernel cgroup and namespacing via lxc. It means that you are using the same kernel as the host and the same file system. You can use Dockerfile with the docker build command in order to handle the provisioning and configuration of your container. You have example at docs.docker.com on how to make your Dockerfile, it is very intuitive.</p>
+</blockquote>
+<p>The only reason you could want to use vagrant is if you need to do BSD, Windows or other non-linux development on your ubuntu box. Otherwise, go for Docker.</p>
+<h2 id="docker_&amp;_vagrant_complementing_each_other">docker &amp; vagrant complementing each other</h2><ol>
+<li>Install a Vagrant virtual machine in your computer containing the same OS you will have in your server ( normally Ubuntu Linux 12.04 LTS 64 bits). This means that you can program in any OS you want and still expect your program will run in your server.</li>
+<li>Install your Docker packages to create Docker containers inside your virtual machine created for Vagrant. This step is better if you can install them through an script.</li>
+<li>Inside your containers put your applications ( Nginx, Memcached, MongoDB, etc)</li>
+<li>Configure a shell script, Puppet or Chef script to install Docker and run your Docker containers each time Vagrant begins.</li>
+<li>Test your containers in your Vagrant VM inside your computer.</li>
+<li>Thanks to providers now you can take the same file ( your Vagrant file ) and just type vagrant up —provider=“provider” where the provider is your next host and Vagrant will take care of everything. For example, if you choose AWS then Vagrant will: Connect to your AMI in AWS, install the same OS you used in your computer, install Docker, launch your Docker containers and give you a ssh session.</li>
+<li>Test your containers in AWS and look that they behave exactly as you expect.</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>I have idea about what Vagrant is because a training used it providing a environment long time ago, but thinking how to play it now, the ]]>
+    </summary>
+    
+      <category term="Docker" scheme="http://strong689.github.com/tags/Docker/"/>
+    
+      <category term="VM" scheme="http://strong689.github.com/tags/VM/"/>
+    
+      <category term="Vagrant" scheme="http://strong689.github.com/tags/Vagrant/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Today's reading of MongoDB]]></title>
+    <link href="http://strong689.github.com/2015/08/01/Today-s-reading-of-MongoDB/"/>
+    <id>http://strong689.github.com/2015/08/01/Today-s-reading-of-MongoDB/</id>
+    <published>2015-08-01T17:05:21.000Z</published>
+    <updated>2015-08-10T05:07:52.415Z</updated>
+    <content type="html"><![CDATA[<p>something about,<br>embedded documents<br>atomicity and transaction<br>$isolated operator</p>
+<h3 id="two-phase_commit">two-phase commit</h3><p>only transaction-like for multiple document<br>multi-document transaction, rollback-like functionality, not really an all or nothing transaction</p>
+<ul>
+<li>atomicity, rollback previous state</li>
+<li>consistency, consistent state recovery<br>intermediate data presentation</li>
+</ul>
+<p>concurrency control : two approach, unique index, update if current</p>
+<h3 id="Update_if_current_pattern">Update if current pattern</h3><p>an approach to currency control for multiple clients operate the same data</p>
+<h3 id="version_pattern">version pattern</h3><blockquote>
+<p>variant : <strong>version pattern</strong> , similar to Update if current pattern<br>  to add an version field to document schema, application/client need increment the version field upon each update operation to a specific document.<br>  version field can be set 1 as default value for a document creation / insert operation. </p>
+</blockquote>
+<p>it need ensure client application query data including the version field.</p>
+<p>version can be implemented by “auto-incrementing sequence” field</p>
+<h2 id="SQL2Mongo">SQL2Mongo</h2><p><a href="https://mssql2mongo.codeplex.com/" target="_blank" rel="external">SQL2Mongo</a> : tool to migrate all schema and data from MSSQL to mongodb, </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>something about,<br>embedded documents<br>atomicity and transaction<br>$isolated operator</p>
+<h3 id="two-phase_commit">two-phase commit<]]>
+    </summary>
+    
+      <category term="MongoDB" scheme="http://strong689.github.com/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Step Into Write Concern of MongoDB]]></title>
@@ -72,7 +212,7 @@
     <link href="http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/"/>
     <id>http://strong689.github.com/2015/07/26/Step-Into-MongoDB-Query-Operators/</id>
     <published>2015-07-27T03:50:27.000Z</published>
-    <updated>2015-07-28T05:23:04.791Z</updated>
+    <updated>2015-07-28T06:18:55.850Z</updated>
     <content type="html"><![CDATA[<h2 id="Comparison_Operator">Comparison Operator</h2><table>
 <thead>
 <tr>
@@ -1214,30 +1354,6 @@ branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [B
       <category term="Overview" scheme="http://strong689.github.com/categories/Overview/"/>
     
       <category term="Hexo" scheme="http://strong689.github.com/categories/Overview/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://strong689.github.com/2015/07/09/hello-world/"/>
-    <id>http://strong689.github.com/2015/07/09/hello-world/</id>
-    <published>2015-07-10T05:11:29.000Z</published>
-    <updated>2015-07-19T22:12:45.467Z</updated>
-    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
-    </summary>
-    
-      <category term="Hexo" scheme="http://strong689.github.com/categories/Hexo/"/>
     
   </entry>
   
