@@ -378,6 +378,106 @@
           
           
             
+              <a class="post-title-link" href="/2015/08/03/Secondary-Index/" itemprop="url">
+                Secondary Index
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-08-03T22:18:02-07:00" content="2015-08-03">
+            2015-08-03
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Database/" itemprop="url" rel="index"><span itemprop="name">Database</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/03/Secondary-Index/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/03/Secondary-Index/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="Secondary_Index">Secondary Index</h3><blockquote>
+<p>mostly applied to Cassandra, HBase , mongoDB<br>  二级索引的叶节点存储的是主键值，而不是行指针，<br>  这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间</p>
+</blockquote>
+<h3 id="MySQL">MySQL</h3><p><a href="http://blog.csdn.net/dbanote/article/details/16805135" target="_blank" rel="external">MySQL Sample</a></p>
+<ul>
+<li>InnoDB, clustered table<br>聚簇索引表,表数据是和主键一起存储的，主键索引的叶结点存储行数据，<strong>二级索引的叶结点存储行的主键值</strong></li>
+<li>MyISAM, non-clustered table<br>堆组织表,表数据和索引是分开存储的，主键索引和二级索引存储上没有任何区别</li>
+</ul>
+<blockquote>
+<p>聚簇索引表最大限度地提高了I/O密集型应用的性能，但它也有以下几个限制：</p>
+<ol>
+<li>插入速度严重依赖于插入顺序，按照主键的顺序插入是最快的方式，否则将会出现页分裂，严重影响性能。因此，对于InnoDB表，我们一般都会定义一个自增的ID列为主键。</li>
+<li>更新主键的代价很高，因为将会导致被更新的行移动。因此，对于InnoDB表，我们一般定义主键为不可更新。</li>
+<li><strong>二级索引</strong>访问需要两次索引查找，第一次找到主键值，第二次根据主键值找到行数据。<br><strong>二级索引的叶节点存储的是主键值，而不是行指针，这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间。</strong></li>
+</ol>
+</blockquote>
+<h3 id="HBase的二级索引">HBase的二级索引</h3><p><a href="https://github.com/Huawei-Hadoop/hindex" target="_blank" rel="external">华为方案</a>要点:</p>
+<ol>
+<li>保证主表和索引表在同一个regionserver上(通过自定义的balancer实现) </li>
+<li>使用coprocessor(触发器)实现索引表的创建和插入</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/08/02/Step-Into-Vagrant/" itemprop="url">
                 Step Into Vagrant
               </a>
@@ -572,124 +672,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/" itemprop="url">
-                Step Into Write Concern of MongoDB
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-27T22:22:09-07:00" content="2015-07-27">
-            2015-07-27
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/27/Step-Into-Write-Concern-of-MongoDB/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert, udpate and delete.<br>A weak write concern: write operations return quickly, but data maybe not persist well(including replica set).<br>A strong write concern: clients wait after mongodb confirm the write operation suncessful.</p>
-<h3 id="Levels">Levels</h3><p>listed from weakest to strongest</p>
-<ul>
-<li><p>Unacknowledged {W:0}</p>
-<blockquote>
-<p>similar to errors ignored</p>
-</blockquote>
-</li>
-<li><p>Acknowledged {W:1}<br>used in writing unimportant data, e.g. some operation log, user’s behavior(click, time staying in one page)</p>
-<blockquote>
-<p>default write concern<br>the mongod confirms that it received the write operation and applied the change to the in-memory view of data<br>allows clients to catch network, duplicate key, and other errors<br>does not confirm that the write operation has persisted to the disk system  </p>
-</blockquote>
-</li>
-<li><p>Journaled {w:1,j:true}<br>used in writing key, business data, e.g. order, account </p>
-<blockquote>
-<p>committing the data to the journal(journaling enabled first)<br>ensures that MongoDB can recover the data following a shutdown or power interruption  </p>
-</blockquote>
-</li>
-<li><p>Replica Acknowledged {w:2}</p>
-<blockquote>
-<p>guarantee write sucessfully to one Replica Set beside the primary</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="Timeouts">Timeouts</h3><ul>
-<li>set at client side</li>
-<li>wtimeout: in milliseconds</li>
-<li>wtimeout causes write operations to return with an error after the specified limit, even if the required write concern will eventually succeed</li>
-<li>MongoDB does not “rollback” or undo modifications made before the wtimeout interval expired</li>
-</ul>
-<h3 id="getLastError()">getLastError()</h3><p>Driver implicitly and immediately call this method after one write operation<br>depending on level of Write Corcern</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//after insert(), implicitly call db.getLastError(); if capturing error, assign it to err of callback function.</span></span><br><span class="line"><span class="comment">// when w:-1, err is always null</span></span><br><span class="line"><span class="comment">// when w:0, except network error, normally no other error can be captured</span></span><br><span class="line"><span class="comment">// when w:1, return error from mongod to err parameter</span></span><br><span class="line">db.collection(<span class="string">"test"</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">    collection.insert(&#123;		</span><br><span class="line">        name: <span class="string">"world peace"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">        assert.equal(<span class="literal">null</span>, err);</span><br><span class="line">        <span class="built_in">console</span>.log(result);</span><br><span class="line">        db.close();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -729,21 +711,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>

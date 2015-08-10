@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://strong689.github.com//"/>
-  <updated>2015-08-10T06:28:12.260Z</updated>
+  <updated>2015-08-10T06:29:50.763Z</updated>
   <id>http://strong689.github.com//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://strong689.github.com/2015/08/09/O2O/"/>
     <id>http://strong689.github.com/2015/08/09/O2O/</id>
     <published>2015-08-10T05:30:48.000Z</published>
-    <updated>2015-08-10T06:28:12.260Z</updated>
+    <updated>2015-08-10T06:29:50.763Z</updated>
     <content type="html"><![CDATA[<p>Online提高了信息流、资金流、物流的效率，消除了信息不对称，提高了交易的效率，提高用户的消费体验和感受</p>
 <blockquote>
 <p>商业/贸易<br>  贩卖优质产品，让顾客体验出色服务</p>
@@ -94,6 +94,45 @@
       <category term="mongoosejs" scheme="http://strong689.github.com/tags/mongoosejs/"/>
     
       <category term="versus" scheme="http://strong689.github.com/categories/versus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Secondary Index]]></title>
+    <link href="http://strong689.github.com/2015/08/03/Secondary-Index/"/>
+    <id>http://strong689.github.com/2015/08/03/Secondary-Index/</id>
+    <published>2015-08-04T05:18:02.000Z</published>
+    <updated>2015-08-10T06:32:50.786Z</updated>
+    <content type="html"><![CDATA[<h3 id="Secondary_Index">Secondary Index</h3><blockquote>
+<p>mostly applied to Cassandra, HBase , mongoDB<br>  二级索引的叶节点存储的是主键值，而不是行指针，<br>  这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间</p>
+</blockquote>
+<h3 id="MySQL">MySQL</h3><p><a href="http://blog.csdn.net/dbanote/article/details/16805135" target="_blank" rel="external">MySQL Sample</a></p>
+<ul>
+<li>InnoDB, clustered table<br>聚簇索引表,表数据是和主键一起存储的，主键索引的叶结点存储行数据，<strong>二级索引的叶结点存储行的主键值</strong></li>
+<li>MyISAM, non-clustered table<br>堆组织表,表数据和索引是分开存储的，主键索引和二级索引存储上没有任何区别</li>
+</ul>
+<blockquote>
+<p>聚簇索引表最大限度地提高了I/O密集型应用的性能，但它也有以下几个限制：</p>
+<ol>
+<li>插入速度严重依赖于插入顺序，按照主键的顺序插入是最快的方式，否则将会出现页分裂，严重影响性能。因此，对于InnoDB表，我们一般都会定义一个自增的ID列为主键。</li>
+<li>更新主键的代价很高，因为将会导致被更新的行移动。因此，对于InnoDB表，我们一般定义主键为不可更新。</li>
+<li><strong>二级索引</strong>访问需要两次索引查找，第一次找到主键值，第二次根据主键值找到行数据。<br><strong>二级索引的叶节点存储的是主键值，而不是行指针，这是为了减少当出现行移动或数据页分裂时二级索引的维护工作，但会让二级索引占用更多的空间。</strong></li>
+</ol>
+</blockquote>
+<h3 id="HBase的二级索引">HBase的二级索引</h3><p><a href="https://github.com/Huawei-Hadoop/hindex" target="_blank" rel="external">华为方案</a>要点:</p>
+<ol>
+<li>保证主表和索引表在同一个regionserver上(通过自定义的balancer实现) </li>
+<li>使用coprocessor(触发器)实现索引表的创建和插入</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="Secondary_Index">Secondary Index</h3><blockquote>
+<p>mostly applied to Cassandra, HBase , mongoDB<br>  二级索引的叶节点存储的是主键值，而不是行指针，<br>  ]]>
+    </summary>
+    
+      <category term="Database index" scheme="http://strong689.github.com/tags/Database-index/"/>
+    
+      <category term="Database" scheme="http://strong689.github.com/categories/Database/"/>
     
   </entry>
   
@@ -1193,159 +1232,6 @@
       <category term="Internet Plus" scheme="http://strong689.github.com/tags/Internet-Plus/"/>
     
       <category term="Internet Plus" scheme="http://strong689.github.com/categories/Internet-Plus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Step into Jadejs]]></title>
-    <link href="http://strong689.github.com/2015/07/14/Step-into-Jadejs/"/>
-    <id>http://strong689.github.com/2015/07/14/Step-into-Jadejs/</id>
-    <published>2015-07-15T05:11:29.000Z</published>
-    <updated>2015-07-20T03:11:05.619Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
-<h1 id="Installation_&amp;_API">Installation &amp; API</h1><ul>
-<li>Installation<br>  $ npm install jade -g</li>
-<li>API<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> jade <span class="built_in">require</span>(<span class="string">"jade"</span>);</span><br><span class="line"><span class="keyword">var</span> fn = jade.compile(<span class="string">'string of jade'</span>,options);</span><br><span class="line">fn(locals);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h1 id="Jade_command_line">Jade command line</h1><pre><code>$ jade [-<span class="literal">options</span>] [<span class="keyword">file</span>]
-$ jade layout.jade //compile layout.jade <span class="keyword">file</span> to layout.html <span class="keyword">file</span>
-$ jade layout      //compile whole <span class="string">"layout"</span> <span class="literal">directory</span> 
-</code></pre><h1 id="Jade_Syntax">Jade Syntax</h1><h2 id="Common">Common</h2><ul>
-<li>doctype html/xml/… e.g.-&gt; &lt;!DOCTYPE html&gt;; </li>
-<li>Indented style</li>
-<li>text at the start of line represents an html tag</li>
-<li>self closing tags(img,meta, link…) and explicitly self close (appending /, e.g. abc/ -&gt; <abc>)</abc></li>
-</ul>
-<h2 id="Attributes">Attributes</h2><ul>
-<li>By default, all attributes are escaped, unescapeded attributes need use != instead of =, use !{name} instead of #{name}.</li>
-<li>&amp;attributes can be used to explode an object into attributes of an element, it’s not escaped by default</li>
-<li>Boolean/Style/Class attributes</li>
-<li>Class/ID Literal</li>
-</ul>
-<h2 id="Text/PlainText">Text/PlainText</h2><hr>
-<h3 id="Piped_Text_|">Piped Text |</h3><pre><code>|  <span class="comment">//to prefix the line with a | character(pipe)</span>
-</code></pre><h3 id="HTML_Tags">HTML Tags</h3><h4 id="Inline_in_a_Tag">Inline in a Tag</h4><pre><code><span class="tag">p</span> <span class="tag">h1</span> <span class="tag">h2</span> ... script  
-</code></pre><h4 id="Block_in_a_Tag">Block in a Tag</h4><pre><code><span class="tag">p</span>. <span class="tag">h1</span>. script.  ....
-</code></pre><h2 id="JS_Code_support">JS Code support</h2><ul>
-<li><p>prefix - / unbuffered code &amp; block unbuffered code</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   - var foo = "foo";</span><br><span class="line">-</span><br><span class="line">  each item in list</span><br><span class="line">    li= item</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>prefix = / buffered code ; support JS expressions</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   h1= foo</span><br><span class="line">= foo</span><br><span class="line">p=list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>unescaped buffered code<br>  p!= “This is “ + “<em>unescaped</em>“</p>
-</li>
-<li>Jade naturely support if, else, else if, until, while , unless</li>
-</ul>
-<h2 id="basic_controls">basic controls</h2><hr>
-<h3 id="if,_unless">if, unless</h3><pre><code><span class="keyword">if</span> <span class="property">name</span> == <span class="string">"xyz"</span>
-  h1 hello xyz
-<span class="keyword">else</span>
-  h1 My Name <span class="keyword">is</span> <span class="comment">#{name}</span>
-</code></pre><h3 id="for,_each,_while">for, each, while</h3><pre><code><span class="keyword">select
-</span>  each <span class="keyword">book, </span>i in <span class="keyword">books
-</span>    option(value<span class="label">=i</span>) <span class="keyword">Book </span>#{<span class="keyword">book}
-</span><span class="label">ul</span>
-  for <span class="keyword">book </span>in <span class="keyword">books
-</span>    li= <span class="keyword">book
-</span>  <span class="preprocessor">else</span>
-    li no <span class="keyword">books!</span>
-</code></pre><h3 id="case">case</h3><pre><code>case month
-when 1
-  p January
-when 2
-  p February
-other
-  p Month : #{month}
-</code></pre><h2 id="extends_&amp;_inheritance">extends &amp; inheritance</h2><hr>
-<h3 id="extends">extends</h3><pre><code><span class="keyword">extends</span> .<span class="regexp">/view/</span>layout.jade
-</code></pre><h3 id="block">block</h3><ul>
-<li>block, by default, will be replaced within a child template, it’s a recursive process</li>
-<li>(block) append</li>
-<li>(block) prepend</li>
-</ul>
-<h3 id="include">include</h3><ul>
-<li>insert the contents of one jade file into another</li>
-<li>plain text file</li>
-<li>js/css</li>
-<li>filtered text<br> include:markdown article.md</li>
-</ul>
-<h2 id="interpolation">interpolation</h2><hr>
-<h3 id="String_Interpolation,_escaped">String Interpolation, escaped</h3><pre><code>-<span class="ruby">var msg = <span class="string">""</span>;
-</span>h1= msg
-p This is #{<span class="ruby">msg}</span>
-</code></pre><h3 id="String_Interpolation,_Unescaped">String Interpolation, Unescaped</h3><pre><code><span class="change">!{msg}</span>
-</code></pre><h3 id="Tag_Interpolation,_#[_]">Tag Interpolation, #[ ]</h3><pre><code><span class="tag">p</span>. 
-  Please visit my blog on 
-   #[<span class="function"><span class="title">a</span><span class="params">(target=<span class="string">"_blank"</span>, href=<span class="string">"https://strong689.github.io"</span>)</span></span> GitHub]
-</code></pre><h2 id="Mixins">Mixins</h2><hr>
-<p>to create reusable blocks of jade</p>
-<h3 id="Mixins_decalration_&amp;_reuse">Mixins decalration &amp; reuse</h3><pre><code><span class="comment">// Declaration</span>
-mixin myfooter
-  <span class="tag">ul</span> 
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"abc.com"</span>)</span></span> about me
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/privacy.html"</span>)</span></span> privary
-    <span class="tag">li</span> <span class="function"><span class="title">a</span><span class="params">(href=<span class="string">"/home.html"</span>)</span></span> home
-mixin <span class="function"><span class="title">myfunction</span><span class="params">(para)</span></span>
-    <span class="tag">li</span>.classname= para    
-<span class="comment">// use</span>
-+myfooter
-+<span class="function"><span class="title">myfunction</span><span class="params">(<span class="string">"abc"</span>)</span></span>
-</code></pre><h3 id="mixin_blocks">mixin blocks</h3><pre><code>mixin product(name)
-  .product
-    h1= name
-    <span class="keyword">if</span> block
-      block
-    <span class="keyword">else</span>
-      <span class="keyword">p</span> <span class="keyword">no</span> product detail
-
-+product(<span class="string">"samsung galaxy III"</span>)
-+product(<span class="string">"iphone')
-</span>  <span class="keyword">p</span> old <span class="keyword">version</span>
-  <span class="keyword">p</span> amazing product
-</code></pre><h3 id="Mixin_Attributes">Mixin Attributes</h3><pre><code><span class="comment">//declaration</span>
-mixin <span class="function"><span class="title">link</span><span class="params">(href,name)</span></span>
-  <span class="comment">//- attributes == {class:"btn"}</span>
-  <span class="function"><span class="title">a</span><span class="params">(class!=attributes.class, href=href)</span></span>= name
-
-<span class="comment">//use</span>
-+<span class="function"><span class="title">link</span><span class="params">(<span class="string">'/foo'</span>,<span class="string">'foo'</span>)</span><span class="params">(class=<span class="string">'btn'</span>)</span></span>
-</code></pre><h3 id="Rest_Arguments">Rest Arguments</h3><pre><code><span class="comment">//declaration</span>
-mixin <span class="function"><span class="title">list</span><span class="params">(id, ...items)</span></span>
-  <span class="function"><span class="title">ul</span><span class="params">(id=id)</span></span>
-    each item <span class="keyword">in</span> items
-      li= item
-<span class="comment">//to use</span>
-+<span class="function"><span class="title">list</span><span class="params">(<span class="string">'mylist'</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span></span>
-</code></pre><h2 id="Comments">Comments</h2><ul>
-<li>single line comment //same like JS comments</li>
-<li>invisible single line comments //-adding a hyphen</li>
-<li>block comment, indented after the first line comment</li>
-<li>normal HTML style conditional comments , e.g.  <!--[if IE]> 
-  script(src='/ie.js') 
-  <![endif]-->
-</li>
-</ul>
-<h2 id="Resources">Resources</h2><p><a href="http://jade-lang.com/" target="_blank" rel="external">JADE</a><br><a href="http://naltatis.github.io/jade-syntax-docs/#basics" target="_blank" rel="external">Jade Syntax - interactive demo</a><br><a href="http://segmentfault.com/a/1190000000357534#articleHeader0" target="_blank" rel="external">Segmentfault</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>Node Template Engine, a terse language for writing HTML templates, support dynamic code and reusability.</p>
-<h1 id="Install]]>
-    </summary>
-    
-      <category term="Jadejs" scheme="http://strong689.github.com/tags/Jadejs/"/>
-    
-      <category term="Markdown" scheme="http://strong689.github.com/tags/Markdown/"/>
-    
-      <category term="Jadejs" scheme="http://strong689.github.com/categories/Jadejs/"/>
-    
-      <category term="Overview" scheme="http://strong689.github.com/categories/Jadejs/Overview/"/>
-    
-      <category term="Step Into" scheme="http://strong689.github.com/categories/Jadejs/Overview/Step-Into/"/>
     
   </entry>
   

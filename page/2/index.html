@@ -179,6 +179,124 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/" itemprop="url">
+                Step Into Write Concern of MongoDB
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-27T22:22:09-07:00" content="2015-07-27">
+            2015-07-27
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/" itemprop="url" rel="index"><span itemprop="name">Step Into</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Step-Into/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/27/Step-Into-Write-Concern-of-MongoDB/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/27/Step-Into-Write-Concern-of-MongoDB/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Write concern is a balance between response time(performance) and the success of a write operation(Reliability).<br>Write includes insert, udpate and delete.<br>A weak write concern: write operations return quickly, but data maybe not persist well(including replica set).<br>A strong write concern: clients wait after mongodb confirm the write operation suncessful.</p>
+<h3 id="Levels">Levels</h3><p>listed from weakest to strongest</p>
+<ul>
+<li><p>Unacknowledged {W:0}</p>
+<blockquote>
+<p>similar to errors ignored</p>
+</blockquote>
+</li>
+<li><p>Acknowledged {W:1}<br>used in writing unimportant data, e.g. some operation log, user’s behavior(click, time staying in one page)</p>
+<blockquote>
+<p>default write concern<br>the mongod confirms that it received the write operation and applied the change to the in-memory view of data<br>allows clients to catch network, duplicate key, and other errors<br>does not confirm that the write operation has persisted to the disk system  </p>
+</blockquote>
+</li>
+<li><p>Journaled {w:1,j:true}<br>used in writing key, business data, e.g. order, account </p>
+<blockquote>
+<p>committing the data to the journal(journaling enabled first)<br>ensures that MongoDB can recover the data following a shutdown or power interruption  </p>
+</blockquote>
+</li>
+<li><p>Replica Acknowledged {w:2}</p>
+<blockquote>
+<p>guarantee write sucessfully to one Replica Set beside the primary</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Timeouts">Timeouts</h3><ul>
+<li>set at client side</li>
+<li>wtimeout: in milliseconds</li>
+<li>wtimeout causes write operations to return with an error after the specified limit, even if the required write concern will eventually succeed</li>
+<li>MongoDB does not “rollback” or undo modifications made before the wtimeout interval expired</li>
+</ul>
+<h3 id="getLastError()">getLastError()</h3><p>Driver implicitly and immediately call this method after one write operation<br>depending on level of Write Corcern</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//after insert(), implicitly call db.getLastError(); if capturing error, assign it to err of callback function.</span></span><br><span class="line"><span class="comment">// when w:-1, err is always null</span></span><br><span class="line"><span class="comment">// when w:0, except network error, normally no other error can be captured</span></span><br><span class="line"><span class="comment">// when w:1, return error from mongod to err parameter</span></span><br><span class="line">db.collection(<span class="string">"test"</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">    collection.insert(&#123;		</span><br><span class="line">        name: <span class="string">"world peace"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">        assert.equal(<span class="literal">null</span>, err);</span><br><span class="line">        <span class="built_in">console</span>.log(result);</span><br><span class="line">        db.close();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/26/Step-Into-MongoDB-Query-Operators/" itemprop="url">
                 Step Into MongoDB Query Operators
               </a>
@@ -716,130 +834,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/21/entrepreneur-comments/" itemprop="url">
-                Entrepreneur Comments
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          Posted on
-          <time itemprop="dateCreated" datetime="2015-07-21T00:15:53-07:00" content="2015-07-21">
-            2015-07-21
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; In
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/idea/" itemprop="url" rel="index"><span itemprop="name">idea</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/idea/Startup/" itemprop="url" rel="index"><span itemprop="name">Startup</span></a></span>
-
-              
-              
-                , 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/idea/Startup/创业/" itemprop="url" rel="index"><span itemprop="name">创业</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/21/entrepreneur-comments/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/21/entrepreneur-comments/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="猎豹CEO傅盛：如何做好创业公司CEO？">猎豹CEO傅盛：如何做好创业公司CEO？</h2><p>创业的最大难度是太自由，而容易失去方向。但是，当给出一个固定性问题，或者说封闭式、有区间问题，难度会大幅度下降。如何做好一家创业公司的CEO，傅盛的答案是“能把创业情怀变成具体问题”，而且这个问题越具体越好。” 傅盛总结称，创业，要像做一道数学题一样。</p>
-<blockquote>
-<p>首先，想清楚目标，然后立刻做。反复就一个封闭式问题，来回推演。一旦具备这样的能力，创业就开始变得简单。<br>  其次，有解是最难的一件事情。那种你想清楚一个问题，执行就开始变得简单的过程，而不是一种强烈依赖于强大的执行的状态。<br>  第三，目标应当简单、聚焦，且被验证。</p>
-</blockquote>
-<p>作为一个创业者应当，在自己的思维里，能够把开放式问题变成封闭式问题;在这个过程中，不断根据变化极快的世界重构自己;大方向上，抓住具体机会，然后全力以赴。</p>
-<h2 id="李想16年的创业分享：做正确的事，不做容易的事">李想16年的创业分享：做正确的事，不做容易的事</h2><p>经验一：用户永远是最重要的<br>经验二：大势不好，再努力也没用(雷军 风口理论)<br>经验三：创业一定要找到能成“NO.1”的领域<br>经验四：把握用户的要素，需求和频率，以及信任感<br>经验五：团队管理，企业文化不应该需要解释<br>经验六：商业模式的建立，圈地—产品—运营—商业<br>经验七：升级商业模式，抓住三个特点</p>
-<blockquote>
-<p>掌握你的用户和行为数据，只掌握用户是没有用的<br>  第二个因素，必须掌控交易和服务质量<br>  第三点，利用用户的行为数据和交易数据，用技术提升效率，形成这么一个闭环</p>
-</blockquote>
-<p>经验八：提高转化率要理顺交易链条，把握核心环节</p>
-<blockquote>
-<p>第一个竞争力，我们所有用户虽然能在网上买车，但是要电话咨询，而且几乎100%都要咨询<br>  第二个是有明确需求的人<br>  第三类的用户，我在两个车里不知道选哪一个，你给我一个建议，同时你帮我把这个车买了，这是解决基本需求</p>
-</blockquote>
-<p>经验九：产品服务决定销量，品牌决定利润率<br>经验十：创始人需要具备的五项特质</p>
-<blockquote>
-<p>学习能力是第一重要的<br>  第二个要有自信<br>  第三个通俗一点的叫出好题，说白了，要把战略方向先搞的特别清楚，因为越简单有效清晰的战略，会让团队的效率大幅度提升。<br>  第四点，要坚持，如果不坚持，什么都白搭了<br>  最后一个要分享利益，懂得跟团队去分享利益</p>
-</blockquote>
-<h2 id="大部分创业者都被自己坑了（滴滴打车）">大部分创业者都被自己坑了（滴滴打车）</h2><p>第一个坑，是你自己， 要对商业有自己的价值判断，这是创业者必备的素质<br>第二个坑，只要努力就会有结果，创业很多时候就是踩中了运气的节点<br>第三个坑，创业项目越垂直胜算越大<br>第四个坑，创业者必须经验丰富，真正推动大家向前冲的是你的愿景，实现愿景的瓶颈是你的悟性<br>第五个坑，你必须得有团队， 创业本身是孤独的旅程，和团队无关，创业者都拥有能享受孤独的贵族气质  </p>
-<blockquote>
-<p>你不是必须得有团队，而是必须得有好团队。所以有隐患的团队不如没有团队，单打独斗一阵思路会更清晰。<br>  碰到心动的合伙人，你问问他们，他们最想要什么?不是在你这里，而是对生活、对人生要什么。然后想想自己怎么给他们想要的。</p>
-</blockquote>
-<h2 id="创业者说：5个问题找到能和你一起创业的人">创业者说：5个问题找到能和你一起创业的人</h2><ul>
-<li>告诉我一项你正在努力提高的技能: 都想要“能够不断提高自己能力并帮助其他人提高的领导者”</li>
-<li>谁是你的理想工作伙伴: 换句话说，请形容一下谁的技能和优势能够补你之短,考察的是自我认识能力。</li>
-<li>你是否曾解决过职责范围之外的事；当时的工作情景是怎样的</li>
-<li>你平时的工作安排是什么样子:了解80-20法则，即一份工作最关键的职责实际上非常少,需要人们迅速完成重要工作，不能浪费时间</li>
-<li>你如何应对持续的、不可预测的变化</li>
-</ul>
-<h2 id="创业者所要思考的3个W_（ArtPollo阿波罗艺术网）">创业者所要思考的3个W （ArtPollo阿波罗艺术网）</h2><p>who why how<br>简单做法：尽量回归原始社会，减少分工从而减少公司资源的交易，减少资源的浪费降低公司的机会成本。公司层级的数量永远和效率成反比。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -879,21 +873,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
