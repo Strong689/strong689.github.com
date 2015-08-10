@@ -179,6 +179,127 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="url">
+                Build a Blog by Hexo + GitHub
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2015-07-13T23:02:57-07:00" content="2015-07-13">
+            2015-07-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/" itemprop="url" rel="index"><span itemprop="name">Overview</span></a></span>
+
+              
+              
+                , 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Overview/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/13/Build-a-Blog-by-Hexo-GitHub/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/13/Build-a-Blog-by-Hexo-GitHub/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="Hexo_+_GitHub">Hexo + GitHub</h1><h2 id="Hexojs">Hexojs</h2><blockquote>
+<p>A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
+<h3 id="Installation">Installation</h3><pre><code><span class="label">$npm</span> install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span>
+<span class="label">$npm</span> <span class="keyword">update</span> hexo -<span class="keyword">g</span>
+</code></pre><h3 id="Few_commands_to_start">Few commands to start</h3><h4 id="setup_your_blog">setup your blog</h4><pre><code>$ hexo init your_blog <span class="regexp">//</span> your_blog <span class="keyword">is</span> a <span class="keyword">new</span> directory
+$ cd your_blog
+$ <span class="built_in">npm</span> install 
+</code></pre><h4 id="create_a_new_post">create a new post</h4><pre><code><span class="variable">$hexo</span> <span class="literal">new</span> <span class="string">"hello world"</span>
+</code></pre><h4 id="run_server_/_deploy_local">run server / deploy local</h4><pre><code><span class="variable">$hexo</span> server  // http://localhost:<span class="number">4000</span>, <span class="keyword">default</span> <span class="keyword">port</span>; _config.yml
+</code></pre><h4 id="generate_static_files">generate static files</h4><pre><code><span class="label">$hexo</span> <span class="keyword">generate</span>    <span class="comment">// public folder, </span>
+</code></pre><h4 id="Deploy_to_remote_sites">Deploy to remote sites</h4><pre><code><span class="variable">$hexo</span> deploy
+</code></pre><h3 id="Resources_&amp;_Features">Resources &amp; Features</h3><p><a href="https://hexo.io/" target="_blank" rel="external">Hexo.io</a><br><a href="https://github.com/hexojs/hexo" target="_blank" rel="external">Hexo GitHub</a></p>
+</blockquote>
+<h2 id="Deploy_blog_to_GitHub">Deploy blog to GitHub</h2><h3 id="Personalize/Config_Blog">Personalize/Config Blog</h3><ul>
+<li>Modify _config.yml</li>
+<li>change theme  <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Theme Next</a></li>
+<li>$git clone <a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next.git</a></li>
+</ul>
+<h3 id="Hexo_GitHub_Deployer">Hexo GitHub Deployer</h3><pre><code>$ npm <span class="operator"><span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span>
+</code></pre><h3 id="Feed_Support">Feed Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h3 id="Category_Support">Category Support</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$npm</span> install hexo-generator-category --save</span><br></pre></td></tr></table></figure>
+<h3 id="Steps">Steps</h3><ol>
+<li>apply an GitHub “account”</li>
+<li>create a new Repository (GitHubPage name use “account.github.com” or “acount.github.io”)</li>
+<li>config Hexo github address _config.yml<pre>
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+type: git
+repository: https://github.com/account/account.github.io.git
+> e.g. https://github.com/Strong689/strong689.github.com.git
+branch: master> visit: [Step by step Leaning](http://strong689.github.com) or [Blog at GitHub.io](http://strong689.github.io)
+</pre></li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/09/hello-world/" itemprop="url">
                 Hello World
               </a>
@@ -295,21 +416,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">categories</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
